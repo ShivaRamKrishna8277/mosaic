@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="../../assets/css/dashboard/pending.css">
+
+<div id="challenges_content_wrapper" class="flex-grow-1 overflow-y-hidden">
+    <div class="challenges_content d-flex flex-column thinScroll" style="height: 80vh;">
+        <div class="content_statusbar mb-3">
+            <div class="status_bar_left">
+                <div class="status_bar_line pending_line"></div>
+                <p class="status_bar_title">Pending</p>
+                <p class="status_bar_count pending_count" id="pending_challenges_count"></p>
+            </div>
+        </div>
+        <div class="content_table thinScroll overflow-y-scroll">
+            <table class="thinScroll">
+                <thead class="position-sticky top-0 bg-white">
+                    <tr>
+                        <th class="table_header category_col"><img class="table_header_icons"
+                                src="../../assets/icons/categories_table_icon.png"
+                                alt=""><span>Category</span></th>
+                        <th class="table_header title_col"><img class="table_header_icons"
+                                src="../../assets/icons/title_table_icon.png" alt=""><span>Title</span>
+                        </th>
+                        <th class="table_header desc_col"><img class="table_header_icons"
+                                src="../../assets/icons/description_table_icon.png"
+                                alt=""><span>Description</span></th>
+                        <th class="table_header postedon_col"><img class="table_header_icons"
+                                src="../../assets/icons/postedon_table_icon.png" alt=""><span>Posted
+                                on</span></th>
+                        <th class="table_header difficulty_col"><img class="table_header_icons"
+                                src="../../assets/icons/difficulty_table_icon.png"
+                                alt=""><span>Difficulty</span></th>
+                        <th class="table_header difficulty_col"><img class="table_header_icons"
+                            src="../../assets/icons/action_table_icon.png"
+                            alt=""><span>Action</span></th>
+                    </tr>
+                </thead>
+                <tbody id="pending_challenges_body">
+                    <!-- Rows will be inserted here dynamically by JavaScript -->
+                    <tr class="loader_row">
+                        <td colspan="7" style="text-align: center;">
+                            <div class="loader JS_on mx-auto my-5">
+                                <span class="binary"></span>
+                                <span class="binary"></span>
+                                <span class="getting-there">LOADING STUFF...</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="noPendingChallenges">
+                        <td colspan="7" class="text-center">
+                            <img src="../../assets/images/no_data.jpg" alt="" class="noDataImg">
+                            <p class="noDataText">Sorry, Please submit a solution to know its Status.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script type="module" src="../../Js/dashboard/pending.js"></script>
+<script>
+    $('.nav_category .category_img').attr('src', '../../assets/icons/pending_header_icon.png');
+    $('.nav_category .nav_category_title').text('Pending Challenges');
+</script>

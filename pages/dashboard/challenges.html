@@ -1,0 +1,95 @@
+<div id="challenges_content_wrapper" class="flex-grow-1 overflow-y-hidden">
+    <div class="challenges_header mb-4">
+        <div class="content_header">
+            <div class="serach_bar">
+                <img src="../../assets/icons/search_icon.png" alt="" class="search_icon">
+                <input type="search" placeholder="Search...." class="search_input">
+            </div>
+            <button class="categories_btn" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#categoriesModal">Categories</button>
+        </div>
+    </div>
+    <div class="challenges_content d-flex flex-column thinScroll" style="height: 70vh;">
+        <div class="content_statusbar mb-3">
+            <div class="status_bar_left">
+                <div class="status_bar_line new_line"></div>
+                <p class="status_bar_title">New</p>
+                <p class="status_bar_count new_count" id="challenges_count"></p>
+            </div>
+        </div>
+        <div class="content_table thinScroll overflow-y-scroll"  id="collapseExample">
+            <table class="thinScroll">
+                <thead class="position-sticky top-0 bg-white">
+                    <tr>
+                        <th class="table_header category_col"><img class="table_header_icons"
+                                src="../../assets/icons/categories_table_icon.png"
+                                alt=""><span>Category</span></th>
+                        <th class="table_header title_col"><img class="table_header_icons"
+                                src="../../assets/icons/title_table_icon.png" alt=""><span>Title</span>
+                        </th>
+                        <th class="table_header desc_col"><img class="table_header_icons"
+                                src="../../assets/icons/description_table_icon.png"
+                                alt=""><span>Description</span></th>
+                        <th class="table_header postedon_col"><img class="table_header_icons"
+                                src="../../assets/icons/postedon_table_icon.png" alt=""><span>Posted
+                                on</span></th>
+                        <th class="table_header endson_col"><img class="table_header_icons"
+                                src="../../assets/icons/endson_table_icon.png" alt=""><span>Ends on</span>
+                        </th>
+                        <th class="table_header difficulty_col"><img class="table_header_icons"
+                                src="../../assets/icons/difficulty_table_icon.png"
+                                alt=""><span>Difficulty</span></th>
+                        <th class="table_header action_col"><img class="table_header_icons"
+                                src="../../assets/icons/action_table_icon.png" alt=""><span>Action</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="all_challenges_body">
+                    <!-- Rows will be inserted here dynamically by JavaScript -->
+                    <tr class="loader_row">
+                        <td colspan="7" style="text-align: center;">
+                            <div class="loader JS_on mx-auto my-5">
+                                <span class="binary"></span>
+                                <span class="binary"></span>
+                                <span class="getting-there">LOADING STUFF...</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Function to filter challenges based on search input
+    function filterChallengesByKeyword(keyword) {
+        $('#all_challenges_body tr').each(function() {
+            var title = $(this).find('.title_content').text().toLowerCase();
+            if (title.includes(keyword.toLowerCase())) {
+                $(this).show();
+                $('.loader_row').hide();
+            } else {
+                $(this).hide();
+            }
+        });
+    
+        // Call countVisibleRows function after filtering
+        var VisibleRows = countVisibleRows();
+        $('#challenges_count').text(VisibleRows);
+    }
+    
+    $('.search_input').on('input', function () {
+        $('.category_card').first().click();
+        var keyword = $(this).val();
+        filterChallengesByKeyword(keyword);
+    });
+
+    // count countVisibleRows
+    function countVisibleRows() {
+        var visibleRows = $('#all_challenges_body tr:visible').length;
+        return(visibleRows);
+    }
+
+    $('.category_card').first().click();
+</script>

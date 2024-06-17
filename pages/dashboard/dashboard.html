@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mosaiq - Dashboard</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/icons/favicons/favicon-16x16.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../assets/css/dashboard/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard/challenges.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard/settings.css">
+    <style>
+        .linkInput{
+            pointer-events: all !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="modals">
+        <div class="modal fade" id="categoriesModal" tabindex="-1" aria-labelledby="categoriesModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-2">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="categoriesModalLabel">Choose Category</h1>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row row-cols-3 justify-content-between g-3">
+                                <div class="col category_card">
+                                    <div class="category_card_img">
+                                        <img src="../../assets/icons/all_icon.png" alt="">
+                                    </div>
+                                    <div class="category_card_details">
+                                        <p class="card_title">All</p>
+                                        <p class="card_desc">Build innovative web applications, mobile apps, and software
+                                            solutions.</p>
+                                        <p class="card_total_challenges"> <span id="allChallengesCount"> </span> challenges</p>
+                                    </div>
+                                </div>
+                                <div class="col category_card">
+                                    <div class="category_card_img">
+                                        <img src="../../assets/icons/programming.png" alt="">
+                                    </div>
+                                    <div class="category_card_details">
+                                        <p class="card_title">Programming</p>
+                                        <p class="card_desc">Build innovative web applications, mobile apps, and software
+                                            solutions.</p>
+                                        <p class="card_total_challenges"> <span id="allChallengesCount"> </span> challenges</p>
+                                    </div>
+                                </div>
+                                <div class="col category_card">
+                                    <div class="category_card_img">
+                                        <img src="../../assets/icons/writing_editing.png" alt="">
+                                    </div>
+                                    <div class="category_card_details">
+                                        <p class="card_title">Writing & Editing</p>
+                                        <p class="card_desc">Build innovative web applications, mobile apps, and software
+                                            solutions.</p>
+                                        <p class="card_total_challenges"> <span id="allChallengesCount"> </span> challenges</p>
+                                    </div>
+                                </div>
+                                <div class="col category_card">
+                                    <div class="category_card_img">
+                                        <img src="../../assets/icons/SEO.png" alt="">
+                                    </div>
+                                    <div class="category_card_details">
+                                        <p class="card_title">SEO</p>
+                                        <p class="card_desc">Build innovative web applications, mobile apps, and software
+                                            solutions.</p>
+                                        <p class="card_total_challenges"> <span id="allChallengesCount"> </span> challenges</p>
+                                    </div>
+                                </div>
+                                <div class="col category_card">
+                                    <div class="category_card_img">
+                                        <img src="../../assets/icons/video_editing.png" alt="">
+                                    </div>
+                                    <div class="category_card_details">
+                                        <p class="card_title">Video Editing</p>
+                                        <p class="card_desc">Build innovative web applications, mobile apps, and software
+                                            solutions.</p>
+                                        <p class="card_total_challenges"> <span id="allChallengesCount"> </span> challenges</p>
+                                    </div>
+                                </div>
+                                <div class="col category_card">
+                                    <div class="category_card_img">
+                                        <img src="../../assets/icons/graphic_design.png" alt="">
+                                    </div>
+                                    <div class="category_card_details">
+                                        <p class="card_title">Graphic Design</p>
+                                        <p class="card_desc">Build innovative web applications, mobile apps, and software
+                                            solutions.</p>
+                                        <p class="card_total_challenges"> <span id="allChallengesCount"> </span> challenges</p>
+                                    </div>
+                                </div>
+                                <div class="col category_card">
+                                    <div class="category_card_img">
+                                        <img src="../../assets/icons/data_analysis.png" alt="">
+                                    </div>
+                                    <div class="category_card_details">
+                                        <p class="card_title">Data Analysis</p>
+                                        <p class="card_desc">Build innovative web applications, mobile apps, and software
+                                            solutions.</p>
+                                        <p class="card_total_challenges"> <span id="allChallengesCount"> </span> challenges</p>
+                                    </div>
+                                </div>
+                                <div class="col category_card">
+                                    <div class="category_card_img">
+                                        <img src="../../assets/icons/music_audio.png" alt="">
+                                    </div>
+                                    <div class="category_card_details">
+                                        <p class="card_title">Music & Audio</p>
+                                        <p class="card_desc">Build innovative web applications, mobile apps, and software
+                                            solutions.</p>
+                                        <p class="card_total_challenges"> <span id="allChallengesCount"> </span> challenges</p>
+                                    </div>
+                                </div>
+                                <div class="col category_card">
+                                    <div class="category_card_img">
+                                        <img src="../../assets/icons/animation.png" alt="">
+                                    </div>
+                                    <div class="category_card_details">
+                                        <p class="card_title">Animation</p>
+                                        <p class="card_desc">Build innovative web applications, mobile apps, and software
+                                            solutions.</p>
+                                        <p class="card_total_challenges"> <span id="allChallengesCount"> </span> challenges</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade thinScroll" id="challengeModal" tabindex="-1" aria-labelledby="challengeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-2">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="challengeModalLabel">Challenge Details</h1>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal_info_header d-flex align-content-center gap-3">
+                            <div><span id="modalCategory" class="ModalCategory"></span></div>
+                            <div><span id="modalDifficulty" class="ModalDifficulty"></span></div>
+                        </div>
+                        <div><span id="modalTitle" class="ModalTitle"></span></div>
+                        <div><span id="modalDescription" class="ModalDesc"></span></div>
+                        <div class="timeframe_wrapper">
+                            <div class="postedon_wrapper">
+                                <p class="timeframe_title">Posted On:</p>
+                                <p class="timeframe_content" id="modalPostedOn"></p>
+                            </div>
+                            <div class="timeframe_line"></div>
+                            <div class="endson_wrapper text-end">
+                                <p class="timeframe_title">Ends On:</p>
+                                <p class="timeframe_content" id="modalEndsOn"></p>
+                            </div>
+                        </div>
+                        <div class="tools_wrapper my-3">
+                            <p class="subTitle">Tools</p>
+                            <ul id="tools_container" class="m-0 pt-2 ModaltoolsContainer">
+
+                            </ul>
+                        </div>
+                        <div class="tools_wrapper my-3">
+                            <p class="subTitle">Submission Method:</p>
+                            <ul id="submissionMethod_container" class="m-0 pt-2 ModalmethodContainer">
+
+                            </ul>
+                        </div>
+                        <hr>
+                        <button id="enroll_submit_btn" class="btn">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade thinScroll" id="challengeStatusModal" tabindex="-1" aria-labelledby="challengeStatusLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-2">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="challengeStatusLabel">Challenge Status</h1>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="statusMessageWrapper mb-4">
+                            <img src="../../assets/icons/pending_icon.png" alt="Pending" id="pendingIcon">
+                            <p class="pendingMessage">Thanks for submitting your challenge! Our team is currently verifying it. You'll receive an update within 24-48hrs.</p>
+                        </div>
+        
+                        <p type="button" data-bs-toggle="collapse" data-bs-target="#challengeDetails" aria-expanded="true" aria-controls="challengeDetails">
+                            <span style="font-size: 0.8rem; color: #0050C8; margin-right: 10px;">Challenge Details</span>
+                            <img src="../../assets/icons/chevron_down.png" alt="" style="width: 15px;">
+                        </p>
+                        <div class="collapse" id="challengeDetails">
+                            <ul class="challengeDetails_wrapper">
+                                <li class="challenge_detail">
+                                    <span>Challenge ID : </span>
+                                    <p id="challengeID"></p>
+                                </li>
+                                <li class="challenge_detail">
+                                    <span>Title : </span>
+                                    <p id="challengeTitle"></p>
+                                </li>
+                                <li class="challenge_detail">
+                                    <span>Description : </span>
+                                    <p id="challengeDesc"></p>
+                                </li>
+                                <li class="challenge_detail">
+                                    <span>Submitted On : </span>
+                                    <p id="challengeSubDate"></p>
+                                </li>
+                                <li class="challenge_detail">
+                                    <span class="d-flex align-items-center">Solution Link : </span>
+                                    <a href="" target="_blank" id="challengeSubSolution"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+        <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div id="animationContainer" style="width: 150px; height: 150px; margin: 0 auto;"></div>
+                        <p id="resultMessage"></p>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="modal fade thinScroll" id="submissionModal" tabindex="-1" aria-labelledby="submissionModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-2">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="submissionModalLabel">Submit Solution</h1>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal_info_header d-flex align-content-center gap-3">
+                            <div><span id="submodalCategory" class="ModalCategory"></span></div>
+                            <div><span id="submodalDifficulty" class="ModalDifficulty"></span></div>
+                        </div>
+                        <div><span id="submodalTitle" class="ModalTitle"></span></div>
+                        <div><span id="submodalDescription" class="ModalDesc"></span></div>
+                        <div class="timeframe_wrapper">
+                            <div class="postedon_wrapper">
+                                <p class="timeframe_title">Posted On:</p>
+                                <p class="timeframe_content ModalPostedOn" id="submodalPostedOn"></p>
+                            </div>
+                            <div class="timeframe_line"></div>
+                            <div class="endson_wrapper text-end">
+                                <p class="timeframe_title">Ends On:</p>
+                                <p class="timeframe_content ModalEndsOn" id="submodalEndsOn"></p>
+                            </div>
+                        </div>
+                        <div class="tools_wrapper my-3">
+                            <p class="subTitle">Tools</p>
+                            <ul id="subtools_container" class="m-0 pt-2 ModaltoolsContainer">
+        
+                            </ul>
+                        </div>
+                        <div class="tools_wrapper my-4">
+                            <p class="subTitle">Submission Method:</p>
+                            <ul id="subMethod_container" class="m-0 pt-2 ModalmethodContainer">
+        
+                            </ul>
+                        </div>
+                        <hr>
+                        <div class="submissionFrom_wrapper">
+                            <p class="subTitle">Submit Solution:</p>
+                            <form action="" id="submission_form">
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>          
+    </div>
+    <main style="max-height: 100vh; overflow-y: hidden;">
+        <div class="left_menu_wrapper">
+            <div class="username_div">
+                <div class="username_wrapper">
+                    <img src="../../assets/images/logo.svg" alt="" class="logo img-fluid">
+                    <div class="user_details_wrapper collapse_text flex-grow-1">
+                        <p class="name" id="userName"></p>
+                        <p class="email" id="userEmail"></p>
+                    </div>
+                </div>
+                <div class="menuLoginBtn_wrapper">
+                    <div class="login_item">
+                        <a href="../login.html">
+                            <img src="../../assets/icons/login_menu_icon.svg" alt="" id="login_icon">
+                            <p class="menu_title collapse_text">Login Now</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="menu">
+                <ul class="menu_items_wrapper">
+                    <li class="menu_item active_menu" data-file="./challenges.html">
+                        <img src="../../assets/icons/challenges_menu_icon.svg" alt="" class="menu_icon" data-icon="challenges_menu_icon">
+                        <p class="menu_title collapse_text">All Challenges</p>
+                    </li>
+                    <li class="menu_item" data-file="./enrolled.html">
+                        <img src="../../assets/icons/enrolled_menu_icon_dark.svg" alt="" class="menu_icon" data-icon="enrolled_menu_icon">
+                        <p class="menu_title collapse_text">Enrolled</p>
+                    </li>
+                    <li class="menu_item" data-file="./pending.html">
+                        <img src="../../assets/icons/pending_menu_icon_dark.svg" alt="" class="menu_icon" data-icon="pending_menu_icon">
+                        <p class="menu_title collapse_text">Pending</p>
+                    </li>
+                    <li class="menu_item" data-file="./submissions.html">
+                        <img src="../../assets/icons/submissions_menu_icon_dark.svg" alt="" class="menu_icon" data-icon="submissions_menu_icon">
+                        <p class="menu_title collapse_text">Completed</p>
+                    </li>
+                    <li class="menu_item" data-file="./settings.html">
+                        <img src="../../assets/icons/settings_menu_icon_dark.svg" alt="" class="menu_icon" data-icon="settings_menu_icon">
+                        <p class="menu_title collapse_text">Settings</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="logOut_div">
+                <ul class="menu_items_wrapper">
+                    <li class="logout_item">
+                        <img src="../../assets/icons/logout_menu_icon.svg" alt="" id="logout_icon">
+                        <p class="menu_title collapse_text text-danger">Logout</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right_content_wrapper">
+            <div class="right_nav_wrapper justify-content-between">
+                <div class="nav_category">
+                    <img src="" alt="" class="category_img">
+                    <p class="nav_category_title"></p>
+                </div>
+                <img src=" " alt="" class="profile_img">
+            </div>
+            <div class="content_wrapper d-flex" id="pta_content">
+
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="module" src="../../firebase.js"></script>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+    </script>
+    <script type="module" src="../../Js/dashboard/dashboard.js"></script>
+    <script type="module" src="../../Js/dashboard/challenges.js"></script>
+    <script type="module" src="../../Js/dashboard/enrolled.js"></script>
+    <script type="module" src="../../Js/dashboard/pending.js"></script>
+    <script type="module" src="../../Js/dashboard/submissions.js"></script>
+    <script type="module" src="../../Js/dashboard/settings.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+</body>

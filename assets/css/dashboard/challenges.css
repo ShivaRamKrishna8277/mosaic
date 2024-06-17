@@ -1,0 +1,74 @@
+/* challenges content */
+.categories_btn{
+    color: white;
+    width: 10%;
+    padding: 5px 0;
+    border-radius: 3px;
+    background-color: var(--fivehun);
+    font-size: 12px;
+    border: none;
+}
+
+
+/* table */
+.view_more_btn{
+    border: none;
+    background-color: transparent;
+}
+.view_more_btn:hover{
+    text-decoration: underline !important;
+}
+
+
+/* category modal */
+.modal-dialog{
+    max-width: 900px;
+}
+.category_card{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 32%;
+    padding: 15px;
+    border: 1px solid #ededed;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.category_card:hover{
+    border: 1px solid var(--fivehun);
+}
+.category_card_img img{
+    width: 65px;
+    height: auto;
+    object-fit: contain;
+}
+.card_title{
+    font-size: .9rem;
+    color: var(--fivehun);
+    font-weight: 450;
+}
+.card_desc{
+    font-size: .6rem;
+    opacity: .5;
+    margin: 5px 0;
+}
+.card_total_challenges{
+    font-size: .6rem;
+    font-weight: 500;
+}
+
+/* challenge modal */
+#challengeModal span{
+    display: inline-block;
+}
+#enroll_submit_btn{
+    color: white;
+    background-color: var(--fivehun);
+    padding: 5px 0;
+    width: 10%;
+    min-width: 200px;
+    max-width: 400px;
+    font-size: .8rem;
+    border: none;
+    border-radius: 2px;
+}

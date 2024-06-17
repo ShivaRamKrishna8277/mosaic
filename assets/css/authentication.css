@@ -1,0 +1,133 @@
+@import url(./styles.css);
+body{
+    background-color: #F9F9F9 !important;
+}
+
+.auth_container{
+    width: 450px;
+}
+.auth_logo{
+    width: 150px;
+    display: inline;
+    margin: 10px auto;
+}
+.auth_title{
+    font-size: var(--sec_title_txt);
+    font-weight: 600;
+    line-height: var(--sec_title_txt);
+    margin: 10px 0;
+}
+.auth_subtitle{
+    font-size: var(--small_txt);
+    opacity: .5;
+}
+
+
+.auth_btn_wrapper{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background-color: #fff;
+    border: 2px solid #e1e1e1;
+    border-radius: 4px;
+}
+.auth_bth{
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    cursor: pointer;
+}
+.auth_btn_img{
+    height: 25px;
+}
+.auth_btn_title{
+    margin: 0;
+    font-size: var(--small_txt);
+    font-weight: 500;
+}
+
+
+.seperation_line{
+    border: none;
+    border-top: 1px solid black;
+    opacity: .1;
+    margin: 0;
+}
+.seperatioin_line_txt{
+    margin: 0 auto;
+    width: fit-content;
+    background-color: #F9F9F9;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+}
+
+
+.input_group{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    background: white;
+    border: 2px solid #e1e1e1;
+    padding: 0 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+.input_icon{
+    width: 25px;
+}
+.input_field{
+    border: none;
+    outline: none;
+    padding: 10px;
+    background: transparent;
+    font-weight: 450;
+}
+.toggle-password{
+    cursor: pointer;
+    opacity: .2;
+}
+
+
+.remember_me_forgot_password,.remember_me_wrapper{
+    display: flex;
+    align-items: center;
+}
+.remember_me_wrapper label{
+    font-size: 14px;
+}
+#forgot_password{
+    color: var(--fivehun);
+    font-weight: 450;
+}
+
+.submit_btn{
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    background: var(--fivehun);
+    border: none;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+.submit_btn:hover{
+    background: var(--fivehun);
+    color: white;
+}
+.submit_btn span{
+    color: #fff;
+}
+.spinner-border.text-white {
+    border-color: #000;
+    border-right-color: transparent;
+}
+
+
+.another_page_action{
+    text-align: center;
+    font-size: var(--small_txt);
+}
+.another_page_action a{
+    color: var(--fivehun);
+    font-weight: 500;
+}

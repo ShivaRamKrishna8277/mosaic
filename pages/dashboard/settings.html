@@ -1,0 +1,192 @@
+<body>
+    <div id="settings_content_wrapper" class="flex-grow-1 overflow-y-auto thinScroll" style="height: 90vh;">
+        <div class="settings_header mb-4">
+            <div class="content_header">
+                <div class="settings_heading">
+                    <p class="header_title">General Details</p>
+                    <p class="header_subtitle">Update your photo and personal details here</p>
+                </div>
+                <button type="button" class="btn btn-success edit_info_btns" id="edit_btn" style="display: none;"><img src="../../assets/icons/edit_icon.png" alt="" style="height: 14px;"><span class="text-white">Edit Info</span></button>
+                <button type="button" class="btn btn-primary edit_info_btns" id="update_button" style="display: none;"><img src="../../assets/icons/redirect_icon.png" alt="" style="height: 14px;"><span class="text-black">Complete Profile</span></button>
+                <button type="button" class="btn btn-primary" id="save_changes_button" style="display: none;"><img src="../../assets/icons/edit_icon.png" alt="" style="height: 14px;"><span class="text-white ms-2">Save Changes</span></button>
+            </div>
+        </div>
+        <div class="settings_body d-flex gap-5" style="margin-bottom: 100px;">
+            <div class="personal_info_wrapper w-50">
+                <p class="section_title">Personal Info</p>
+                <form id="personal_info_form">
+                    <div class="mt-3">
+                        <label for="" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullname" value="">
+                    </div>
+                    <div class="mt-3">
+                        <label for="" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="emial_address" value="">
+                    </div>
+                    <div class="mt-3">
+                        <label for="" class="form-label">Mobile Number</label>
+                        <input type="tel" class="form-control" id="mobile_number" value="">
+                    </div>
+                    <div class="mt-3">
+                        <label for="" class="form-label">User Name</label>
+                        <input type="text" class="form-control" id="username" value="">
+                    </div>
+                    <div class="mt-3">
+                        <label for="" class="form-label">District</label>
+                        <input type="text" class="form-control" id="district" value="">
+                    </div>
+                    <div class="mt-3">
+                        <label for="" class="form-label">State</label>
+                        <input type="text" class="form-control" id="State" value="">
+                    </div>
+                    <div class="mt-3">
+                        <label for="" class="form-label">Pin Code</label>
+                        <input type="number" class="form-control" id="pincode" value="">
+                    </div>
+                </form>
+            </div>
+            <div class="other_info_wrapper w-50">
+                <div class="profile_photo_wrapper mb-5">
+                    <p class="section_title">Profile Photo</p>
+                    <div class="profile_photo_content d-flex mt-4 align-items-center">
+                        <div class="profile_img_wrapper">
+                            <img src="../../assets/images/default_profile_img.png" alt="" id="profile_img" class="bg-white">
+                        </div>
+                        <div class="profile_photo_btns_wrapper flex-grow-1" id="profile_photo_btns_wrapper">
+                            <p class="section_title mb-2 opacity-50" id="image_title">Edit your photo</p>
+                            <p class="profile_photo_btns" id="show_upload_btn">Change Photo</p>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="social_links_wrapper">
+                    <p class="section_title mb-3">Social Links</p>
+                    <form action="" class="social_links_form">
+                        <ul class="social_links_ul">
+                            <li class="social_link_li">
+                                <div class="input-group">
+                                    <span class="input-group-text"><img src="../../assets/icons/linkedin_icon.png" alt="" class="social_link_icon"></span>
+                                    <input type="text" class="social_link_text form-control" id="linkedin" value="">
+                                    <a class="input-group-text" id="linkedin_redirect" href="" target="_blank"><img src="../../assets/icons/redirect_icon.png" alt="" style="height: 16px;"></a>
+                                </div>
+                            </li>
+                            <li class="social_link_li">
+                                <div class="input-group">
+                                    <span class="input-group-text"><img src="../../assets/icons/github_icon.png" alt="" class="social_link_icon"></span>
+                                    <input type="text" class="social_link_text form-control" id="github" value="">
+                                    <a class="input-group-text" id="github_redirect" href="" target="_blank"><img src="../../assets/icons/redirect_icon.png" alt="" style="height: 16px;"></a>
+                                </div>
+                            </li>
+                            <li class="social_link_li">
+                                <div class="input-group">
+                                    <span class="input-group-text"><img src="../../assets/icons/instagram_icon.png" alt="" class="social_link_icon"></span>
+                                    <input type="text" class="social_link_text form-control" id="instagram" value="">
+                                    <a class="input-group-text" id="instagram_redirect" href="" target="_blank"><img src="../../assets/icons/redirect_icon.png" alt="" style="height: 16px;"></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>  
+    </div>
+</body>
+
+<script type="module" src="../../Js/dashboard/settings.js" defer></script>
+<script type="module">
+    import { user, show_result_modal } from '../../Js/dashboard/settings.js';
+    import { storage, sref, uploadBytes, getDownloadURL, db, ref, update, updateUserdata } from '../../firebase.js';
+
+    async function setProfilePhoto(){
+        if(user.profilePhoto){
+            document.getElementById("profile_img").src = user.profilePhoto;
+        }
+    }
+
+    $(document).ready(async () => {
+        await setProfilePhoto();
+        $('.nav_category .category_img').attr('src', '../../assets/icons/settings_header_icon.png');
+        $('.nav_category .nav_category_title').text('Settings');
+        let is_upload_visible = false;
+
+        $("#profile_photo_btns_wrapper").on("click", "#show_upload_btn", () => {
+            if (!is_upload_visible) {
+                $("#profile_photo_btns_wrapper").html(`
+                    <div class='file-input'>
+                        <input type='file' id='profileChangeInput' accept="image/png, image/jpeg">
+                        <span class='button'>Choose</span>
+                        <span class='label' data-js-label>No file selected</span>
+                    </div>
+                    <div class="upload_btns_wrapper d-flex gap-4">
+                        <p class="profile_photo_btns" id="upload_btn">Upload</p>
+                        <p class="profile_photo_btns" id="Cancel_upload_btn">Cancel</p>
+                    </div>
+                `);
+                is_upload_visible = true;
+                setupCustomFileInput();
+            } else {
+                $("#profile_photo_btns_wrapper").html(`
+                    <p class="section_title mb-2 opacity-50" id="image_title">Edit your photo</p>
+                    <p class="profile_photo_btns" id="show_upload_btn">Change Photo</p>
+                `);
+                is_upload_visible = false;
+            }
+        });
+
+        $("#profile_photo_btns_wrapper").on("click", "#Cancel_upload_btn", () => {
+            $("#profile_photo_btns_wrapper").html(`
+                <p class="section_title mb-2 opacity-50" id="image_title">Edit your photo</p>
+                <p class="profile_photo_btns" id="show_upload_btn">Change Photo</p>
+            `);
+            is_upload_visible = false;
+        });
+
+        $("#profile_photo_btns_wrapper").on("click", "#upload_btn", async () => {
+            const fileInput = document.getElementById('profileChangeInput');
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                if (user) {
+                    const storageRef = sref(storage, `profilePhotos/${user.id}`);
+                    const profilePhoto_db = ref(db, `users/${user.id}`);
+                    try {
+                        $('body, html').css('pointer-events', 'none');
+                        $("#upload_btn").text("Uploading...");
+                        await uploadBytes(storageRef, file);
+                        const downloadURL = await getDownloadURL(storageRef);
+                        const photoUrl_data = { profilePhoto : downloadURL }
+                        await update(profilePhoto_db, photoUrl_data);
+                        $("#upload_btn").text("Successful");
+                        $('body, html').css('pointer-events', 'all');
+                        alert("File uploaded successfully!");
+                        await updateUserdata(user.id);
+                        location.reload();
+                    } catch (error) {
+                        console.error("Upload failed", error);
+                        alert("Upload failed: " + error.message);
+                    }
+                } else {
+                    alert("User not logged in!");
+                }
+            } else {
+                alert("No file selected!");
+            }
+        });
+
+        function setupCustomFileInput() {
+            const inputs = document.querySelectorAll('.file-input');
+            inputs.forEach(input => {
+                const fileInput = input.querySelector('[type="file"]');
+                const label = input.querySelector('[data-js-label]');
+
+                fileInput.addEventListener('change', updateFileName);
+                fileInput.addEventListener('mouseout', updateFileName);
+
+                function updateFileName() {
+                    if (!fileInput.value) return;
+                    const value = fileInput.value.replace(/^.*[\\\/]/, '');
+                    input.className += ' -chosen';
+                    label.innerText = value;
+                }
+            });
+        }
+    });
+</script>
