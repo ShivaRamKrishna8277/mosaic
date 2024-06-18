@@ -83,7 +83,9 @@ $(document).ready(function(){
         });
     });
 
-    updateUserdata(user.id);
+    if(user){
+        updateUserdata(user.id);
+    }
     // Trigger the click on the first menu item to load its content on page load
     $('.menu_item').eq(0).click();
 });
