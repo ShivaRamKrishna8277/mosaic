@@ -44,6 +44,25 @@ p{
     margin: 0;
 }
 
+/* serach bar */
+.serach_bar{
+    display: flex;
+    align-items: center;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+.search_icon{
+    width: 15px;
+    height: 15px;
+    opacity: .7;
+}
+.search_input{
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    flex-grow: 1;
+}
 
 /* scroll bar */
 .thinScroll::-webkit-scrollbar{
