@@ -1,84 +1,118 @@
 // dashboard.js
 import { db, get, ref, update } from "../../firebase.js";
 import { showResultModal } from "./dashboard.js";
+const user = JSON.parse(localStorage.getItem('user'));
 
-// display all challenges
+// Display all challenges
 function readChallengesData() {
     const challRef = ref(db, 'challenges');
+    let enrolledChallengesRef = null;
+    if (user) {
+        enrolledChallengesRef = ref(db, 'users/' + user.id + '/enrolledChallenges');
+    }
     const tableBody = document.getElementById('all_challenges_body');
     
     const loader = document.querySelector('.loader_row'); // Get the loader row element
     tableBody.innerHTML = ''; // Clear existing table rows
-    if (loader) {
-        tableBody.appendChild(loader); // Append the loader row to the table body
-    }
+    if (loader) tableBody.appendChild(loader); // Append the loader row to the table body
 
     get(challRef)
-    .then((allChallenges) => {
-        allChallenges.forEach(challenge => {
-            const data = challenge.val();
-            const row = document.createElement('tr');
+        .then((allChallengesSnapshot) => {
+            const allChallenges = [];
+            allChallengesSnapshot.forEach((challengeSnapshot) => {
+                allChallenges.push({
+                    id: challengeSnapshot.key,
+                    ...challengeSnapshot.val()
+                });
+            });
 
-            // Create category cell with dynamic span classes
-            const categoryCell = document.createElement('td');
-            categoryCell.classList.add('category_col');
-            const categorySpan = document.createElement('span');
-            categorySpan.classList.add('category_content');
-            if (data.category) {
-                const firstWord = data.category.split(' ')[0];
-                categorySpan.classList.add(firstWord);
-                categorySpan.textContent = data.category;
+            if (enrolledChallengesRef) {
+                return get(enrolledChallengesRef).then((enrolledChallengesSnapshot) => {
+                    const enrolledChallengesData = enrolledChallengesSnapshot.val();
+                    const enrolledChallengeIds = Object.keys(enrolledChallengesData || {});
+                    displayChallenges(allChallenges, enrolledChallengeIds);
+                });
+            } else {
+                displayChallenges(allChallenges, []);
             }
-            categoryCell.appendChild(categorySpan);
-            row.appendChild(categoryCell);
-
-            const titleCell = document.createElement('td');
-            titleCell.classList.add('title_content');
-            titleCell.textContent = data.title || '';
-            row.appendChild(titleCell);
-
-            const descCell = document.createElement('td');
-            const descCellSpan = document.createElement('span');
-            descCellSpan.classList.add('desc_content');
-            descCellSpan.textContent = data.description || '';
-            descCell.appendChild(descCellSpan);
-            row.appendChild(descCell);
-
-            const postedOnCell = document.createElement('td');
-            postedOnCell.classList.add('postedon_col');
-            postedOnCell.textContent = data.postedOn || '';
-            row.appendChild(postedOnCell);
-
-            const endsOnCell = document.createElement('td');
-            endsOnCell.classList.add('endson_col');
-            endsOnCell.textContent = data.endsOn || '';
-            row.appendChild(endsOnCell);
-
-            // Create difficulty cell with dynamic class
-            const difficultyCell = document.createElement('td');
-            difficultyCell.classList.add('difficulty_col');
-            if (data.difficulty) {
-                difficultyCell.classList.add(data.difficulty);
-                difficultyCell.textContent = data.difficulty;
-            }
-            row.appendChild(difficultyCell);
-
-            const actionCell = document.createElement('td');
-            actionCell.classList.add('action_col', 'action_content');
-            const enrollButton = document.createElement('button');
-            enrollButton.innerHTML = '<span>View More</span><img src="../../assets/icons/arrow_icon.png" alt="" class="arrow_icon">';
-            enrollButton.classList.add('view_more_btn');
-            enrollButton.addEventListener('click', () => showChallengeModal(data));
-            actionCell.appendChild(enrollButton);
-            row.appendChild(actionCell);
-
-            tableBody.appendChild(row);
+        })
+        .catch((error) => {
+            console.error("Error fetching data: ", error);
         });
-        $('.loader_row').hide();
-    }).catch((error) => {
-        console.error("Error fetching data: ", error);
-    });
 }
+// Function to display challenges
+function displayChallenges(allChallenges, enrolledChallengeIds) {
+    const tableBody = document.getElementById('all_challenges_body');
+
+    allChallenges.forEach((data) => {
+        if (enrolledChallengeIds.includes(data.id)) {
+            return; // Skip displaying this challenge if it is in the enrolled challenges list
+        }
+
+        const row = document.createElement('tr');
+
+        // Create category cell with dynamic span classes
+        const categoryCell = document.createElement('td');
+        categoryCell.classList.add('category_col');
+        const categorySpan = document.createElement('span');
+        categorySpan.classList.add('category_content');
+        if (data.category) {
+            const firstWord = data.category.split(' ')[0];
+            categorySpan.classList.add(firstWord);
+            categorySpan.textContent = data.category;
+        }
+        categoryCell.appendChild(categorySpan);
+        row.appendChild(categoryCell);
+
+        const titleCell = document.createElement('td');
+        titleCell.classList.add('title_content');
+        titleCell.textContent = data.title || '';
+        row.appendChild(titleCell);
+
+        const descCell = document.createElement('td');
+        const descCellSpan = document.createElement('span');
+        descCellSpan.classList.add('desc_content');
+        descCellSpan.textContent = data.description || '';
+        descCell.appendChild(descCellSpan);
+        row.appendChild(descCell);
+
+        const postedOnCell = document.createElement('td');
+        postedOnCell.classList.add('postedon_col');
+        postedOnCell.textContent = data.postedOn || '';
+        row.appendChild(postedOnCell);
+
+        const endsOnCell = document.createElement('td');
+        endsOnCell.classList.add('endson_col');
+        endsOnCell.textContent = data.endsOn || '';
+        row.appendChild(endsOnCell);
+
+        // Create difficulty cell with dynamic class
+        const difficultyCell = document.createElement('td');
+        difficultyCell.classList.add('difficulty_col');
+        if (data.difficulty) {
+            difficultyCell.classList.add(data.difficulty);
+            difficultyCell.textContent = data.difficulty;
+        }
+        row.appendChild(difficultyCell);
+
+        const actionCell = document.createElement('td');
+        actionCell.classList.add('action_col', 'action_content');
+        const enrollButton = document.createElement('button');
+        enrollButton.innerHTML = '<span>View More</span><img src="../../assets/icons/arrow_icon.png" alt="" class="arrow_icon">';
+        enrollButton.classList.add('view_more_btn');
+        enrollButton.addEventListener('click', () => showChallengeModal(data));
+        actionCell.appendChild(enrollButton);
+        row.appendChild(actionCell);
+
+        tableBody.appendChild(row);
+    });
+    // Call countVisibleRows function after displaying
+    countVisibleRows(1);
+
+    $('.loader_row').hide();
+}
+
+
 // show challenge details
 function showChallengeModal(data) {
     const modal = new bootstrap.Modal($('#challengeModal'));
@@ -155,38 +189,6 @@ function enrollChallenge(challengeId) {
     }
 }
 
-
-// Function to fetch challenge counts from Firebase
-function fetchChallengeCounts() {
-    const countsRef = ref(db, 'challengesCount');
-
-    get(countsRef).then((snapshot) => {
-        if (snapshot.exists()) {
-            const countsData = snapshot.val();
-            updateChallengeCounts(countsData);
-            $('#challenges_count').text(countsData['All']);
-        } else {
-            console.log("No data available");
-        }
-    }).catch((error) => {
-        console.error("Error fetching challenge counts: ", error);
-    });
-}
-// Function to update the challenge counts in the HTML
-function updateChallengeCounts(countsData) {
-    $('.category_card').each(function() {
-        const categoryTitle = $(this).find('.card_title').text().trim();
-        const countElement = $(this).find('.card_total_challenges span');
-
-        if (categoryTitle in countsData) {
-            countElement.text(countsData[categoryTitle]);
-        } else if (categoryTitle === 'All') {
-            countElement.text(countsData['All']);
-        } else {
-            countElement.text(0); // Default to 0 if category not found
-        }
-    });
-}
 // Filter Challenges by Category Function
 function filterChallengesByCategory(categoryName) {
     $('.category_content').each(function() {
@@ -198,15 +200,19 @@ function filterChallengesByCategory(categoryName) {
             challengeRow.css('display', 'none');
         }
     });
+    // Call countVisibleRows function after displaying
+    countVisibleRows(0);
 }
 
-
+// count countVisibleRows
+function countVisibleRows(reduce) {
+    var visibleRows = $('#all_challenges_body tr:visible').length;
+    document.getElementById("challenges_count").textContent = visibleRows - reduce;
+}
 // Document Ready Function
 $(document).ready(function () {
     // Show loader initially
     $('#loader_row').show();
-
-    fetchChallengeCounts();
 
     $('.category_card').click(function () {
         // Show loader when category card is clicked
@@ -222,9 +228,6 @@ $(document).ready(function () {
         }
         $('.nav_category .category_img').attr('src', categoryImg);
         $('.nav_category .nav_category_title').text(categoryTitle);
-
-        const countElement = $(this).find('.card_total_challenges span').text();
-        $('#challenges_count').text(countElement);
 
         $('#categoriesModal').modal('hide');
     });

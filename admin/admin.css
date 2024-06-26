@@ -1,6 +1,11 @@
+body{
+    background-color: #F4F4FF;
+}
+
+/* menu bar */
 .menu_wrapper{
     background-color: #363636;
-    width: 4%;
+    width: 60px;
     height: 100vh;
     padding: 20px 10px;
 }
@@ -10,7 +15,6 @@
     height: auto;
     object-fit: contain;
 }
-
 .menu_link{
     text-align: center;
     cursor: pointer;
@@ -29,4 +33,120 @@
 .is_active_menu{
     background-color: rgba(255,255,255,.2);
     opacity: 1 !important;
+}
+
+/* content section */
+.content_wrapper{
+    margin: 7px;
+}
+/* status_bar */
+.content_status_bar{
+    padding: 10px 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    background-color: white;
+    margin-bottom: 10px;
+}
+.status_bar_title{
+    font-size: 1.1rem;
+    opacity: .8;
+    color: black;
+}
+.search_icon{
+    opacity: .5;
+}
+#logout_btn{
+    background-color: rgba(255, 0, 0, .2);
+    padding: 5px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+/* content header */
+.header_info_btns{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.header_btns{
+    width: fit-content;
+    padding: 10px;
+    border-radius: 4px;
+    gap: 10px;
+    padding-right: 30px;
+}
+.header_info_wrapper{
+    background-color: white;
+    border: 1px solid #e1e1e1;
+    display: flex;
+    align-items: center;
+}
+.info_img_wrapper{
+    background-color: #D4F7E1;
+    padding: 10px;
+    border-radius: 3px;
+}
+.info_img{
+    height: 30px;
+}
+.header_info_title{
+    font-size: .8rem;
+    opacity: .5;
+}
+.header_info_text{
+    font-size: 1.4rem;
+    color: var(--fivehun);
+    font-weight: 500;
+}
+.add_new_btn{
+    background-color: var(--bg-or-text);
+    text-align: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    p{
+        color: white;
+    }
+}
+.add_icon{
+    font-weight: 500;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+}
+
+/* content table */
+.content_table_wrapper{
+    background: white;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    padding: 5px 15px;
+    padding-bottom: 100px;
+    margin-top: 10px;
+}
+.content_table{
+    width: 100%;
+}
+.content_table tr th, .content_table tr td{
+    border-bottom: 1px solid #3c485223;
+    padding: 15px 5px;
+}
+.content_table tr th{
+    font-size: .9rem;
+    font-weight: 400;
+    opacity: .5;
+}
+.content_table tr td{
+    font-size: .82rem;
+}
+
+.user_id_cell, .user_name_cell, .user_email_cell{
+    width: 15%;
+}
+.user_mobile_cell, .user_state_cell, .user_Jdate_cell, .more_info_cell{
+    width: 13.5%;
+    text-align: center;
+}
+.more_info_cell{
+    color: orange;
+    text-decoration: underline !important;
+    cursor: pointer;
 }

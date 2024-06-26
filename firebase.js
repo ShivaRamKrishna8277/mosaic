@@ -37,4 +37,5 @@ async function updateUserdata(userId){
         alert("Something Went Wrong!");
     }
 }
-export { db, get, set, ref, auth, update, remove, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, updateUserdata, storage, sref, uploadBytes, getDownloadURL };
+
+export { db, get, set, ref, auth, update, remove, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, storage, sref, uploadBytes, getDownloadURL,updateUserdata };

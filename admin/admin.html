@@ -27,9 +27,9 @@
         </div>
 
         <div class="content_wrapper flex-grow-1">
-            <div class="content_status_bar">
-                <div class="status_bar_start">
-                    <p class="status_bar_title"></p>
+            <div class="content_status_bar d-flex justify-content-between align-items-center">
+                <div class="status_bar_start d-flex align-items-center gap-3">
+                    <p class="status_bar_title">Manage Challenges</p>
                     <div class="serach_bar">
                         <img src="../../assets/icons/search_icon.png" alt="" class="search_icon">
                         <input type="search" placeholder="Search...." class="search_input">
@@ -37,6 +37,52 @@
                 </div>
                 <div class="status_bar_end">
                     <img src="assets/icons/logout.png" alt="" id="logout_btn">
+                </div>
+            </div>
+
+            <div class="content_section">
+                <div class="content_header">
+                    <div class="header_info_btns">
+                        <div class="header_info_wrapper header_btns">
+                            <div class="info_img_wrapper">
+                                <img src="assets/icons/users_dark.png" alt="" class="info_img">
+                            </div>
+                            <div class="header_info_text">
+                                <p class="header_info_title">Total Users</p>
+                                <div class="header_info_text">56</div>
+                            </div>
+                        </div>
+                        <div class="header_btns add_new_btn">
+                            <p class="add_icon">+</p>
+                            <p class="add_text">Add New User</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content_table_wrapper">
+                    <table class="content_table">
+                        <thead>
+                            <tr>
+                                <th>User Id</th>
+                                <th>Name</th>
+                                <th>Email Id</th>
+                                <th class="text-center">Mobile No</th>
+                                <th class="text-center">State</th>
+                                <th class="text-center">Joined On</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="user_id_cell">84HO29VJW039239UGI</td>
+                                <td class="user_name_cell">Shivaram Krishna Yadav</td>
+                                <td class="user_email_cell">shivaramkrsihna8277@gmail.com</td>
+                                <td class="user_mobile_cell">9380248374</td>
+                                <td class="user_state_cell">Karnataka</td>
+                                <td class="user_Jdate_cell">29-06-2024</td>
+                                <td class="more_info_cell">More info</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -47,5 +93,6 @@
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
+    <script type="module" src="JS/user.js"></script>
 </body>
 </html>
