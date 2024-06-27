@@ -55,6 +55,12 @@
                             </div>
                         </td>
                     </tr>
+                    <tr id="noChallenges">
+                        <td colspan="7" class="text-center">
+                            <img src="../../assets/images/no_data.jpg" alt="" class="noDataImg">
+                            <p class="noDataText">Sorry, No Challenges Found</p>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -68,6 +74,7 @@
             var title = $(this).find('.title_content').text().toLowerCase();
             if (title.includes(keyword.toLowerCase())) {
                 $(this).show();
+                $('#noChallenges').hide();
                 $('.loader_row').hide();
             } else {
                 $(this).hide();

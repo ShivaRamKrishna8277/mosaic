@@ -454,7 +454,7 @@ td{
 }  
 
 
-#noCompletedChallenges, #noPendingChallenges, #noEnrolledChallenges{
+#noChallenges, #noCompletedChallenges, #noPendingChallenges, #noEnrolledChallenges{
     display: none;
 }
 .noDataImg{

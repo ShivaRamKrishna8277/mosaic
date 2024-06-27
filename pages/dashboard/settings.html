@@ -111,7 +111,7 @@
         $("#profile_photo_btns_wrapper").on("click", "#show_upload_btn", () => {
             if (!is_upload_visible) {
                 $("#profile_photo_btns_wrapper").html(`
-                    <div class='file-input'>
+                    <div class='file-input overflow-hidden'>
                         <input type='file' id='profileChangeInput' accept="image/png, image/jpeg">
                         <span class='button'>Choose</span>
                         <span class='label' data-js-label>No file selected</span>

@@ -13,8 +13,10 @@ function readChallengesData() {
     const tableBody = document.getElementById('all_challenges_body');
     
     const loader = document.querySelector('.loader_row'); // Get the loader row element
+    const noChallenges_row = document.getElementById('noChallenges');
     tableBody.innerHTML = ''; // Clear existing table rows
     if (loader) tableBody.appendChild(loader); // Append the loader row to the table body
+    if (noChallenges_row) tableBody.appendChild(noChallenges_row);
 
     get(challRef)
         .then((allChallengesSnapshot) => {
@@ -206,8 +208,15 @@ function filterChallengesByCategory(categoryName) {
 
 // count countVisibleRows
 function countVisibleRows(reduce) {
-    var visibleRows = $('#all_challenges_body tr:visible').length;
-    document.getElementById("challenges_count").textContent = visibleRows - reduce;
+    $('#noChallenges').hide();
+    var visibleRows = $('#all_challenges_body tr:visible').length - reduce;
+    document.getElementById("challenges_count").textContent = visibleRows;
+    console.log(visibleRows);
+    if(visibleRows === 0){
+        $('#noChallenges').show();
+    }else{
+        $('#noChallenges').hide();
+    }
 }
 // Document Ready Function
 $(document).ready(function () {
