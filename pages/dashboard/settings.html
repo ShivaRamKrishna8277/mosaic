@@ -50,7 +50,7 @@
                     <p class="section_title">Profile Photo</p>
                     <div class="profile_photo_content d-flex mt-4 align-items-center">
                         <div class="profile_img_wrapper">
-                            <img src="../../assets/images/default_profile_img.png" alt="" id="profile_img" class="bg-white">
+                            <img src="../../assets/images/default_profile_img.png" alt="" id="profile_img" class="bg-white" data-bs-toggle="modal" data-bs-target="#profilePhoto_Modal">
                         </div>
                         <div class="profile_photo_btns_wrapper flex-grow-1" id="profile_photo_btns_wrapper">
                             <p class="section_title mb-2 opacity-50" id="image_title">Edit your photo</p>
@@ -100,6 +100,7 @@
         if(user.profilePhoto){
             document.getElementById("profile_img").src = user.profilePhoto;
         }
+        document.getElementById("profilePhoto_modal_img").src = user.profilePhoto;
     }
 
     $(document).ready(async () => {

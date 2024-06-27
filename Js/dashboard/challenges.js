@@ -211,7 +211,6 @@ function countVisibleRows(reduce) {
     $('#noChallenges').hide();
     var visibleRows = $('#all_challenges_body tr:visible').length - reduce;
     document.getElementById("challenges_count").textContent = visibleRows;
-    console.log(visibleRows);
     if(visibleRows === 0){
         $('#noChallenges').show();
     }else{
