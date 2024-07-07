@@ -18,7 +18,7 @@
             <img src="assets/images/word_mark_logo.svg" alt="" class="nav_logo">
           </a>
           <button class="navbar-toggler shadow-none border-0" type="button">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"></span>
           </button>
           <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto gap-lg-5 py-0 my-lg-0 my-4 gap-5">
@@ -35,20 +35,36 @@
           </div>
         </div>
     </nav>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+        <button type="button" class="btn-close shadow-none border-0" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="d-flex flex-column gap-4">
+          <li><a class="dropdown-item" href="#">About Us</a></li>
+          <li><a class="dropdown-item" href="#">Contact Us</a></li>
+          <li><a class="dropdown-item" href="pages/login.html">Get Started</a></li>
+        </ul>
+      </div>
+      <div class="offcanvas-footer">
+        <p>@</p>
+      </div>
+    </div>
 
-    <main class="d-none">
+    <main>
       <div class="hero_section d-flex justify-content-between align-items-center" style="background-color: #FFF6EE; padding-top: 60px; min-height: 70vh;">
           <div class="container-fluid w-1300">
-              <div class="row g-0 py-5 justify-content-between align-items-center">
-                  <div class="col-7">
+              <div class="row g-5 py-5 justify-content-between align-items-center flex-md-row-reverse">
+                  <div class="col-md-4 banner_img_wrapper">
+                      <img src="assets/images/landing_hero_banner.svg" alt="" class="img-fluid" id="banner_hero_img">
+                  </div>
+                  <div class="col-md-7 text-md-start text-center">
                       <p class="sub_title small_text m-0">Together is better.</p>
                       <p class="title" style="color: var(--fivehun);">mosaiq</p>
                       <p class="title">Collective creation.</p>
                       <p class="desc small_text mt-1 mb-5">Turn your ideas into reality. Collaborate with a global community of creators on Mosaiq. From designers and writers to programmers and musicians, bring your projects to life together.</p>
                       <a href="pages/login" id="hero_btn">Start Creating Now!</a>
-                  </div>
-                  <div class="col-4 banner_img_wrapper">
-                      <img src="assets/images/landing_hero_banner.svg" alt="" class="img-fluid" id="banner_hero_img">
                   </div>
               </div>
           </div>
@@ -59,7 +75,7 @@
             <p class="section_title">Fields You Can <span>Master</span> & <span>Earn</span></p>
             <p class="section_sub_title">Various fields where you can leverage your skills and earn money on Mosaiq.</p>
           </div>
-          <div class="row g-0 row-cols-4 row-gap-4">
+          <div class="row g-0 row-cols-md-4 row-cols-2 row-gap-4">
             <div class="col">
               <div class="category_box">
                 <img src="assets/icons/writing_editing.png" alt="" class="category_img">
@@ -69,7 +85,7 @@
             <div class="col">
               <div class="category_box">
                 <img src="assets/icons/SEO.png" alt="" class="category_img">
-                <p class="category_title">SEEO</p>
+                <p class="category_title">SEO</p>
               </div>
             </div>
             <div class="col">
@@ -113,14 +129,14 @@
       </div>
       <div class="cta_section py-5">
         <div class="container-fluid p-0" style="background-color: var(--fivehun);">
-          <div class="row g-0 w-1300 mx-auto align-items-center">
-            <div class="col-5">
-              <img src="assets/images/landing_cto_banner.svg" alt="" class="cta_img d-block mx-auto">
-            </div>
-            <div class="col-7">
+          <div class="row g-0 w-1300 mx-auto align-items-center flex-md-row-reverse">
+            <div class="col-md-7">
               <p class="cta_title mb-2">Unleash Your Potential. Take Flight with <span>mosaiq</span></p>
-              <p class="cta_sub_title">Tired of feeling limited by your college tier?  mosaiq bridges the gap between talented students and top companies. We connect you with the opportunities you deserve, no matter your location.</p>
+              <p class="cta_sub_title mb-3">Tired of feeling limited by your college tier?  mosaiq bridges the gap between talented students and top companies. We connect you with the opportunities you deserve, no matter your location.</p>
               <a href="pages/login" id="explore_btn">Explore</a>
+            </div>
+            <div class="col-md-5">
+              <img src="assets/images/landing_cto_banner.svg" alt="" class="cta_img d-block mx-auto">
             </div>
           </div>
         </div>
@@ -128,7 +144,7 @@
       <div class="benefits_section py-5">
         <div class="container-fluid p-0 w-1300 mx-auto">
           <div class="row g-0 align-items-center">
-            <div class="col-8">
+            <div class="col-lg-8 col-md-6 pb-md-4">
               <p class="sec_title mb-5">Work on Your Schedule, <span>Earn on Your Terms</span></p>
               <ul>
                 <li class="benefit_point">
@@ -154,7 +170,7 @@
                 </li>
               </ul>
             </div>
-            <div class="col-4 d-flex justify-content-center align-items-center">
+            <div class="col-lg-4 col-md-6 d-flex justify-content-center align-items-center">
               <img src="assets/images/benefits_banner.png" alt="" id="benefits_img" class="mx-auto">
             </div>
           </div>
@@ -162,17 +178,17 @@
       </div>
     </main>
 
-    <footer class="d-none">
+    <footer>
       <div class="container-fluid p-0 py-5 w-1300 mx-auto">
-        <div class="row g-0 justify-content-between my-5">
-          <div class="col-2">
+        <div class="row g-0 g-5 justify-content-between my-5">
+          <div class="col-lg-2 col-md-4 col-sm-6 text-center text-md-start">
             <img src="assets/images/word_mark_logo.svg" alt="" class="img-fluid footer_logo mb-3 w-75">
-            <div class="footer_email_wrapper d-flex align-items-center gap-1">
+            <div class="footer_email_wrapper d-flex align-items-center justify-content-center justify-content-md-start gap-1">
               <img src="assets/icons/Mail.png" alt="" class="email_icon">
               <p class="footer_email m-0">support@mosaiq.in</p>
             </div>
           </div>
-          <div class="col-2">
+          <div class="col-lg-2 col-md-4 col-sm-6 text-center text-md-start">
             <ul class="footer_col">
               <li class="footer_col_title">Company</li>
               <li class="footer_link"><a href="">about us</a></li>
@@ -180,7 +196,7 @@
               <li class="footer_link"><a href="">careers</a></li>
             </ul>
           </div>
-          <div class="col-2">
+          <div class="col-lg-2 col-md-4 col-sm-6 text-center text-md-start">
             <ul class="footer_col">
               <li class="footer_col_title">Categories</li>
               <li class="footer_link"><a href="">Development</a></li>
@@ -193,7 +209,7 @@
               <li class="footer_link"><a href="">SEO</a></li>
             </ul>
           </div>
-          <div class="col-2">
+          <div class="col-lg-2 col-md-4 col-sm-6 text-center text-md-start">
             <ul class="footer_col">
               <li class="footer_col_title">Legal</li>
               <li class="footer_link"><a href="">cookie policies</a></li>
@@ -201,7 +217,7 @@
               <li class="footer_link"><a href="">terms & conditions</a></li>
             </ul>
           </div>
-          <div class="col-2">
+          <div class="col-lg-2 col-md-4 col-sm-6 text-center text-md-start">
             <ul class="footer_col">
               <li class="footer_col_title">Follow us on</li>
               <li class="footer_link"><a href="">Instagram</a></li>
@@ -211,7 +227,7 @@
             </ul>
           </div>
         </div>
-        <div class="row g-0 mb-5">
+        <div class="row g-0 mb-5 text-center text-md-start">
           <p class="copyright">© Bridgeway Technologies Pvt Ltd</p>
         </div>
       </div>
