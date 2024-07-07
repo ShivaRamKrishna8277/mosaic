@@ -19,6 +19,22 @@
     text-decoration: none;
     font-size: .8rem;
 }
+@media(max-width: 480px){
+    .navbar_container{
+        width: 95%;
+        padding: 0 10px !important;
+    }
+    .nav_logo{
+        width: 100px;
+    }
+    .navbar-toggler{
+        padding: 0px;
+    }
+    .navbar-toggler-icon{
+        width: 1.3rem !important;
+        height: 1.3rem !important;
+    }
+}
 
 
 /* hero section */
