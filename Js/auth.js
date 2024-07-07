@@ -31,7 +31,7 @@ function mapErrorMessage(errorCode) {
         case 'auth/email-already-in-use':
             return 'Email Address Already in Use';
         case 'auth/invalid-credential':
-            return 'Invalid Email or Password.';
+            return 'Invalid Credentials or User Not Found';
         case 'auth/weak-password':
             return 'Input a Strong Password.';
         default:
@@ -63,7 +63,7 @@ function showMsgModal(errorMessage, msgColor) {
     setTimeout(() => {
         $('#errorModal').modal('hide');
         location.reload();
-    }, 1000);
+    }, 2000);
 }
 
 $(document).ready(() => {
@@ -123,7 +123,7 @@ $(document).ready(() => {
             showMsgModal("Passwords do not match", 'red');
         }
     });
-
+    
     // Login using email and password
     $('#loginBtn').click(evt => {
         evt.preventDefault();

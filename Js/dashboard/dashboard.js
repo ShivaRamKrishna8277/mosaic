@@ -29,18 +29,16 @@ $(document).ready(function(){
         $('.logout_item').hide();
     }
 
-    $('.logout_item').click(() => {
+    $('.logout_item_modal').click(() => {
         localStorage.removeItem('user');
         // Sign out the user from the authentication provider
         signOut(auth)
             .then(() => {
                 // Redirect to the login page or any other page after logout
                 window.location.href = '../login.html';
-                console.log("Logout");
             })
             .catch((error) => {
                 console.error("Logout error:", error); // Log logout error
-                // Handle logout error if needed
         });
     });
     $('.menu_item').click(function(e){
