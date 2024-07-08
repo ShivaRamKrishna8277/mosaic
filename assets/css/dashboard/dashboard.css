@@ -240,6 +240,17 @@ table{
     border-collapse: collapse;
     flex-grow: 1;
 }
+.all_challenges_grid{
+    display: none !important;
+}
+@media(max-width:1111px){
+    table{
+        display: none !important;
+    }
+    .all_challenges_grid{
+        display: grid !important;
+    }
+}
 table thead tr th{
     opacity: .5;
 }
@@ -279,6 +290,47 @@ td{
     font-weight: 400;
     vertical-align: middle;
 }
+
+/* card */
+.all_challenges_grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}
+.challenge_card{
+    padding: 10px;
+    border: 2px solid #ededed;
+    border-radius: 5px;
+}
+.card_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.card_category, .card_difficulty{
+    font-size: .6rem;
+    padding: 5px 15px;
+    border-radius: 3px;
+}
+.mobile_card_title{
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.2rem;
+    color: var(--fivehun);
+}
+.mobile_card_desc{
+    font-size: .6rem;
+    margin: 5px 0 10px 0;
+}
+#card_PostedOn, #card_EndsOn{
+    font-size: .8rem;
+    font-weight: 500;
+}
+.card_view_more_btn span{
+    font-size: .7rem;
+}
+
 .category_content{
     display: inline-block;
     text-align: center;
@@ -463,7 +515,7 @@ td{
 }  
 
 
-#noChallenges, #noCompletedChallenges, #noPendingChallenges, #noEnrolledChallenges{
+#noChallenges, #noCompletedChallenges, #noPendingChallenges, #noEnrolledChallenges, #grid_noChallenges{
     display: none;
 }
 .noDataImg{
