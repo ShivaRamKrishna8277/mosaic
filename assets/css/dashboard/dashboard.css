@@ -98,6 +98,9 @@ main{
 .menu_item:hover{
     background-color: var(--hun);
 }
+.menu_item_mobile{
+    width: 100% !important;
+}
 .menu_icon, #logout_icon, #login_icon{
     width: 20px;
     height: auto;
@@ -134,6 +137,11 @@ main{
     height: 100vh;
     margin-left: 90px;
 }
+@media(max-width: 769px){
+    .right_content_wrapper{
+        margin-left: 0px !important;
+    }
+}
 .right_nav_wrapper,.nav_category{
     display: flex;
     align-items: center;
@@ -162,6 +170,7 @@ main{
 }
 .content_wrapper{
     padding: 20px;
+    overflow-y: hidden;
 }
 
 
@@ -226,7 +235,7 @@ main{
 
 /* table */
 table{
-    min-width: 1050px;
+    min-width: 980px;
     width: 100%;
     border-collapse: collapse;
     flex-grow: 1;

@@ -22,7 +22,7 @@
 <body>
     <div class="modals">
         <div class="modal fade" id="LogoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" style="max-width: fit-content;">
+            <div class="modal-dialog" style="max-width: fit-content; margin: 10px auto;">
               <div class="modal-content">
                 <div class="modal-body text-center">
                     <p class="mb-3">Are you sure you want to log out?</p>
@@ -219,7 +219,7 @@
             </div>
         </div>   
         <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" style="max-width: fit-content;">
+            <div class="modal-dialog modal-dialog-centered" style="max-width: fit-content; margin: 10px auto;">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <div id="animationContainer" style="width: 150px; height: 150px; margin: 0 auto;"></div>
@@ -286,8 +286,44 @@
             </div>
           </div>        
     </div>
+    
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="menuBar_mobile" aria-labelledby="menuBar_mobileLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="menuBar_mobileLabel">Menu</h5>
+          <button type="button" class="btn-close shadow-none border-0" data-bs-dismiss="offcanvas" aria-label="Close" id="mobile_menu_close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="menu_items_wrapper">
+                <li class="menu_item menu_item_mobile active_menu" data-file="./challenges.html">
+                    <img src="../../assets/icons/challenges_menu_icon.svg" alt="" class="menu_icon" data-icon="challenges_menu_icon">
+                    <p class="menu_title">All Challenges</p>
+                </li>
+                <li class="menu_item menu_item_mobile" data-file="./enrolled.html">
+                    <img src="../../assets/icons/enrolled_menu_icon_dark.svg" alt="" class="menu_icon" data-icon="enrolled_menu_icon">
+                    <p class="menu_title">Enrolled</p>
+                </li>
+                <li class="menu_item menu_item_mobile" data-file="./pending.html">
+                    <img src="../../assets/icons/pending_menu_icon_dark.svg" alt="" class="menu_icon" data-icon="pending_menu_icon">
+                    <p class="menu_title">Pending</p>
+                </li>
+                <li class="menu_item menu_item_mobile" data-file="./submissions.html">
+                    <img src="../../assets/icons/submissions_menu_icon_dark.svg" alt="" class="menu_icon" data-icon="submissions_menu_icon">
+                    <p class="menu_title">Completed</p>
+                </li>
+                <li class="menu_item menu_item_mobile" data-file="./settings.html">
+                    <img src="../../assets/icons/settings_menu_icon_dark.svg" alt="" class="menu_icon" data-icon="settings_menu_icon">
+                    <p class="menu_title">Settings</p>
+                </li>
+                <li class="logout_item menu_item_mobile" data-bs-toggle="modal" data-bs-target="#LogoutModal">
+                    <img src="../../assets/icons/logout_menu_icon.svg" alt="" id="logout_icon">
+                    <p class="menu_title text-danger">Logout</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
     <main style="max-height: 100vh; overflow-y: hidden;">
-        <div class="left_menu_wrapper">
+        <div class="left_menu_wrapper d-md-flex d-none">
             <div class="username_div">
                 <div class="username_wrapper">
                     <img src="../../assets/images/logo.svg" alt="" class="logo img-fluid">
@@ -345,7 +381,12 @@
                     <img src="" alt="" class="category_img">
                     <p class="nav_category_title"></p>
                 </div>
-                <img src=" " alt="" class="profile_img " data-icon="settings_menu_icon">
+                <img src=" " alt="" class="profile_img d-lg-flex d-none" data-icon="settings_menu_icon">
+                <div class="navbar d-lg-none d-flex">
+                    <button class="navbar-toggler shadow-none border-0 p-0" type="button">
+                        <span class="navbar-toggler-icon" data-bs-toggle="offcanvas" data-bs-target="#menuBar_mobile" aria-controls="menuBar_mobile"></span>
+                    </button>
+                </div>
             </div>
             <div class="content_wrapper d-flex" id="pta_content">
 
@@ -359,6 +400,13 @@
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".menu_item_mobile").forEach(item => {
+                item.addEventListener("click", () => {
+                    document.getElementById("mobile_menu_close").click();
+                });
+            });
+        });
     </script>
     <script type="module" src="../../Js/dashboard/dashboard.js"></script>
     <script type="module" src="../../Js/dashboard/challenges.js"></script>
