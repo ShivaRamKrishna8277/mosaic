@@ -61,7 +61,7 @@ $(document).ready(function(){
         var light_src = '../../assets/icons/'+clickedIcon.data('icon')+'.svg';
         clickedIcon.attr('src', light_src);
 
-        $('#pta_content').load(file, function(response, status, xhr){
+        $('#pta_content').load(file, function(status){
             if(status == "error"){
                 $('#pta_content').html("<p>Sorry, an error occurred: </p>");
             } else {

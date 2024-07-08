@@ -25,6 +25,10 @@ function readChallengesData() {
     gridBody.innerHTML = '';
     if(grid_loader) gridBody.appendChild(grid_loader);
     if(grid_noChallenges) gridBody.appendChild(grid_noChallenges);
+    
+    if(window.innerWidth<1112){
+        appendGridContent();
+    }
 
     get(challRef)
         .then((allChallengesSnapshot) => {
@@ -185,6 +189,7 @@ function displayChallenges(allChallenges, enrolledChallengeIds) {
         
         gridBody.appendChild(card);
     });
+    
     if(window.innerWidth<1112){
         appendGridContent();
     }
@@ -194,8 +199,9 @@ function displayChallenges(allChallenges, enrolledChallengeIds) {
     $('.loader_row').hide();
     $('.grid_loader').hide();
 }
-
 function appendGridContent(){
+    $('.grid_loader').hide();
+    $('#grid_noChallenges').hide();
     const grid_content_container = document.querySelector(".all_challenges_grid_container");
     grid_content_container.appendChild(gridBody);
 }
@@ -287,6 +293,17 @@ function filterChallengesByCategory(categoryName) {
             challengeRow.css('display', 'none');
         }
     });
+    if(window.innerWidth<=1112){
+        $('.card_category').each(function() {
+            var category = $(this).text();
+            var challengeCard = $(this).closest('.challenge_card');
+            if (category === categoryName || categoryName === 'All') {
+                challengeCard.css('display', 'block');
+            } else {
+                challengeCard.css('display', 'none');
+            }
+        });        
+    }
     // Call countVisibleRows function after displaying
     countVisibleRows(0);
 }
@@ -298,20 +315,20 @@ function countVisibleRows(reduce = 0) {
     if (window.innerWidth > 1112) {
         visibleRows = $('#all_challenges_body tr:visible').length - reduce;
     } else {
-        visibleRows = $('.challenge_card').length;
+        visibleRows = $('.challenge_card:visible').length;
     }
     document.getElementById("challenges_count").textContent = visibleRows;
-    if (visibleRows === 0 && window.innerWidth>1112) {
+    if (visibleRows === 0 && window.innerWidth > 1112) {
         $('#noChallenges').show();
-    } else {
+        $('#grid_noChallenges').hide();
+    } else if(visibleRows === 0 && window.innerWidth <= 1112) {
+        $('#grid_noChallenges').show();
+        $('#noChallenges').hide();
+    } else{
+        $('#grid_noChallenges').hide();
         $('#noChallenges').hide();
     }
-
-    if(visibleRows === 0 && window.innerWidth<1112){
-        $('#grid_noChallenges').show();
-    }else{
-        $('#grid_noChallenges').hide();
-    }
+    
 }
 window.addEventListener('resize', () => {
     countVisibleRows();
