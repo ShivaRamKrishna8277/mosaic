@@ -1,6 +1,28 @@
 #settings_content_wrapper::-webkit-scrollbar{
     width: 0px !important;
 }
+.personal_info_wrapper, .other_info_wrapper{
+    width: 50%;
+}
+@media(max-width:820px){
+    .settings_body{
+        flex-direction: column;
+    }
+}
+@media(max-width:820px){
+    .personal_info_wrapper{
+        width: 100%;
+    }
+    .other_info_wrapper{
+        width: 100%;
+    }
+    .profile_img_wrapper, .profile_photo_btns_wrapper{
+        text-align: center;
+    }
+    .profile_img_wrapper img{
+        margin-bottom: 20px;
+    }
+}
 
 /* settings header */
 .header_title{
@@ -42,6 +64,18 @@
 }
 
 /* profile photo */
+@media(max-width:1228px){
+    .profile_photo_content{
+        flex-direction: column;
+        margin-top: 20px !important;
+    }
+    .profile_img_wrapper, .profile_photo_btns_wrapper{
+        text-align: center;
+    }
+    .profile_img_wrapper img{
+        margin-bottom: 20px;
+    }
+}
 .profile_img_wrapper{
     width: 200px;
 }
@@ -86,10 +120,11 @@
     display: inline-block;
     text-align: left;
     background: #f8f8f8;
-    width: 450px;
+    width: 320px;
     margin-bottom: 15px;
     position: relative;
     border-radius: 3px;
+    overflow: hidden;
 }
 .file-input > [type='file'] {
     position: absolute;
@@ -114,9 +149,14 @@
     color: white;
 }
 .file-input > .label {
+    display: inline-block;
     color: #333;
     white-space: nowrap;
-    opacity: .3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width:65%;
+    position: absolute;
+    top: 8px;
 }
 .file-input.-chosen > .label {
     opacity: 1;
