@@ -1,9 +1,32 @@
 import { db, get, ref } from "../../firebase.js";
 
+// Parse user information from localStorage
+const user = JSON.parse(localStorage.getItem('user'));
+const completed_grid_body = document.createElement('div');
+completed_grid_body.classList.add('completed_grid','grid');
+let is_smaller_screen;
+if(window.innerWidth>1112){
+    is_smaller_screen = false;
+}else{
+    is_smaller_screen = true;
+}
+
+function appendGridContent(){
+    $('#completed_grid_loader').hide();
+    $('#completed_grid_no_challenges').hide();
+    const completed_grid_container = document.querySelector('.completed_grid_container');
+    completed_grid_container.appendChild(completed_grid_body);
+}
+
+// display completed challenges
 function readSubmissionsData() {
-    // Parse user information from localStorage
-    const user = JSON.parse(localStorage.getItem('user'));
     const tableBody = document.getElementById('completed_challenges_body');
+    const noCompletedChallengesRow = document.getElementById('noCompletedChallenges');
+    const noCompletedChallengesGrid = document.getElementById('completed_grid_no_challenges');
+    
+    if(!is_smaller_screen){
+        appendGridContent();
+    }
 
     if (user) {
         // Construct the reference path to the completedChallenges array
@@ -25,7 +48,11 @@ function readSubmissionsData() {
                         return { completedChallenges, allChallenges };
                     });
                 } else {
-                    $("#noCompletedChallenges").show();
+                    if(is_smaller_screen){
+                        noCompletedChallengesGrid.style.display = 'block'
+                    }else{
+                        noCompletedChallengesRow.style.display = 'table-row';
+                    }
                     updateCount(0);
                     return { completedChallenges: [], allChallenges: [] };
                 }
@@ -47,7 +74,11 @@ function readSubmissionsData() {
                 const filteredChallenges = allChallenges.filter((challenge) => completedChallengesMap.hasOwnProperty(challenge.id));
 
                 if (filteredChallenges.length === 0) {
-                    $("#noCompletedChallenges").show();
+                    if(is_smaller_screen){
+                        noCompletedChallengesGrid.style.display = 'block'
+                    }else{
+                        noCompletedChallengesRow.style.display = 'table-row';
+                    }
                 } else {
                     // Display the filtered challenges
                     filteredChallenges.forEach((data) => {
@@ -78,10 +109,10 @@ function readSubmissionsData() {
                         descCell.appendChild(descCellSpan);
                         row.appendChild(descCell);
 
-                        const endsOnCell = document.createElement('td');
-                        endsOnCell.classList.add('endson_col');
-                        endsOnCell.textContent = data.endsOn || '';
-                        row.appendChild(endsOnCell);
+                        const mobile_statusCell = document.createElement('td');
+                        mobile_statusCell.classList.add('status_col');
+                        mobile_statusCell.textContent = data.mobile_status || '';
+                        row.appendChild(mobile_statusCell);
 
                         // Create reward cell with dynamic class
                         const rewardCell = document.createElement('td');
@@ -108,9 +139,69 @@ function readSubmissionsData() {
                         row.appendChild(statusCell);
 
                         tableBody.appendChild(row);
+
+                        // card
+                        const card = document.createElement('div');
+                        card.classList.add('challenge_card');
+                        card.classList.add('completed_card');
+                        const card_upper = document.createElement('div');
+                        card_upper.classList.add('card_upper');
+
+                        // create card elements
+                        const card_header = document.createElement('div');
+                        card_header.classList.add('card_header');
+                        const card_categoryCell = document.createElement('p');
+                        if(data.category){
+                            const firstWord = data.category.split(' ')[0];
+                            card_categoryCell.classList.add('card_category', firstWord);
+                            card_categoryCell.textContent = data.category || '';
+                        }
+                        card_header.appendChild(card_categoryCell);
+                        const card_difficultyCell = document.createElement('p');
+                        card_difficultyCell.classList.add('card_difficulty');
+                        if (data.difficulty) {
+                            card_difficultyCell.classList.add(data.difficulty);
+                            card_difficultyCell.textContent = data.difficulty || '';
+                        }
+                        card_header.appendChild(card_difficultyCell);
+                        card_upper.appendChild(card_header);
+
+                        const mobile_card_title = document.createElement('p');
+                        mobile_card_title.classList.add('mobile_card_title');
+                        mobile_card_title.textContent = data.title || '';
+                        card_upper.appendChild(mobile_card_title);
+
+                        const mobile_card_desc = document.createElement('p');
+                        mobile_card_desc.classList.add('mobile_card_desc');
+                        mobile_card_desc.textContent = data.description || '';
+                        card_upper.appendChild(mobile_card_desc);
+                        card.appendChild(card_upper);
+
+                        const resultWrapper = document.createElement('div');
+                        resultWrapper.classList.add('result_wrapper');
+                        
+                        const statusWrapper = document.createElement('div');
+                        statusWrapper.classList.add('status_wrapper');
+                        const mobile_statusTitle = document.createElement('p');
+                        mobile_statusTitle.classList.add('result_title');
+                        mobile_statusTitle.textContent = 'Status:';
+                        const mobile_statusContent = document.createElement('p');
+                        mobile_statusContent.classList.add('result_content', completedChallengesMap?.[data.id]?.status);
+                        mobile_statusContent.textContent = `${completedChallengesMap?.[data.id]?.status} (${completedChallengesMap?.[data.id]?.reward})`;
+                        // Append elements
+                        statusWrapper.appendChild(mobile_statusTitle);
+                        statusWrapper.appendChild(mobile_statusContent);
+                        resultWrapper.appendChild(statusWrapper);
+                        card.appendChild(resultWrapper);
+                        
+                        completed_grid_body.appendChild(card);
                         visibleRowsCount++;
                     });
+                    if(window.innerWidth<1112){
+                        appendGridContent();
+                    }
                 }
+                $('#completed_grid_loader').hide();
                 $('.loader_row').hide();
                 updateCount(visibleRowsCount);
             })

@@ -3,7 +3,7 @@ import { db, get, ref, update } from "../../firebase.js";
 import { showResultModal } from "./dashboard.js";
 const user = JSON.parse(localStorage.getItem('user'));
 const gridBody = document.createElement('div');
-gridBody.classList.add('all_challenges_grid');
+gridBody.classList.add('all_challenges_grid','grid');
 
 // Display all challenges
 function readChallengesData() {
@@ -62,6 +62,8 @@ function displayChallenges(allChallenges, enrolledChallengeIds) {
             return; // Skip displaying this challenge if it is in the enrolled challenges list
         }
         const row = document.createElement('tr');
+        row.classList.add("table_data_row");
+        
         // Create category cell with dynamic span classes for table
         const categoryCell = document.createElement('td');
         categoryCell.classList.add('category_col');
@@ -328,7 +330,6 @@ function countVisibleRows(reduce = 0) {
         $('#grid_noChallenges').hide();
         $('#noChallenges').hide();
     }
-    
 }
 window.addEventListener('resize', () => {
     countVisibleRows();

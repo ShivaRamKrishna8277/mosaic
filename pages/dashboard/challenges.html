@@ -83,19 +83,34 @@
 <script>
     // Function to filter challenges based on search input
     function filterChallengesByKeyword(keyword) {
-        $('#all_challenges_body tr').each(function() {
-            var title = $(this).find('.title_content').text().toLowerCase();
-            if (title.includes(keyword.toLowerCase())) {
-                $(this).show();
-                $('#noChallenges').hide();
-                $('.loader_row').hide();
-            } else {
-                $(this).hide();
-            }
-        });
+        if(window.innerWidth > 1112){
+            $('#all_challenges_body tr').each(function() {
+                var title = $(this).find('.title_content').text().toLowerCase();
+                if (title.includes(keyword.toLowerCase())) {
+                    $(this).show();
+                    $('#noChallenges').hide();
+                    $('.loader_row').hide();
+                } else {
+                    $(this).hide();
+                }
+            });
+        }else{
+            console.log("small screen")
+            $('.challenge_card').each(function() {
+                var card_title = $(this).find('.mobile_card_title').text().toLocaleLowerCase();
+                if(card_title.includes(keyword.toLocaleLowerCase())){
+                    console.log($(this));
+                    $(this).show();
+                    $('.grid_loader').hide();
+                    $('#grid_noChallenges').hide();
+                }else{
+                    $(this).hide();
+                }
+            });
+        }
     
         // Call countVisibleRows function after filtering
-        var VisibleRows = countVisibleRows();
+        var VisibleRows = countVisibleRows(0);
         $('#challenges_count').text(VisibleRows);
     }
     
@@ -106,8 +121,23 @@
     });
 
     // count countVisibleRows
-    function countVisibleRows() {
-        var visibleRows = $('#all_challenges_body tr:visible').length;
+    function countVisibleRows(reduce) {
+        let visibleRows = 0;
+        if (window.innerWidth > 1112) {
+            visibleRows = $('#all_challenges_body tr:visible').length - reduce;
+        } else {
+            visibleRows = $('.challenge_card:visible').length;
+        }
+        if (visibleRows === 0 && window.innerWidth > 1112) {
+            $('#noChallenges').show();
+            $('#grid_noChallenges').hide();
+        } else if(visibleRows === 0 && window.innerWidth <= 1112) {
+            $('#grid_noChallenges').show();
+            $('#noChallenges').hide();
+        } else{
+            $('#grid_noChallenges').hide();
+            $('#noChallenges').hide();
+        }
         return(visibleRows);
     }
 

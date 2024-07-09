@@ -3,10 +3,30 @@ import { db, get, ref } from "../../firebase.js";
 
 // Parse user information from localStorage
 const user = JSON.parse(localStorage.getItem('user'));
+const pending_grid_body = document.createElement('div');
+pending_grid_body.classList.add('pending_grid','grid');
+let is_smaller_screen;
+if(window.innerWidth>1112){
+    is_smaller_screen = false;
+}else{
+    is_smaller_screen = true;
+}
 
+function appendGridContent(){
+    $('#pending_grid_loader').hide();
+    $('#pending_grid_no_challenges').hide();
+    const pending_grid_container = document.querySelector('.pending_grid_container');
+    pending_grid_container.appendChild(pending_grid_body);
+}
 // display pending challenges
 function readPendingData() {
     const tableBody = document.getElementById('pending_challenges_body');
+    const noPendingChallengesRow = document.getElementById('noPendingChallenges');
+    const noPendingChallengesGrid = document.getElementById('pending_grid_no_challenges');
+
+    if(!is_smaller_screen){
+        appendGridContent();
+    }
 
     if (user) {
         // Construct the reference path to the pendingChallenges array
@@ -28,7 +48,11 @@ function readPendingData() {
                         return { pendingChallenges, allChallenges };
                     });
                 } else {
-                    $("#noPendingChallenges").show();
+                    if(is_smaller_screen){
+                        noPendingChallengesGrid.style.display = 'block'
+                    }else{
+                        noPendingChallengesRow.style.display = 'table-row';
+                    }
                     updateCount(0);
                     return { pendingChallenges: [], allChallenges: [] };
                 }
@@ -36,6 +60,7 @@ function readPendingData() {
             .then(({ pendingChallenges, allChallenges }) => {
                 // Initialize visibleRowsCount within the scope of the .then block
                 let visibleRowsCount = 0;
+                pending_grid_body.innerHTML = '';
 
                 // Convert pendingChallenges object into an array
                 const pendingChallengesArray = Object.values(pendingChallenges);
@@ -50,7 +75,11 @@ function readPendingData() {
                 const filteredChallenges = allChallenges.filter((challenge) => pendingChallengesMap.hasOwnProperty(challenge.id));
 
                 if (filteredChallenges.length === 0) {
-                    $("#noPendingChallenges").show();
+                    if(is_smaller_screen){
+                        noPendingChallengesGrid.style.display = 'block'
+                    }else{
+                        noPendingChallengesRow.style.display = 'table-row';
+                    }
                 } else {
                     // Display the filtered challenges
                     filteredChallenges.forEach((data) => {
@@ -105,9 +134,70 @@ function readPendingData() {
                         row.appendChild(actionCell);
 
                         tableBody.appendChild(row);
+
+                        // card
+                        const card = document.createElement('div');
+                        card.classList.add('challenge_card');
+                        // create card elements
+                        const card_header = document.createElement('div');
+                        card_header.classList.add('card_header');
+                        const card_categoryCell = document.createElement('p');
+                        if(data.category){
+                            const firstWord = data.category.split(' ')[0];
+                            card_categoryCell.classList.add('card_category', firstWord);
+                            card_categoryCell.textContent = data.category || '';
+                        }
+                        card_header.appendChild(card_categoryCell);
+                        const card_difficultyCell = document.createElement('p');
+                        card_difficultyCell.classList.add('card_difficulty');
+                        if (data.difficulty) {
+                            card_difficultyCell.classList.add(data.difficulty);
+                            card_difficultyCell.textContent = data.difficulty || '';
+                        }
+                        card_header.appendChild(card_difficultyCell);
+                        card.appendChild(card_header);
+
+                        const mobile_card_title = document.createElement('p');
+                        mobile_card_title.classList.add('mobile_card_title');
+                        mobile_card_title.textContent = data.title || '';
+                        card.appendChild(mobile_card_title);
+
+                        const mobile_card_desc = document.createElement('p');
+                        mobile_card_desc.classList.add('mobile_card_desc');
+                        mobile_card_desc.textContent = data.description || '';
+                        card.appendChild(mobile_card_desc);
+
+                        const timeframeWrapper = document.createElement('div');
+                        timeframeWrapper.classList.add('timeframe_wrapper');
+                        const endsonWrapper = document.createElement('div');
+                        endsonWrapper.classList.add('endson_wrapper');
+                        const endsOnTitle = document.createElement('p');
+                        endsOnTitle.classList.add('timeframe_title');
+                        endsOnTitle.textContent = 'Ends On:';
+                        const endsOnContent = document.createElement('p');
+                        endsOnContent.classList.add('timeframe_content');
+                        endsOnContent.id = 'card_EndsOn';
+                        endsOnContent.textContent = data.endsOn || ''; // Initial data
+                        // Append elements
+                        endsonWrapper.appendChild(endsOnTitle);
+                        endsonWrapper.appendChild(endsOnContent);
+                        timeframeWrapper.appendChild(endsonWrapper);
+                        card.appendChild(timeframeWrapper);
+
+                        const card_action_btn = document.createElement('div');
+                        card_action_btn.classList.add('card_view_more_btn');
+                        card_action_btn.innerHTML = '<span>View More</span><img src="../../assets/icons/arrow_icon.png" alt="" class="arrow_icon">';
+                        card.addEventListener("click", () => showChallengeStatusModal(data));
+                        card.appendChild(card_action_btn);
+                        
+                        pending_grid_body.appendChild(card);
                         visibleRowsCount++;
                     });
+                    if(window.innerWidth<1112){
+                        appendGridContent();
+                    }
                 }
+                $('#pending_grid_loader').hide();
                 $('.loader_row').hide();
                 updateCount(visibleRowsCount);
             })

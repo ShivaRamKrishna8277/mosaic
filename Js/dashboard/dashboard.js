@@ -85,7 +85,11 @@ $(document).ready(function(){
         updateUserdata(user.id);
     }
     // Trigger the click on the first menu item to load its content on page load
-    $('.menu_item').eq(0).click();
+    if(window.innerWidth > 1112){
+        $('.menu_item').eq(6).click();
+    }else{
+        $('.menu_item').eq(3).click();
+    }
 });
 
 // Function to show the result modal with animation
