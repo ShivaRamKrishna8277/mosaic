@@ -182,7 +182,9 @@ main{
     border-bottom: 1px solid #ededed;
     padding-bottom: 20px;
 }
-
+.challenges_content{
+    height: 77vh !important;
+}
 
 /* status bar */
 .content_statusbar{
