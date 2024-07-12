@@ -99,6 +99,7 @@ $(document).ready(() => {
                         linkedIn: "",
                         gitHub: "",
                         instagram: "",
+                        xp:"0",
                         completedChallenges: [
                             {"count": 0}
                         ],

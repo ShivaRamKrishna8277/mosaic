@@ -42,8 +42,54 @@ async function readUserData() {
     if (user) {
         await updateUserdata(user.id);
         const updatedUser = JSON.parse(localStorage.getItem('user'));
+        let next_badge;
+        let current_badge;
+        let next_badge_goal_points;
+        let progress_width;
+        if(updatedUser.xp >= 0){
+            if(updatedUser.xp>=0 && updatedUser.xp<499){
+                current_badge = 'bronze';
+                next_badge = 'silver';
+                next_badge_goal_points = 500;
+            }else if(updatedUser.xp >= 499 && updatedUser.xp <= 1999){
+                current_badge = 'silver';
+                next_badge = 'gold';
+                next_badge_goal_points = 2000;
+            }else if(updatedUser.xp > 1999 && updatedUser.xp <= 4999){
+                current_badge = 'gold';
+                next_badge = 'expert';
+                next_badge_goal_points = 5000;
+            }else if(updatedUser.xp > 4999){
+                current_badge = 'expert';
+                next_badge = 'expert';
+                next_badge_goal_points = 5000;
+            }else{
+                next_badge = 'silver';
+                current_badge = 'bronze';
+            }
+            progress_width = (updatedUser.xp/next_badge_goal_points)*100;
+        }
 
         // Populate personal info fields using vanilla JavaScript
+        if(updatedUser.xp >= 0){
+            $('#badge_img').attr('src', `../../assets/icons/${current_badge}_medal.svg`);
+            $('#profile_badge').attr('src', `../../assets/icons/${current_badge}_medal.svg`);
+            document.getElementById('badge_title').textContent = current_badge;
+            document.getElementById('current_xp').textContent = `${updatedUser.xp} xp`;
+            document.getElementById('goal_xp').textContent = `${next_badge_goal_points} xp`;
+            document.getElementById('goal_points').textContent = next_badge_goal_points - updatedUser.xp;
+            document.getElementById('next_badge').textContent = next_badge;
+            const element = document.getElementById('badge_progress_inner');
+            element.style.setProperty('--progress-width', `${progress_width}%`);
+            element.classList.add('important-width');
+            if(updatedUser.xp>4999){
+                document.querySelector('.badge_next_goal_points').style.display = 'none';
+                document.querySelector('.expert_message').style.display = 'block';
+            }else{
+                document.querySelector('.badge_next_goal_points').style.display = 'block';
+                document.querySelector('.expert_message').style.display = 'none';
+            }
+        }
         if (updatedUser.name) {
             document.getElementById('fullname').value = updatedUser.name;
         }

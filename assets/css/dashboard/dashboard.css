@@ -624,3 +624,28 @@ td{
 .modal-body hr{
     opacity: .2;
 }
+
+/* badge modal */
+.badge_img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+.badge_title{
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--fivehun);
+    margin: 10px 0 8px 0;
+}
+.badge_points_range{
+    font-size: .7rem;
+    font-weight: 500;
+    opacity: .5;
+}
+.badge_diff_line{
+    height: 2px;
+    width: 100px;
+    border: none;
+    border-top: 2px dashed var(--fivehun);
+    margin: 0 10px;
+}

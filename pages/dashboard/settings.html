@@ -12,50 +12,77 @@
             </div>
         </div>
         <div class="settings_body d-flex gap-5" style="margin-bottom: 100px;">
-            <div class="personal_info_wrapper">
-                <p class="section_title">Personal Info</p>
-                <form id="personal_info_form">
-                    <div class="mt-3">
-                        <label for="" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="fullname" value="">
-                    </div>
-                    <div class="mt-3">
-                        <label for="" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="emial_address" value="">
-                    </div>
-                    <div class="mt-3">
-                        <label for="" class="form-label">Mobile Number</label>
-                        <input type="tel" class="form-control" id="mobile_number" value="">
-                    </div>
-                    <div class="mt-3">
-                        <label for="" class="form-label">User Name</label>
-                        <input type="text" class="form-control" id="username" value="">
-                    </div>
-                    <div class="mt-3">
-                        <label for="" class="form-label">District</label>
-                        <input type="text" class="form-control" id="district" value="">
-                    </div>
-                    <div class="mt-3">
-                        <label for="" class="form-label">State</label>
-                        <input type="text" class="form-control" id="State" value="">
-                    </div>
-                    <div class="mt-3">
-                        <label for="" class="form-label">Pin Code</label>
-                        <input type="number" class="form-control" id="pincode" value="">
-                    </div>
-                </form>
-            </div>
-            <div class="other_info_wrapper">
+            <div class="badge_and_personal_info">
                 <div class="profile_photo_wrapper mb-5">
                     <p class="section_title">Profile Photo</p>
                     <div class="profile_photo_content d-flex mt-4 align-items-center">
                         <div class="profile_img_wrapper">
                             <img src="../../assets/images/default_profile_img.png" alt="" id="profile_img" class="bg-white" data-bs-toggle="modal" data-bs-target="#profilePhoto_Modal">
+                            <img src="../../assets/icons/default_badge.png" alt="" id="profile_badge">
                         </div>
                         <div class="profile_photo_btns_wrapper flex-grow-1" id="profile_photo_btns_wrapper">
                             <p class="section_title mb-2 opacity-50" id="image_title">Edit your photo</p>
                             <p class="profile_photo_btns" id="show_upload_btn">Change Photo</p>
                         </div>                        
+                    </div>
+                </div>
+                <div class="personal_info_wrapper w-100">
+                    <p class="section_title">Personal Info</p>
+                    <form id="personal_info_form">
+                        <div class="mt-3">
+                            <label for="" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullname" value="">
+                        </div>
+                        <div class="mt-3">
+                            <label for="" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="emial_address" value="">
+                        </div>
+                        <div class="mt-3">
+                            <label for="" class="form-label">Mobile Number</label>
+                            <input type="tel" class="form-control" id="mobile_number" value="">
+                        </div>
+                        <div class="mt-3">
+                            <label for="" class="form-label">User Name</label>
+                            <input type="text" class="form-control" id="username" value="">
+                        </div>
+                        <div class="mt-3">
+                            <label for="" class="form-label">District</label>
+                            <input type="text" class="form-control" id="district" value="">
+                        </div>
+                        <div class="mt-3">
+                            <label for="" class="form-label">State</label>
+                            <input type="text" class="form-control" id="State" value="">
+                        </div>
+                        <div class="mt-3">
+                            <label for="" class="form-label">Pin Code</label>
+                            <input type="number" class="form-control" id="pincode" value="">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="other_info_wrapper">
+                <div class="badge_photo_wrapper mb-5">
+                    <p class="section_title">Badge</p>
+                    <div class="badge_photo_content d-flex mt-4 align-items-center">
+                        <div class="badge_img_wrapper">
+                            <img src="../../assets/icons/default_badge.png" alt="badge" id="badge_img" class="bg-white img-fluid">
+                        </div> 
+                        <div class="badge_text_content flex-grow-1">
+                            <p id="badge_title_wrapper"><span id="badge_title">--</span><img src="../../assets/icons/info.png" alt="" id="badge_info_btn"  data-bs-toggle="modal" data-bs-target="#badgeModal"></p>
+                            <div class="badge_progress_container">
+                                <div class="badge_progress_wrapper">
+                                    <div class="badge_progress_outer badge_progress_line">
+                                        <div class="badge_progress_line badge-progress" id="badge_progress_inner"></div>
+                                    </div>
+                                </div>
+                                <div class="badge_progress_range">
+                                    <p id="current_xp" class="badge_range_text">--</p>
+                                    <p id="goal_xp" class="badge_range_text">--</p>
+                                </div>
+                            </div>
+                            <p class="badge_next_goal_points">Earn <span id="goal_points"></span> xp more to achieve <span id="next_badge"></span> Badge.</p>
+                            <p class="expert_message">Bravo! You've achieved the Expert badge and are now among the elite!</p>
+                        </div>                     
                     </div>
                 </div>
                 <div class="social_links_wrapper">
