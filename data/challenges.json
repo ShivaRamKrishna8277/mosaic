@@ -8,7 +8,7 @@
         "endsOn": "2024-06-07",
         "difficulty": "Medium",
         "tools": ["Google Analytics", "Ahrefs", "Moz"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -20,7 +20,7 @@
         "endsOn": "2024-06-10",
         "difficulty": "Hard",
         "tools": ["Dragonframe", "Adobe After Effects"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -32,7 +32,7 @@
         "endsOn": "2024-06-03",
         "difficulty": "Medium",
         "tools": ["Audacity", "Adobe Audition"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -44,7 +44,7 @@
         "endsOn": "2024-06-14",
         "difficulty": "Hard",
         "tools": ["Python", "Pandas", "Tableau"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -56,7 +56,7 @@
         "endsOn": "2024-06-04",
         "difficulty": "Medium",
         "tools": ["Adobe Premiere Pro", "Final Cut Pro"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -68,7 +68,7 @@
         "endsOn": "2024-06-08",
         "difficulty": "Medium",
         "tools": ["Adobe Photoshop", "Adobe Illustrator"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -80,7 +80,7 @@
         "endsOn": "2024-06-02",
         "difficulty": "Medium",
         "tools": ["Python", "Beautiful Soup", "Selenium"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["CodePen link"]
     },
     {
@@ -92,7 +92,7 @@
         "endsOn": "2024-06-09",
         "difficulty": "Medium",
         "tools": ["Google Docs", "Grammarly"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Docs link"]
     },
     {
@@ -104,7 +104,7 @@
         "endsOn": "2024-06-11",
         "difficulty": "Medium",
         "tools": ["SEMrush", "Ahrefs", "Google Analytics"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -116,7 +116,7 @@
         "endsOn": "2024-06-15",
         "difficulty": "Hard",
         "tools": ["Adobe After Effects", "Toon Boom Harmony"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -128,7 +128,7 @@
         "endsOn": "2024-06-17",
         "difficulty": "Medium",
         "tools": ["FL Studio", "Ableton Live"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -140,7 +140,7 @@
         "endsOn": "2024-06-13",
         "difficulty": "Hard",
         "tools": ["Adobe Premiere Pro", "DaVinci Resolve"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -152,7 +152,7 @@
         "endsOn": "2024-06-18",
         "difficulty": "Hard",
         "tools": ["Adobe Illustrator", "Sketch"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -164,7 +164,7 @@
         "endsOn": "2024-06-19",
         "difficulty": "Hard",
         "tools": ["Python", "TensorFlow", "Dialogflow"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["CodePen link"]
     },
     {
@@ -176,7 +176,7 @@
         "endsOn": "2024-06-07",
         "difficulty": "Medium",
         "tools": ["Google Analytics", "Ahrefs", "Moz"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -188,7 +188,7 @@
         "endsOn": "2024-06-10",
         "difficulty": "Hard",
         "tools": ["Dragonframe", "Adobe After Effects"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -200,7 +200,7 @@
         "endsOn": "2024-06-03",
         "difficulty": "Medium",
         "tools": ["Audacity", "Adobe Audition"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -212,7 +212,7 @@
         "endsOn": "2024-06-14",
         "difficulty": "Hard",
         "tools": ["Python", "Pandas", "Tableau"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -224,7 +224,7 @@
         "endsOn": "2024-06-04",
         "difficulty": "Medium",
         "tools": ["Adobe Premiere Pro", "Final Cut Pro"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -236,7 +236,7 @@
         "endsOn": "2024-06-08",
         "difficulty": "Medium",
         "tools": ["Adobe Photoshop", "Adobe Illustrator"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -248,7 +248,7 @@
         "endsOn": "2024-06-02",
         "difficulty": "Medium",
         "tools": ["Python", "Beautiful Soup", "Selenium"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["CodePen link"]
     },
     {
@@ -260,7 +260,7 @@
         "endsOn": "2024-06-09",
         "difficulty": "Medium",
         "tools": ["Google Docs", "Grammarly"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Docs link"]
     },
     {
@@ -272,7 +272,7 @@
         "endsOn": "2024-06-11",
         "difficulty": "Medium",
         "tools": ["SEMrush", "Ahrefs", "Google Analytics"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -284,7 +284,7 @@
         "endsOn": "2024-06-15",
         "difficulty": "Hard",
         "tools": ["Adobe After Effects", "Toon Boom Harmony"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -296,7 +296,7 @@
         "endsOn": "2024-06-17",
         "difficulty": "Medium",
         "tools": ["FL Studio", "Ableton Live"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -308,7 +308,7 @@
         "endsOn": "2024-06-13",
         "difficulty": "Hard",
         "tools": ["Adobe Premiere Pro", "DaVinci Resolve"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -320,7 +320,7 @@
         "endsOn": "2024-06-18",
         "difficulty": "Hard",
         "tools": ["Adobe Illustrator", "Sketch"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["Google Drive link"]
     },
     {
@@ -332,7 +332,7 @@
         "endsOn": "2024-06-19",
         "difficulty": "Hard",
         "tools": ["Python", "TensorFlow", "Dialogflow"],
-        "reward": "₹0",
+        "reward": 40,
         "submissionMethod": ["CodePen link"]
     }
 ]
