@@ -1,338 +1,801 @@
 [
     {
-        "id": "SEO001",
-        "category": "SEO",
-        "title": "Improve Organic Search Ranking for a Local Business Website",
-        "description": "Analyze the website of a local business and suggest optimization strategies to improve its ranking in local search results for relevant keywords.",
-        "postedOn": "2024-05-22",
-        "endsOn": "2024-06-07",
-        "difficulty": "Medium",
-        "tools": ["Google Analytics", "Ahrefs", "Moz"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "ANI001",
-        "category": "Animation",
-        "title": "Create a Short Stop-Motion Animation Video",
-        "description": "Develop a creative stop-motion animation video using everyday objects or provided materials. Tell a short story or showcase a product using this technique.",
-        "postedOn": "2024-05-23",
-        "endsOn": "2024-06-10",
-        "difficulty": "Hard",
-        "tools": ["Dragonframe", "Adobe After Effects"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "MUS001",
-        "category": "Music & Audio",
-        "title": "Produce a Podcast Intro and Outro Sequence",
-        "description": "Compose and produce a short intro and outro sequence with sound effects and music for a new podcast series. Consider branding and target audience.",
-        "postedOn": "2024-05-20",
-        "endsOn": "2024-06-03",
-        "difficulty": "Medium",
-        "tools": ["Audacity", "Adobe Audition"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "DATA001",
-        "category": "Data Analysis",
-        "title": "Clean and Analyze a Dataset for Marketing Insights",
-        "description": "Take a messy dataset provided for a marketing campaign and clean it for analysis. Then, identify key trends and insights to inform marketing strategies.",
-        "postedOn": "2024-05-24",
-        "endsOn": "2024-06-14",
-        "difficulty": "Hard",
-        "tools": ["Python", "Pandas", "Tableau"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "VID001",
-        "category": "Video Editing",
-        "title": "Edit Together Interview Footage for a Documentary",
-        "description": "Edit and compile interview footage from various sources to create a cohesive and engaging segment for a documentary film.",
-        "postedOn": "2024-05-21",
-        "endsOn": "2024-06-04",
-        "difficulty": "Medium",
-        "tools": ["Adobe Premiere Pro", "Final Cut Pro"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "GD001",
+        "id": "GD102",
         "category": "Graphic Design",
-        "title": "Design Social Media Posts for a Product Launch Campaign",
-        "description": "Develop a series of visually appealing social media posts promoting the launch of a new product. Ensure brand alignment and clear messaging.",
-        "postedOn": "2024-05-22",
-        "endsOn": "2024-06-08",
-        "difficulty": "Medium",
-        "tools": ["Adobe Photoshop", "Adobe Illustrator"],
+        "title": "Create a Social Media Post",
+        "description": "Design a visually appealing social media post for a fictional event.",
+        "difficulty": "Easy",
+        "tools": [
+            "Canva",
+            "Adobe Photoshop"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
         "reward": 40,
-        "submissionMethod": ["Google Drive link"]
+        "submissionMethod": [
+            "Google Drive link"
+        ]
     },
     {
-        "id": "PRG001",
-        "category": "Programming",
-        "title": "Build a Simple Web Scraper to Extract Data from a Website",
-        "description": "Develop a program that can extract specific data from a website. Ensure responsible scraping practices and focus on data collection efficiency.",
-        "postedOn": "2024-05-20",
-        "endsOn": "2024-06-02",
-        "difficulty": "Medium",
-        "tools": ["Python", "Beautiful Soup", "Selenium"],
+        "id": "GD103",
+        "category": "Graphic Design",
+        "title": "Design a Business Card",
+        "description": "Create a business card design for a fictional company.",
+        "difficulty": "Easy",
+        "tools": [
+            "Adobe Illustrator",
+            "Canva"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
         "reward": 40,
-        "submissionMethod": ["CodePen link"]
+        "submissionMethod": [
+            "Google Drive link"
+        ]
     },
     {
-        "id": "WRT001",
+        "id": "WRT202",
         "category": "Writing & Editing",
-        "title": "Write Engaging Blog Content on a Technical Subject",
-        "description": "Craft informative and engaging blog content on a technical topic, explaining the subject matter in a clear and concise way for a general audience.",
-        "postedOn": "2024-05-23",
-        "endsOn": "2024-06-09",
+        "title": "Write a Product Review",
+        "description": "Write a detailed and unbiased review of a tech product.",
         "difficulty": "Medium",
-        "tools": ["Google Docs", "Grammarly"],
-        "reward": 40,
-        "submissionMethod": ["Google Docs link"]
+        "tools": [
+            "Google Docs",
+            "Grammarly"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
     },
     {
-        "id": "SEO002",
-        "category": "SEO",
-        "title": "Conduct a Competitor Analysis for SEO Strategy",
-        "description": "Analyze the SEO strategies of competitor websites in your niche. Identify their strengths and weaknesses to inform your own SEO approach.",
-        "postedOn": "2024-05-24",
-        "endsOn": "2024-06-11",
-        "difficulty": "Medium",
-        "tools": ["SEMrush", "Ahrefs", "Google Analytics"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "ANI002",
-        "category": "Animation",
-        "title": "Create Explainer Video with Character Animation",
-        "description": "Develop a short explainer video that uses character animation to explain a complex concept in a clear and engaging way.",
-        "postedOn": "2024-05-25",
-        "endsOn": "2024-06-15",
-        "difficulty": "Hard",
-        "tools": ["Adobe After Effects", "Toon Boom Harmony"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "MUS002",
-        "category": "Music & Audio",
-        "title": "Compose a Royalty-Free Background Music Track",
-        "description": "Create a royalty-free background music track suitable for a variety of purposes (e.g., presentations, videos) with a specific mood or genre.",
-        "postedOn": "2024-05-27",
-        "endsOn": "2024-06-17",
-        "difficulty": "Medium",
-        "tools": ["FL Studio", "Ableton Live"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "VID002",
-        "category": "Video Editing",
-        "title": "Create a Short Film Montage",
-        "description": "Compile various short film clips into a cohesive montage, demonstrating your editing skills and storytelling ability.",
-        "postedOn": "2024-05-26",
-        "endsOn": "2024-06-13",
-        "difficulty": "Hard",
-        "tools": ["Adobe Premiere Pro", "DaVinci Resolve"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "GD002",
-        "category": "Graphic Design",
-        "title": "Design a Brand Identity Package",
-        "description": "Create a comprehensive brand identity package including logo, color palette, typography, and brand guidelines for a fictional company.",
-        "postedOn": "2024-05-28",
-        "endsOn": "2024-06-18",
-        "difficulty": "Hard",
-        "tools": ["Adobe Illustrator", "Sketch"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "PRG002",
+        "id": "PRG203",
         "category": "Programming",
-        "title": "Develop a Chatbot for Customer Service",
-        "description": "Build an AI-powered chatbot that can handle basic customer service inquiries and provide relevant responses.",
-        "postedOn": "2024-05-29",
-        "endsOn": "2024-06-19",
-        "difficulty": "Hard",
-        "tools": ["Python", "TensorFlow", "Dialogflow"],
-        "reward": 40,
-        "submissionMethod": ["CodePen link"]
-    },
-    {
-        "id": "SEO003",
-        "category": "SEO",
-        "title": "Improve Organic Search Ranking for a Local Business Website",
-        "description": "Analyze the website of a local business and suggest optimization strategies to improve its ranking in local search results for relevant keywords.",
-        "postedOn": "2024-05-22",
-        "endsOn": "2024-06-07",
+        "title": "Create a Chat Application",
+        "description": "Develop a simple chat application using JavaScript and WebSockets.",
         "difficulty": "Medium",
-        "tools": ["Google Analytics", "Ahrefs", "Moz"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
+        "tools": [
+            "Visual Studio Code",
+            "GitHub"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "CodePen link"
+        ]
     },
     {
-        "id": "ANI003",
-        "category": "Animation",
-        "title": "Create a Short Stop-Motion Animation Video",
-        "description": "Develop a creative stop-motion animation video using everyday objects or provided materials. Tell a short story or showcase a product using this technique.",
-        "postedOn": "2024-05-23",
-        "endsOn": "2024-06-10",
-        "difficulty": "Hard",
-        "tools": ["Dragonframe", "Adobe After Effects"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "MUS003",
-        "category": "Music & Audio",
-        "title": "Produce a Podcast Intro and Outro Sequence",
-        "description": "Compose and produce a short intro and outro sequence with sound effects and music for a new podcast series. Consider branding and target audience.",
-        "postedOn": "2024-05-20",
-        "endsOn": "2024-06-03",
-        "difficulty": "Medium",
-        "tools": ["Audacity", "Adobe Audition"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "DATA003",
-        "category": "Data Analysis",
-        "title": "Clean and Analyze a Dataset for Marketing Insights",
-        "description": "Take a messy dataset provided for a marketing campaign and clean it for analysis. Then, identify key trends and insights to inform marketing strategies.",
-        "postedOn": "2024-05-24",
-        "endsOn": "2024-06-14",
-        "difficulty": "Hard",
-        "tools": ["Python", "Pandas", "Tableau"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "VID003",
-        "category": "Video Editing",
-        "title": "Edit Together Interview Footage for a Documentary",
-        "description": "Edit and compile interview footage from various sources to create a cohesive and engaging segment for a documentary film.",
-        "postedOn": "2024-05-21",
-        "endsOn": "2024-06-04",
-        "difficulty": "Medium",
-        "tools": ["Adobe Premiere Pro", "Final Cut Pro"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "GD003",
-        "category": "Graphic Design",
-        "title": "Design Social Media Posts for a Product Launch Campaign",
-        "description": "Develop a series of visually appealing social media posts promoting the launch of a new product. Ensure brand alignment and clear messaging.",
-        "postedOn": "2024-05-22",
-        "endsOn": "2024-06-08",
-        "difficulty": "Medium",
-        "tools": ["Adobe Photoshop", "Adobe Illustrator"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "PRG003",
-        "category": "Programming",
-        "title": "Build a Simple Web Scraper to Extract Data from a Website",
-        "description": "Develop a program that can extract specific data from a website. Ensure responsible scraping practices and focus on data collection efficiency.",
-        "postedOn": "2024-05-20",
-        "endsOn": "2024-06-02",
-        "difficulty": "Medium",
-        "tools": ["Python", "Beautiful Soup", "Selenium"],
-        "reward": 40,
-        "submissionMethod": ["CodePen link"]
-    },
-    {
-        "id": "WRT002",
+        "id": "WRT203",
         "category": "Writing & Editing",
-        "title": "Write Engaging Blog Content on a Technical Subject",
-        "description": "Craft informative and engaging blog content on a technical topic, explaining the subject matter in a clear and concise way for a general audience.",
-        "postedOn": "2024-05-23",
-        "endsOn": "2024-06-09",
+        "title": "Write a Case Study",
+        "description": "Write a case study for a fictional business project.",
         "difficulty": "Medium",
-        "tools": ["Google Docs", "Grammarly"],
-        "reward": 40,
-        "submissionMethod": ["Google Docs link"]
+        "tools": [
+            "Google Docs",
+            "Grammarly"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
     },
     {
-        "id": "SEO004",
-        "category": "SEO",
-        "title": "Conduct a Competitor Analysis for SEO Strategy",
-        "description": "Analyze the SEO strategies of competitor websites in your niche. Identify their strengths and weaknesses to inform your own SEO approach.",
-        "postedOn": "2024-05-24",
-        "endsOn": "2024-06-11",
-        "difficulty": "Medium",
-        "tools": ["SEMrush", "Ahrefs", "Google Analytics"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "ANI004",
-        "category": "Animation",
-        "title": "Create Explainer Video with Character Animation",
-        "description": "Develop a short explainer video that uses character animation to explain a complex concept in a clear and engaging way.",
-        "postedOn": "2024-05-25",
-        "endsOn": "2024-06-15",
-        "difficulty": "Hard",
-        "tools": ["Adobe After Effects", "Toon Boom Harmony"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "MUS004",
-        "category": "Music & Audio",
-        "title": "Compose a Royalty-Free Background Music Track",
-        "description": "Create a royalty-free background music track suitable for a variety of purposes (e.g., presentations, videos) with a specific mood or genre.",
-        "postedOn": "2024-05-27",
-        "endsOn": "2024-06-17",
-        "difficulty": "Medium",
-        "tools": ["FL Studio", "Ableton Live"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
-    },
-    {
-        "id": "VID004",
+        "id": "VID301",
         "category": "Video Editing",
-        "title": "Create a Short Film Montage",
-        "description": "Compile various short film clips into a cohesive montage, demonstrating your editing skills and storytelling ability.",
-        "postedOn": "2024-05-26",
-        "endsOn": "2024-06-13",
+        "title": "Edit a Short Film",
+        "description": "Edit a short film from provided raw footage.",
         "difficulty": "Hard",
-        "tools": ["Adobe Premiere Pro", "DaVinci Resolve"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
+        "tools": [
+            "Adobe Premiere Pro",
+            "Final Cut Pro"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 100,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
     },
     {
-        "id": "GD004",
+        "id": "WRT102",
+        "category": "Writing & Editing",
+        "title": "Proofread a Blog Post",
+        "description": "Proofread and correct grammar mistakes in a short blog post.",
+        "difficulty": "Easy",
+        "tools": [
+            "Google Docs",
+            "Grammarly"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "WRT101",
+        "category": "Writing & Editing",
+        "title": "Write a Short Product Description",
+        "description": "Write a concise and engaging product description for an e-commerce website.",
+        "difficulty": "Easy",
+        "tools": [
+            "Google Docs",
+            "Grammarly"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "GD301",
         "category": "Graphic Design",
-        "title": "Design a Brand Identity Package",
-        "description": "Create a comprehensive brand identity package including logo, color palette, typography, and brand guidelines for a fictional company.",
-        "postedOn": "2024-05-28",
-        "endsOn": "2024-06-18",
+        "title": "Design a Brand Identity",
+        "description": "Create a full brand identity, including logo, business cards, and letterhead.",
         "difficulty": "Hard",
-        "tools": ["Adobe Illustrator", "Sketch"],
-        "reward": 40,
-        "submissionMethod": ["Google Drive link"]
+        "tools": [
+            "Adobe Illustrator",
+            "Adobe Photoshop"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 100,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
     },
     {
-        "id": "PRG004",
+        "id": "PRG102",
         "category": "Programming",
-        "title": "Develop a Chatbot for Customer Service",
-        "description": "Build an AI-powered chatbot that can handle basic customer service inquiries and provide relevant responses.",
-        "postedOn": "2024-05-29",
-        "endsOn": "2024-06-19",
-        "difficulty": "Hard",
-        "tools": ["Python", "TensorFlow", "Dialogflow"],
+        "title": "Create a Simple Webpage",
+        "description": "Create a simple static webpage using HTML and CSS.",
+        "difficulty": "Easy",
+        "tools": [
+            "Visual Studio Code",
+            "GitHub"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
         "reward": 40,
-        "submissionMethod": ["CodePen link"]
+        "submissionMethod": [
+            "CodePen link"
+        ]
+    },
+    {
+        "id": "WRT201",
+        "category": "Writing & Editing",
+        "title": "Write an Article on a Tech Topic",
+        "description": "Write an informative article on a current tech topic.",
+        "difficulty": "Medium",
+        "tools": [
+            "Google Docs",
+            "Grammarly"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "MUS104",
+        "category": "Music & Audio",
+        "title": "Mix Two Audio Tracks",
+        "description": "Blend two provided audio tracks into a seamless mix.",
+        "difficulty": "Easy",
+        "tools": [
+            "Audacity",
+            "FL Studio"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "GD203",
+        "category": "Graphic Design",
+        "title": "Design an Infographic",
+        "description": "Create an infographic on a given topic.",
+        "difficulty": "Medium",
+        "tools": [
+            "Adobe Illustrator",
+            "Canva"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "SEO102",
+        "category": "SEO",
+        "title": "Add Alt Text to Images",
+        "description": "Add descriptive alt text to all images on a webpage.",
+        "difficulty": "Easy",
+        "tools": [
+            "Content Managment System",
+            "SEO Plugin"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "MUS102",
+        "category": "Music & Audio",
+        "title": "Edit a Podcast Episode",
+        "description": "Edit out background noise from a short podcast episode.",
+        "difficulty": "Easy",
+        "tools": [
+            "Audacity",
+            "Adobe Audition"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "GD202",
+        "category": "Graphic Design",
+        "title": "Create a Poster",
+        "description": "Design a poster for a fictional movie.",
+        "difficulty": "Medium",
+        "tools": [
+            "Adobe Illustrator",
+            "Canva"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "SEO103",
+        "category": "SEO",
+        "title": "Optimize Page Titles",
+        "description": "Rewrite page titles to be more SEO-friendly.",
+        "difficulty": "Easy",
+        "tools": [
+            "Google Analytics",
+            "Ahrefs"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "PRG201",
+        "category": "Programming",
+        "title": "Create a Weather App",
+        "description": "Develop a weather application that displays current weather conditions using a weather API.",
+        "difficulty": "Medium",
+        "tools": [
+            "Visual Studio Code",
+            "GitHub"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "CodePen link"
+        ]
+    },
+    {
+        "id": "MUS101",
+        "category": "Music & Audio",
+        "title": "Create a 10-second Sound Clip",
+        "description": "Compose a short 10-second sound clip for a video intro.",
+        "difficulty": "Easy",
+        "tools": [
+            "Audacity",
+            "FL Studio"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "PRG104",
+        "category": "Programming",
+        "title": "Create a To-Do List App",
+        "description": "Develop a simple to-do list application using JavaScript.",
+        "difficulty": "Easy",
+        "tools": [
+            "Visual Studio Code",
+            "GitHub"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "CodePen link"
+        ]
+    },
+    {
+        "id": "MUS201",
+        "category": "Music & Audio",
+        "title": "Create a Jingle",
+        "description": "Compose a short jingle for a fictional advertisement.",
+        "difficulty": "Medium",
+        "tools": [
+            "Audacity",
+            "FL Studio"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "GD104",
+        "category": "Graphic Design",
+        "title": "Design a Flyer",
+        "description": "Create a flyer design for a fictional event.",
+        "difficulty": "Easy",
+        "tools": [
+            "Adobe Illustrator",
+            "Canva"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "SEO301",
+        "category": "SEO",
+        "title": "Perform a Full Site Audit",
+        "description": "Conduct a full SEO audit for a website and provide a report.",
+        "difficulty": "Hard",
+        "tools": [
+            "Google Analytics",
+            "Ahrefs"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 100,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "GD201",
+        "category": "Graphic Design",
+        "title": "Create a Logo Animation",
+        "description": "Design a simple animation for a logo.",
+        "difficulty": "Medium",
+        "tools": [
+            "Adobe After Effects",
+            "Blender"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "PRG103",
+        "category": "Programming",
+        "title": "Create a Basic Calculator",
+        "description": "Create a basic calculator application using JavaScript.",
+        "difficulty": "Easy",
+        "tools": [
+            "Visual Studio Code",
+            "GitHub"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "CodePen link"
+        ]
+    },
+    {
+        "id": "SEO101",
+        "category": "SEO",
+        "title": "Find and Fix Broken Links",
+        "description": "Use an SEO tool to identify broken links on a website and provide a list for fixing.",
+        "difficulty": "Easy",
+        "tools": [
+            "Google Analytics",
+            "Ahrefs"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "WRT301",
+        "category": "Writing & Editing",
+        "title": "Write a Comprehensive Guide",
+        "description": "Write a comprehensive guide on a specific topic.",
+        "difficulty": "Hard",
+        "tools": [
+            "Google Docs",
+            "Grammarly"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 100,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "WRT104",
+        "category": "Writing & Editing",
+        "title": "Create an FAQ Section",
+        "description": "Write and format an FAQ section for a website.",
+        "difficulty": "Easy",
+        "tools": [
+            "Google Docs",
+            "Content Managment System"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "SEO104",
+        "category": "SEO",
+        "title": "Optimize Image Sizes",
+        "description": "Reduce the file sizes of images on a webpage to improve loading times.",
+        "difficulty": "Easy",
+        "tools": [
+            "Adobe Photoshop",
+            "TinyPNG"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "MUS202",
+        "category": "Music & Audio",
+        "title": "Create a Music Loop",
+        "description": "Compose a seamless music loop that can be used in a game.",
+        "difficulty": "Medium",
+        "tools": [
+            "Audacity",
+            "FL Studio"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "WRT103",
+        "category": "Writing & Editing",
+        "title": "Write a Meta Description",
+        "description": "Write an engaging meta description for a webpage.",
+        "difficulty": "Easy",
+        "tools": [
+            "Google Docs",
+            "Grammarly"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "MUS103",
+        "category": "Music & Audio",
+        "title": "Normalize Audio Levels",
+        "description": "Normalize the audio levels in a provided sound file.",
+        "difficulty": "Easy",
+        "tools": [
+            "Audacity",
+            "Adobe Audition"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "VID102",
+        "category": "Video Editing",
+        "title": "Add Subtitles to a Video",
+        "description": "Add subtitles to a short video clip.",
+        "difficulty": "Easy",
+        "tools": [
+            "Adobe Premiere Pro",
+            "Final Cut Pro"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "VID104",
+        "category": "Video Editing",
+        "title": "Create a Video Thumbnail",
+        "description": "Design an engaging thumbnail for a video.",
+        "difficulty": "Easy",
+        "tools": [
+            "Adobe Photoshop",
+            "Canva"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "GD101",
+        "category": "Graphic Design",
+        "title": "Design a Simple Logo",
+        "description": "Create a simple logo for a fictional brand.",
+        "difficulty": "Easy",
+        "tools": [
+            "Adobe Illustrator",
+            "Canva"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "VID202",
+        "category": "Video Editing",
+        "title": "Create a 30-Second Ad",
+        "description": "Create a 30-second video advertisement for a fictional product.",
+        "difficulty": "Medium",
+        "tools": [
+            "Adobe Premiere Pro",
+            "Final Cut Pro"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "PRG101",
+        "category": "Programming",
+        "title": "Fix a Simple Bug",
+        "description": "Identify and fix a simple bug in a provided piece of code.",
+        "difficulty": "Easy",
+        "tools": [
+            "Visual Studio Code",
+            "GitHub"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "CodePen link"
+        ]
+    },
+    {
+        "id": "SEO202",
+        "category": "SEO",
+        "title": "Optimize for Mobile",
+        "description": "Ensure a webpage is fully optimized for mobile devices.",
+        "difficulty": "Medium",
+        "tools": [
+            "Google Analytics",
+            "Ahrefs"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "SEO203",
+        "category": "SEO",
+        "title": "Optimize Meta Tags",
+        "description": "Optimize the meta tags for a webpage to improve its SEO.",
+        "difficulty": "Medium",
+        "tools": [
+            "Google Analytics",
+            "Ahrefs"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "MUS301",
+        "category": "Music & Audio",
+        "title": "Produce a Full Song",
+        "description": "Produce a full song with multiple tracks and effects.",
+        "difficulty": "Hard",
+        "tools": [
+            "FL Studio",
+            "Ableton Live"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 100,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "PRG202",
+        "category": "Programming",
+        "title": "Create a Contact Form",
+        "description": "Develop a contact form with validation using HTML, CSS, and JavaScript.",
+        "difficulty": "Medium",
+        "tools": [
+            "Visual Studio Code",
+            "GitHub"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "CodePen link"
+        ]
+    },
+    {
+        "id": "SEO201",
+        "category": "SEO",
+        "title": "Conduct Keyword Research",
+        "description": "Use SEO tools to conduct keyword research for a specific topic.",
+        "difficulty": "Medium",
+        "tools": [
+            "Google Analytics",
+            "Ahrefs"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "VID101",
+        "category": "Video Editing",
+        "title": "Trim a Video Clip",
+        "description": "Trim a provided video clip to a specific length.",
+        "difficulty": "Easy",
+        "tools": [
+            "Adobe Premiere Pro",
+            "Final Cut Pro"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "VID103",
+        "category": "Video Editing",
+        "title": "Add a Watermark to a Video",
+        "description": "Add a watermark to a short video clip.",
+        "difficulty": "Easy",
+        "tools": [
+            "Adobe Premiere Pro",
+            "Final Cut Pro"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 40,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "MUS203",
+        "category": "Music & Audio",
+        "title": "Edit a Music Track",
+        "description": "Edit a provided music track to enhance its quality.",
+        "difficulty": "Medium",
+        "tools": [
+            "Audacity",
+            "Adobe Audition"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "VID203",
+        "category": "Video Editing",
+        "title": "Create a Slideshow Video",
+        "description": "Create a slideshow video with provided images and background music.",
+        "difficulty": "Medium",
+        "tools": [
+            "Adobe Premiere Pro",
+            "Final Cut Pro"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
+    },
+    {
+        "id": "VID201",
+        "category": "Video Editing",
+        "title": "Edit a Short Interview",
+        "description": "Edit a short interview video to include multiple camera angles.",
+        "difficulty": "Medium",
+        "tools": [
+            "Adobe Premiere Pro",
+            "Final Cut Pro"
+        ],
+        "postedOn": "2024-07-14",
+        "endsOn": "2024-07-21",
+        "reward": 60,
+        "submissionMethod": [
+            "Google Drive link"
+        ]
     }
 ]
