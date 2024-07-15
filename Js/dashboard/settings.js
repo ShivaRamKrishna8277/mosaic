@@ -15,6 +15,7 @@ async function display_edit_btns(){
     // Check for empty fields and show the appropriate button
     if (await hasEmptyFields(updatedUser)) {
         document.getElementById('update_button').style.display = "flex";
+        document.querySelector('.warning_msg_container').style.display = "block";
         document.getElementById('edit_btn').style.display = "none";
         document.getElementById('save_changes_button').style.display = "none";
         let updateBtnEventListener = false;
@@ -224,7 +225,11 @@ function show_result_modal(status, message){
         });
         setTimeout(() =>{
             resultModal.hide();
-            $('.menu_item').eq(4).click();
+            if(window.innerWidth > 1112){
+                $('.menu_item').eq(9).click();
+            }else{
+                $('.menu_item').eq(4).click();
+            }
         }, 2000)
 }
 

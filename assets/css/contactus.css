@@ -1,0 +1,51 @@
+@import url(./styles.css);
+
+.contactUs, .contactUs:hover{
+    color: var(--fivehun);
+    pointer-events: none;
+}
+body{
+    background-color: #FFFDFA;
+}
+
+
+/* contact us form */
+.brand_title{
+    font-weight: 500;
+    opacity: .5;
+}
+.section_title, .section_desc{
+    font-family: 'Noto serif';
+}
+.section_title{
+    font-size: 3rem;
+    color: #212833;
+}
+.section_desc{
+    color: black;
+    opacity: .6;
+}
+
+#contact_us_form{
+    margin-top: 45px;
+}
+.form_input{
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #E1E1E1;
+    border-radius: 5px;
+    outline: none;
+    font-size: .95rem;
+    background-color: white !important;
+}
+#submit_btn{
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background-color: var(--fivehun);
+    color: white;
+    margin-top: 15px;
+    min-width: 100px;
+}

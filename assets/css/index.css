@@ -21,7 +21,7 @@
 }
 @media(max-width: 480px){
     .navbar_container{
-        width: 95%;
+        width: 95% !important;
         padding: 0 10px !important;
     }
     .nav_logo{

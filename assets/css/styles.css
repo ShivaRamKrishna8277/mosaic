@@ -16,6 +16,10 @@
     --sec_title_txt: 1.875rem;
     --title_txt: 2.813rem;
 }
+@font-face {
+    font-family: 'Noto Serif';
+    src: url(../fonts/NotoSerif-VariableFont_wdth\,wght.ttf);
+}
 *{
     margin: 0;
     padding: 0;
@@ -84,4 +88,22 @@ p{
 .footer_col_title{
     font-size: 20px;
     font-weight: 450;
+}
+
+/* contact us - about us */
+@media(max-width: 480px){
+    .navbar_container{
+        width: 95% !important;
+        padding: 0 10px !important;
+    }
+}
+@media(min-width:800px){
+    .main_wrapper{
+        max-width: 1300px !important;
+    }
+}
+@media(max-width:800px){
+    .contact_us_form_container{
+        width: 95% !important;
+    }
 }

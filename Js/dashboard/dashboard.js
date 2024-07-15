@@ -10,6 +10,13 @@ $(document).ready(function(){
     if (user) {
         $('.menuLoginBtn_wrapper').hide();
         $('.profile_img').show();
+        $('.profile_img').click(() => {
+            if(window.innerWidth > 1112){
+                $('.menu_item').eq(9).click();
+            }else{
+                $('.menu_item').eq(4).click();
+            }
+        });
         $('.logout_item').show();
         $('#userName').text(user.username || 'Anonymous');
         $('#userEmail').text(user.email);
@@ -86,7 +93,7 @@ $(document).ready(function(){
     }
     // Trigger the click on the first menu item to load its content on page load
     if(window.innerWidth > 1112){
-        $('.menu_item').eq(5).click();
+        $('.menu_item').eq(9).click();
     }else{
         $('.menu_item').eq(0).click();
     }

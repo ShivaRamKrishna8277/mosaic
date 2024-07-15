@@ -159,6 +159,19 @@ main{
     font-size: 20px;
     font-weight: 450;
 }
+#contact_us_btn{
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+#contact_us_btn img{
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
+#contact_us_btn a{
+    font-size: .9rem;
+    color: white;
+}
 .profile_img{
     cursor: pointer;
     height: 40px;
@@ -264,6 +277,7 @@ th, td {
 }
 td{
     outline: 1px solid #ededed;
+    height: 60px;
 }
 .category_col{
     width: 10%;
