@@ -189,9 +189,11 @@
                         await update(profilePhoto_db, photoUrl_data);
                         $("#upload_btn").text("Successful");
                         $('body, html').css('pointer-events', 'all');
-                        alert("File uploaded successfully!");
+                        show_result_modal('success', 'Profile Photo Updated Successfully!');
+                        setTimeout(() => {
+                            location.reload();
+                        }, 2000);
                         await updateUserdata(user.id);
-                        location.reload();
                     } catch (error) {
                         console.error("Upload failed", error);
                         alert("Upload failed: " + error.message);
