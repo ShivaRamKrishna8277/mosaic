@@ -96,7 +96,7 @@ p{
     opacity: .5;
 }
 .other_section_title, .other_section_desc{
-    font-family: 'Noto serif';
+    font-family: 'Noto serif' !important;
 }
 .other_section_title{
     font-size: 3rem;
