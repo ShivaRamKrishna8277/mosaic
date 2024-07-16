@@ -121,10 +121,10 @@ p{
     .contact_us_form_container, .address_container, .about_company, .about_founder{
         width: 95% !important;
     }
-    .section_title{
+    .other_section_title{
         font-size: 2rem !important;
     }
-    .section_desc{
+    .other_section_desc{
         font-size: .9rem !important;
     }
 }
