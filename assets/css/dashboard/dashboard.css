@@ -173,9 +173,12 @@ main{
     width: 22px;
     margin-right: 10px;
 }
+#contact_us_btn_nav{
+    border-radius: 3px;
+}
 #contact_us_btn_nav img{
-    height: 15px;
-    width: 15px;
+    height: 12px;
+    width: 12px;
     margin-right: 5px;
 }
 #contact_us_btn a{
@@ -183,7 +186,7 @@ main{
     color: white;
 }
 #contact_us_btn_nav{
-    font-size: .9rem;
+    font-size: .7rem;
     color: white;
 }
 .profile_img{
