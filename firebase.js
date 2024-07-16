@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getDatabase, get, set, ref, update, remove } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+import { getDatabase, get, set, ref, update, remove, push } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 import { getStorage, ref as sref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
@@ -38,4 +38,4 @@ async function updateUserdata(userId){
     }
 }
 
-export { db, get, set, ref, auth, update, remove, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, storage, sref, uploadBytes, getDownloadURL,updateUserdata };
+export { db, get, set, ref, auth, update, push, remove, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, storage, sref, uploadBytes, getDownloadURL,updateUserdata };

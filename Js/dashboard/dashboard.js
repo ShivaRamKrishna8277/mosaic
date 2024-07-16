@@ -83,6 +83,8 @@ $(document).ready(function(){
                     readPendingData();
                 }else if(file === './settings.html'){
                     readUserData();
+                }else if(file === './aiInterview.html'){
+                    $('#pta_content').html("<p class='d-block fs-1 text-center opacity-25 w-100'>Comming Soon!</p>");
                 }
             }
         });
@@ -93,7 +95,7 @@ $(document).ready(function(){
     }
     // Trigger the click on the first menu item to load its content on page load
     if(window.innerWidth > 1112){
-        $('.menu_item').eq(9).click();
+        $('.menu_item').eq(6).click();
     }else{
         $('.menu_item').eq(0).click();
     }
