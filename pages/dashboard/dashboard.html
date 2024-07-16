@@ -365,14 +365,18 @@
                     <img src="../../assets/icons/settings_menu_icon_dark.svg" alt="" class="menu_icon" data-icon="settings_menu_icon">
                     <p class="menu_title">Settings</p>
                 </li>
-                <li class="logout_item menu_item_mobile" data-bs-toggle="modal" data-bs-target="#LogoutModal">
-                    <img src="../../assets/icons/logout_menu_icon.svg" alt="" id="logout_icon">
-                    <p class="menu_title text-danger">Logout</p>
-                </li>
-                <li class="contactUs_item ms-2">
-                    <button type="button" class="btn btn-primary" id="contact_us_btn"><img src="../../assets/icons/contact_us_white_icon.svg" alt=""><a href="../../contactus.html" target="_blank">Contact Us</a></button>
-                </li>
             </ul>
+        </div>
+        <div class="offcanvas-footer" style="padding: 1rem;">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="menu_item_mobile logout_btn bg-danger-subtle" data-bs-toggle="modal" data-bs-target="#LogoutModal">
+                    <img src="../../assets/icons/logout_menu_icon.svg" alt="" id="logout_icon">
+                    <p class="menu_title text-danger" style="font-size: 1rem;">Logout</p>
+                </div>
+                <div class="contactUs_item">
+                    <button type="button" class="btn btn-primary w-100" id="contact_us_btn"><img src="../../assets/icons/contact_us_white_icon.svg" alt=""><a href="../../contactus.html" target="_blank">Contact Us</a></button>
+                </div>
+            </div>
         </div>
     </div>
     
