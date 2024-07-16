@@ -31,6 +31,10 @@ function showMsgModal(errorMessage, msgColor) {
 $(document).ready(() => {
     $("#submit_btn").click(evt => {
         evt.preventDefault();
+        $("#submit_btn").html(`<div class="spinner-border spinner-border-sm text-white" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>`)
+        $('body').css('pointer-events', 'none');
 
         var Fullname = $('#Fullname').val();
         var Email = $('#Email').val();
