@@ -10,22 +10,6 @@ body{
 
 
 /* contact us form */
-.brand_title{
-    font-weight: 500;
-    opacity: .5;
-}
-.section_title, .section_desc{
-    font-family: 'Noto serif';
-}
-.section_title{
-    font-size: 3rem;
-    color: #212833;
-}
-.section_desc{
-    color: black;
-    opacity: .6;
-}
-
 #contact_us_form{
     margin-top: 45px;
 }
@@ -48,4 +32,23 @@ body{
     color: white;
     margin-top: 15px;
     min-width: 100px;
+}
+
+
+/* address */
+.sub_title{
+    font-size: .85rem;
+    opacity: .5;
+}
+.content{
+    font-size: 1.05rem;
+}
+.social_media_wrapper{
+    background-color: white;
+    padding: 8px;
+    border-radius: 50%;
+}
+.social_media_wrapper a img{
+    width: 25px;
+    height: 25px;
 }

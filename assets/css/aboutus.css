@@ -1,1 +1,32 @@
 @import url(./styles.css);
+
+.aboutUs, .aboutUs:hover{
+    color: var(--fivehun);
+    pointer-events: none;
+}
+body{
+    background-color: #FFFDFA;
+}
+
+#founder_photo{
+    max-width: 230px;
+    width: 100%;
+}
+
+#founder_name{
+    color: var(--fivehun);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+#founder_qualification{
+    opacity: .5;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+#about_founder{
+    margin-bottom: 20px;
+}
+#quote{
+    font-size: .8rem;
+    opacity: .7;
+}
