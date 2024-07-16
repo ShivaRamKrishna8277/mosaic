@@ -84,7 +84,7 @@ $(document).ready(function(){
                 }else if(file === './settings.html'){
                     readUserData();
                 }else if(file === './aiInterview.html'){
-                    $('#pta_content').html("<p class='d-block fs-1 text-center opacity-25 w-100'>Comming Soon!</p>");
+                    $('#pta_content').html("<p class='d-block fs-1 text-center opacity-25 w-100'>Coming Soon!</p>");
                 }
             }
         });
