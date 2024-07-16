@@ -26,7 +26,7 @@
     box-sizing: border-box;
     text-decoration: none !important;
     color: var(--bg-or-text);
-    font-family: "rubik", sans-serif;
+    font-family: "rubik", sans-serif !important;
     list-style: none !important;
 }
 ul,li{
@@ -95,14 +95,14 @@ p{
     font-weight: 500;
     opacity: .5;
 }
-.section_title, .section_desc{
+.other_section_title, .other_section_desc{
     font-family: 'Noto serif';
 }
-.section_title{
+.other_section_title{
     font-size: 3rem;
     color: #212833;
 }
-.section_desc{
+.other_section_desc{
     color: black;
     opacity: .6;
 }
