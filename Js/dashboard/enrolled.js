@@ -152,198 +152,199 @@ function readEnrolledData() {
         const enrolledChallengesRef = ref(db, 'users/' + user.id + '/enrolledChallenges');
         // Fetch the enrolledChallenges
         get(enrolledChallengesRef)
-            .then((snapshot) => {
-                if (snapshot.exists()) {
-                    const enrolledChallenges = snapshot.val();
-                    // Fetch all challenges data
-                    return get(challengesRef).then((allChallengesSnapshot) => {
-                        const allChallenges = [];
-                        allChallengesSnapshot.forEach((challenge) => {
-                            allChallenges.push({ id: challenge.key, ...challenge.val() });
-                        });
-                        return { enrolledChallenges, allChallenges };
+        .then((snapshot) => {
+            if (snapshot.exists()) {
+                const enrolledChallenges = snapshot.val();
+                // Fetch all challenges data
+                return get(challengesRef)
+                .then((allChallengesSnapshot) => {
+                    const allChallenges = [];
+                    allChallengesSnapshot.forEach((challenge) => {
+                        allChallenges.push({ id: challenge.key, ...challenge.val() });
                     });
-                } else {
-                    if(is_smaller_screen){
-                        noEnrolledChallengesGrid.style.display = 'block'
-                    }else{
-                        noEnrolledChallengesRow.style.display = 'table-row';
-                    }
-                    updateCount(0);
-                    return { enrolledChallenges: [], allChallenges: [] };
+                    return { enrolledChallenges, allChallenges };
+                });
+            } else {
+                if(is_smaller_screen){
+                    noEnrolledChallengesGrid.style.display = 'block'
+                }else{
+                    noEnrolledChallengesRow.style.display = 'table-row';
                 }
-            })
-            .then(({ enrolledChallenges, allChallenges }) => {
-                // Initialize visibleRowsCount within the scope of the .then block
-                let visibleRowsCount = 0;
-                enrolled_grid_body.innerHTML = '';
-                // Convert enrolledChallenges object into an array
-                const enrolledChallengesArray = Object.values(enrolledChallenges);           
-                // Create a map of enrolledChallenges for easy lookup (optional null check)
-                const enrolledChallengesMap = enrolledChallengesArray.reduce((map, challenge) => {
-                    map[challenge.id] = challenge;
-                    return map;
-                }, {});            
-                // Filter challenges to include only those that match the enrolledChallenges IDs
-                const filteredChallenges = allChallenges.filter((challenge) => enrolledChallengesMap.hasOwnProperty(challenge.id));           
-                if (filteredChallenges.length === 0) {
-                    if(is_smaller_screen){
-                        noEnrolledChallengesGrid.style.display = 'block';
-                    }else{
-                        noEnrolledChallengesRow.style.display = 'table-row';
-                    }
-                } else {
-                    // Display filtered challenges
-                    filteredChallenges.forEach((data) => {
-                        const row = document.createElement('tr');
-                
-                        // Category cell with dynamic class
-                        const categoryCell = document.createElement('td');
-                        categoryCell.classList.add('category_col');
-                        const categorySpan = document.createElement('span');
-                        categorySpan.classList.add('category_content');
-                        if (data.category) {
-                            const firstWord = data.category.split(' ')[0];
-                            categorySpan.classList.add(firstWord);
-                            categorySpan.textContent = data.category;
-                        }
-                        categoryCell.appendChild(categorySpan);
-                        row.appendChild(categoryCell);
-                
-                        // Title cell
-                        const titleCell = document.createElement('td');
-                        titleCell.classList.add('title_content');
-                        titleCell.textContent = data.title || '';
-                        row.appendChild(titleCell);
-                
-                        // Description cell
-                        const descCell = document.createElement('td');
-                        const descCellSpan = document.createElement('span');
-                        descCellSpan.classList.add("desc_content");
-                        descCellSpan.textContent = data.description || '';
-                        descCell.appendChild(descCellSpan);
-                        row.appendChild(descCell);
-                
-                        // Starts on cell
-                        const postedOnCell = document.createElement('td');
-                        postedOnCell.classList.add("postedon_col");
-                        postedOnCell.textContent = data.postedOn || '';
-                        row.appendChild(postedOnCell);
-                
-                        // Ends on cell
-                        const endsOnCell = document.createElement('td');
-                        endsOnCell.classList.add("endson_col");
-                        endsOnCell.textContent = data.endsOn || '';
-                        row.appendChild(endsOnCell);
-                
-                        // Difficulty cell
-                        const difficultyCell = document.createElement('td');
-                        difficultyCell.classList.add('difficulty_col');
-                        if (data.difficulty) {
-                            difficultyCell.classList.add(data.difficulty);
-                            difficultyCell.textContent = data.difficulty;
-                        }
-                        row.appendChild(difficultyCell);
-                
-                        // Action cell
-                        const actionCell = document.createElement('td');
-                        actionCell.classList.add('action_col', 'action_content');
-                        const moreInfoBtn = document.createElement('button');
-                        moreInfoBtn.innerHTML = '<span>Submit</span><img src="../../assets/icons/arrow_icon.png" alt="" class="arrow_icon">';
-                        moreInfoBtn.classList.add('more_info_btn');
-                        moreInfoBtn.addEventListener('click', () => showSubmissionModal(data));
-                        actionCell.appendChild(moreInfoBtn);
-                        row.appendChild(actionCell);
-                
-                        tableBody.appendChild(row);
+                updateCount(0);
+                return { enrolledChallenges: [], allChallenges: [] };
+            }
+        })
+        .then(({ enrolledChallenges, allChallenges }) => {
+            // Initialize visibleRowsCount within the scope of the .then block
+            let visibleRowsCount = 0;
+            enrolled_grid_body.innerHTML = '';
+            // Convert enrolledChallenges object into an array
+            const enrolledChallengesArray = Object.values(enrolledChallenges); 
 
+            // Create a map of enrolledChallenges for easy lookup (optional null check)
+            const enrolledChallengesMap = enrolledChallengesArray.reduce((map, challenge) => {
+                map[challenge.id] = challenge;
+                return map;
+            }, {});            
 
-                        // card
-                        const card = document.createElement('div');
-                        card.classList.add('challenge_card');
-                        // create card elements
-                        const card_header = document.createElement('div');
-                        card_header.classList.add('card_header');
-                        const card_categoryCell = document.createElement('p');
-                        if(data.category){
-                            const firstWord = data.category.split(' ')[0];
-                            card_categoryCell.classList.add('card_category', firstWord);
-                            card_categoryCell.textContent = data.category || '';
-                        }
-                        card_header.appendChild(card_categoryCell);
-                        const card_difficultyCell = document.createElement('p');
-                        card_difficultyCell.classList.add('card_difficulty');
-                        if (data.difficulty) {
-                            card_difficultyCell.classList.add(data.difficulty);
-                            card_difficultyCell.textContent = data.difficulty || '';
-                        }
-                        card_header.appendChild(card_difficultyCell);
-                        card.appendChild(card_header);
-
-                        const mobile_card_title = document.createElement('p');
-                        mobile_card_title.classList.add('mobile_card_title');
-                        mobile_card_title.textContent = data.title || '';
-                        card.appendChild(mobile_card_title);
-
-                        const mobile_card_desc = document.createElement('p');
-                        mobile_card_desc.classList.add('mobile_card_desc');
-                        mobile_card_desc.textContent = data.description || '';
-                        card.appendChild(mobile_card_desc);
-
-                        const timeframeWrapper = document.createElement('div');
-                        timeframeWrapper.classList.add('timeframe_wrapper');
-                        const postedonWrapper = document.createElement('div');
-                        postedonWrapper.classList.add('postedon_wrapper');
-                        const postedOnTitle = document.createElement('p');
-                        postedOnTitle.classList.add('timeframe_title');
-                        postedOnTitle.textContent = 'Posted On:';
-                        const postedOnContent = document.createElement('p');
-                        postedOnContent.classList.add('timeframe_content');
-                        postedOnContent.id = 'card_PostedOn';
-                        postedOnContent.textContent = data.postedOn || ''; // Initial data
-                        const timeframeLine = document.createElement('div');
-                        timeframeLine.classList.add('timeframe_line');
-                        const endsonWrapper = document.createElement('div');
-                        endsonWrapper.classList.add('endson_wrapper', 'text-end');
-                        const endsOnTitle = document.createElement('p');
-                        endsOnTitle.classList.add('timeframe_title');
-                        endsOnTitle.textContent = 'Ends On:';
-                        const endsOnContent = document.createElement('p');
-                        endsOnContent.classList.add('timeframe_content');
-                        endsOnContent.id = 'card_EndsOn';
-                        endsOnContent.textContent = data.endsOn || ''; // Initial data
-                        // Append elements
-                        postedonWrapper.appendChild(postedOnTitle);
-                        postedonWrapper.appendChild(postedOnContent);
-                        endsonWrapper.appendChild(endsOnTitle);
-                        endsonWrapper.appendChild(endsOnContent);
-                        timeframeWrapper.appendChild(postedonWrapper);
-                        timeframeWrapper.appendChild(timeframeLine);
-                        timeframeWrapper.appendChild(endsonWrapper);
-                        card.appendChild(timeframeWrapper);
-
-                        const card_action_btn = document.createElement('div');
-                        card_action_btn.classList.add('card_view_more_btn');
-                        card_action_btn.innerHTML = '<span>View More</span><img src="../../assets/icons/arrow_icon.png" alt="" class="arrow_icon">';
-                        card.addEventListener("click", () => showSubmissionModal(data));
-                        card.appendChild(card_action_btn);
-                        
-                        enrolled_grid_body.appendChild(card);
-                        visibleRowsCount++;
-                    });                  
-                    if(window.innerWidth<1112){
-                        appendGridContent();
-                    }
+            // Filter challenges to include only those that match the enrolledChallenges IDs
+            const filteredChallenges = allChallenges.filter((challenge) => enrolledChallengesMap.hasOwnProperty(challenge.id));           
+            if (filteredChallenges.length === 0) {
+                if(is_smaller_screen){
+                    noEnrolledChallengesGrid.style.display = 'block';
+                }else{
+                    noEnrolledChallengesRow.style.display = 'table-row';
                 }
-                $('#enrolled_grid_loader').hide();
-                loaderRow.style.display = 'none';
-                updateCount(visibleRowsCount);
-            })
-            .catch((error) => {
-                console.log('Error Fetching Data: ', error);
-                loaderRow.style.display = 'none';
-                $('#enrolled_grid_loader').hide();
-            });            
+            } else {
+                // Display filtered challenges
+                filteredChallenges.forEach((data) => {
+                    const row = document.createElement('tr');
+            
+                    // Category cell with dynamic class
+                    const categoryCell = document.createElement('td');
+                    categoryCell.classList.add('category_col');
+                    const categorySpan = document.createElement('span');
+                    categorySpan.classList.add('category_content');
+                    if (data.category) {
+                        const firstWord = data.category.split(' ')[0];
+                        categorySpan.classList.add(firstWord);
+                        categorySpan.textContent = data.category;
+                    }
+                    categoryCell.appendChild(categorySpan);
+                    row.appendChild(categoryCell);
+            
+                    // Title cell
+                    const titleCell = document.createElement('td');
+                    titleCell.classList.add('title_content');
+                    titleCell.textContent = data.title || '';
+                    row.appendChild(titleCell);
+            
+                    // Description cell
+                    const descCell = document.createElement('td');
+                    const descCellSpan = document.createElement('span');
+                    descCellSpan.classList.add("desc_content");
+                    descCellSpan.textContent = data.description || '';
+                    descCell.appendChild(descCellSpan);
+                    row.appendChild(descCell);
+            
+                    // Starts on cell
+                    const postedOnCell = document.createElement('td');
+                    postedOnCell.classList.add("postedon_col");
+                    postedOnCell.textContent = data.postedOn || '';
+                    row.appendChild(postedOnCell);
+            
+                    // Ends on cell
+                    const endsOnCell = document.createElement('td');
+                    endsOnCell.classList.add("endson_col");
+                    endsOnCell.textContent = data.endsOn || '';
+                    row.appendChild(endsOnCell);
+            
+                    // Difficulty cell
+                    const difficultyCell = document.createElement('td');
+                    difficultyCell.classList.add('difficulty_col');
+                    if (data.difficulty) {
+                        difficultyCell.classList.add(data.difficulty);
+                        difficultyCell.textContent = data.difficulty;
+                    }
+                    row.appendChild(difficultyCell);
+            
+                    // Action cell
+                    const actionCell = document.createElement('td');
+                    actionCell.classList.add('action_col', 'action_content');
+                    const moreInfoBtn = document.createElement('button');
+                    moreInfoBtn.innerHTML = '<span>Submit</span><img src="../../assets/icons/arrow_icon.png" alt="" class="arrow_icon">';
+                    moreInfoBtn.classList.add('more_info_btn');
+                    moreInfoBtn.addEventListener('click', () => showSubmissionModal(data));
+                    actionCell.appendChild(moreInfoBtn);
+                    row.appendChild(actionCell);
+                    tableBody.appendChild(row);
+
+                    // card
+                    const card = document.createElement('div');
+                    card.classList.add('challenge_card');
+                    // create card elements
+                    const card_header = document.createElement('div');
+                    card_header.classList.add('card_header');
+                    const card_categoryCell = document.createElement('p');
+                    if(data.category){
+                        const firstWord = data.category.split(' ')[0];
+                        card_categoryCell.classList.add('card_category', firstWord);
+                        card_categoryCell.textContent = data.category || '';
+                    }
+                    card_header.appendChild(card_categoryCell);
+                    const card_difficultyCell = document.createElement('p');
+                    card_difficultyCell.classList.add('card_difficulty');
+                    if (data.difficulty) {
+                        card_difficultyCell.classList.add(data.difficulty);
+                        card_difficultyCell.textContent = data.difficulty || '';
+                    }
+                    card_header.appendChild(card_difficultyCell);
+                    card.appendChild(card_header);
+
+                    const mobile_card_title = document.createElement('p');
+                    mobile_card_title.classList.add('mobile_card_title');
+                    mobile_card_title.textContent = data.title || '';
+                    card.appendChild(mobile_card_title);
+
+                    const mobile_card_desc = document.createElement('p');
+                    mobile_card_desc.classList.add('mobile_card_desc');
+                    mobile_card_desc.textContent = data.description || '';
+                    card.appendChild(mobile_card_desc);
+
+                    const timeframeWrapper = document.createElement('div');
+                    timeframeWrapper.classList.add('timeframe_wrapper');
+                    const postedonWrapper = document.createElement('div');
+                    postedonWrapper.classList.add('postedon_wrapper');
+                    const postedOnTitle = document.createElement('p');
+                    postedOnTitle.classList.add('timeframe_title');
+                    postedOnTitle.textContent = 'Posted On:';
+                    const postedOnContent = document.createElement('p');
+                    postedOnContent.classList.add('timeframe_content');
+                    postedOnContent.id = 'card_PostedOn';
+                    postedOnContent.textContent = data.postedOn || ''; // Initial data
+                    const timeframeLine = document.createElement('div');
+                    timeframeLine.classList.add('timeframe_line');
+                    const endsonWrapper = document.createElement('div');
+                    endsonWrapper.classList.add('endson_wrapper', 'text-end');
+                    const endsOnTitle = document.createElement('p');
+                    endsOnTitle.classList.add('timeframe_title');
+                    endsOnTitle.textContent = 'Ends On:';
+                    const endsOnContent = document.createElement('p');
+                    endsOnContent.classList.add('timeframe_content');
+                    endsOnContent.id = 'card_EndsOn';
+                    endsOnContent.textContent = data.endsOn || ''; // Initial data
+                    // Append elements
+                    postedonWrapper.appendChild(postedOnTitle);
+                    postedonWrapper.appendChild(postedOnContent);
+                    endsonWrapper.appendChild(endsOnTitle);
+                    endsonWrapper.appendChild(endsOnContent);
+                    timeframeWrapper.appendChild(postedonWrapper);
+                    timeframeWrapper.appendChild(timeframeLine);
+                    timeframeWrapper.appendChild(endsonWrapper);
+                    card.appendChild(timeframeWrapper);
+
+                    const card_action_btn = document.createElement('div');
+                    card_action_btn.classList.add('card_view_more_btn');
+                    card_action_btn.innerHTML = '<span>View More</span><img src="../../assets/icons/arrow_icon.png" alt="" class="arrow_icon">';
+                    card.addEventListener("click", () => showSubmissionModal(data));
+                    card.appendChild(card_action_btn);
+                    
+                    enrolled_grid_body.appendChild(card);
+                    visibleRowsCount++;
+                });                  
+                if(window.innerWidth<1112){
+                    appendGridContent();
+                }
+            }
+            $('#enrolled_grid_loader').hide();
+            loaderRow.style.display = 'none';
+            updateCount(visibleRowsCount);
+        })
+        .catch((error) => {
+            console.log('Error Fetching Data: ', error);
+            loaderRow.style.display = 'none';
+            $('#enrolled_grid_loader').hide();
+        });            
         function updateCount(count) {
             $('#enrolled_challenges_count').text(count);
         }

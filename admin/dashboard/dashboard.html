@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mosaiq - Admin Dashboard</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/icons/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../assets/icons/favicons/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../../assets/icons/favicons/android-chrome-512x512.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <script>
+        const admin = JSON.parse(sessionStorage.getItem('admin'));
+        if(!admin){
+            window.location = '../';
+        }
+    </script>
+</head>
+<body class="thinScroll">
+    <div class="Modals">
+        <!-- EditChallengeModal -->
+    <div class="modal fade" id="EditChallengeModal" tabindex="-1" aria-labelledby="EditChallengeModalLabel" aria-hidden="false">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 1000px !important;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="EditChallengeModalLabel"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="container-fluid p-0">
+                            <div class="row g-0">
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="category_select" class="form-label fs-6">Select Category</label>
+                                        <select class="form-select rounded-1" id="category_select" required>
+                                            <option selected disabled>Select the Category</option>
+                                            <option value="Programming">Programming</option>
+                                            <option value="Writing & Editing">Writing & Editing</option>
+                                            <option value="SEO">SEO</option>
+                                            <option value="Video Editing">Video Editing</option>
+                                            <option value="Graphic Design">Graphic Design</option>
+                                            <option value="Data Analysis">Data Analysis</option>
+                                            <option value="Music & Audio">Music & Audio</option>
+                                            <option value="Animation">Animation</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="difficulty_select" class="form-label fs-6">Difficulty</label>
+                                        <select class="form-select rounded-1" id="difficulty_select" required>
+                                            <option selected>Select the Difficulty</option>
+                                            <option value="Easy">Easy</option>
+                                            <option value="Medium">Medium</option>
+                                            <option value="Hard">Hard</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="Challenge_ID" class="form-label fs-6">Challenge ID</label>
+                                        <input type="text" class="form-control rounded-1" placeholder="Challenge ID" aria-label="Challenge_ID" id="Challenge_ID" required>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="Reward" class="form-label fs-6">Reward (xp)</label>
+                                        <input type="number" class="form-control rounded-1" placeholder="Reward" aria-label="Reward" id="Reward" required>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="title" class="form-label fs-6">Title</label>
+                                        <textarea class="form-control form_text_area" rows="3" placeholder="Enter the Challenge Title" id="title" maxlength="150" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label fs-6">Description</label>
+                                        <textarea class="form-control form_text_area" rows="3" placeholder="Enter the Challenge Description" id="description" maxlength="200" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="start_date" class="form-label fs-6">Challenge Starting Date</label>
+                                        <input type="date" class="form-control rounded-1" aria-label="start_date" id="start_date" required>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="end_date" class="form-label fs-6">Challenge Ending Date</label>
+                                        <input type="date" class="form-control rounded-1" aria-label="end_date" id="end_date" required>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper" id="tools_to_use_input">
+                                    <div class="mb-3">
+                                        <label for="tools_to_use" class="form-label fs-6">Tools to Use</label><br>
+                                        <select multiple id="tools_to_use" name="tools_to_use" placeholder="Choose Tools to Use">
+                                            <option value="Adobe After Effects">Adobe After Effects</option>
+                                            <option value="Adobe Audition">Adobe Audition</option>
+                                            <option value="Adobe Illustrator">Adobe Illustrator</option>
+                                            <option value="Adobe Photoshop">Adobe Photoshop</option>
+                                            <option value="Adobe Premier Pro">Adobe Premier Pro</option>
+                                            <option value="Ahrefs">Ahrefs</option>
+                                            <option value="Audacity">Audacity</option>
+                                            <option value="Beautiful Soup">Beautiful Soup</option>
+                                            <option value="Blender">Blender</option>
+                                            <option value="Canva">Canva</option>
+                                            <option value="Content Managment System">Content Managment System</option>
+                                            <option value="DaVinci Resolve">DaVinci Resolve</option>
+                                            <option value="Dialogflow">Dialogflow</option>
+                                            <option value="Dragonframe">Dragonframe</option>
+                                            <option value="Final Cut Pro">Final Cut Pro</option>
+                                            <option value="FL Studio">FL Studio</option>
+                                            <option value="Google Analytics">Google Analytics</option>
+                                            <option value="Google Docs">Google Docs</option>
+                                            <option value="Grammarly">Grammarly</option>
+                                            <option value="GitHub">GitHub</option>
+                                            <option value="Moz">Moz</option>
+                                            <option value="Pandas">Pandas</option>
+                                            <option value="Selenium">Selenium</option>
+                                            <option value="SEMrush">SEMrush</option>
+                                            <option value="SEO Plugin">SEO Plugin</option>
+                                            <option value="Sketch">Sketch</option>
+                                            <option value="Tableau">Tableau</option>
+                                            <option value="TensorFlow">TensorFlow</option>
+                                            <option value="TinyPNG">TinyPNG</option>
+                                            <option value="Toon Boom Harmony">Toon Boom Harmony</option>
+                                            <option value="Visual Studio Code">Visual Studio Code</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper" id="submission_method_input">
+                                    <div class="mb-3">
+                                        <label for="submissionMethod_to_use" class="form-label fs-6">Submission Methods</label><br>
+                                        <select id="submission_method" name="submission_method" multiple placeholder="Choose Submission Methods">
+                                            <option value="Google Drive Link">Google Drive Link</option>
+                                            <option value="CodePen Link" disabled>CodePen Link</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="true" id="negative_val_checkbox" checked>
+                                        <label class="form-check-label" for="negative_val_checkbox">Negative Valuation</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-4 mb-1 mt-3 border-top">
+                                <div class="col-auto form_btn_wrapper">
+                                    <button type="button" class="btn btn-success btn-sm" id="submit_changes_btn">Save Changes</button>
+                                </div>
+                                <div class="col-auto form_btn_wrapper">
+                                    <button type="button" class="btn btn-warning btn-sm" data-bs-dismiss="modal" aria-label="Close">Discard Changes</button>
+                                </div>
+                                <div class="col-auto form_btn_wrapper">
+                                    <button type="button" class="btn btn-danger btn-sm" id="delete_challenge_btn">Delete Challenge</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- newChallengeModal -->
+    <div class="modal fade" id="newChallengeModal" tabindex="-1" aria-labelledby="newChallengeModalLabel" aria-hidden="false">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 1000px !important;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="newChallengeModalLabel">Add New Challenge</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="container-fluid p-0">
+                            <div class="row g-0">
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="new_category_select" class="form-label fs-6">Select Category</label>
+                                        <select class="form-select rounded-1" id="new_category_select" required>
+                                            <option selected disabled>Select the Category</option>
+                                            <option value="Programming">Programming</option>
+                                            <option value="Writing & Editing">Writing & Editing</option>
+                                            <option value="SEO">SEO</option>
+                                            <option value="Video Editing">Video Editing</option>
+                                            <option value="Graphic Design">Graphic Design</option>
+                                            <option value="Data Analysis">Data Analysis</option>
+                                            <option value="Music & Audio">Music & Audio</option>
+                                            <option value="Animation">Animation</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="new_difficulty_select" class="form-label fs-6">Difficulty</label>
+                                        <select class="form-select rounded-1" id="new_difficulty_select" required>
+                                            <option selected>Select the Difficulty</option>
+                                            <option value="Easy">Easy</option>
+                                            <option value="Medium">Medium</option>
+                                            <option value="Hard">Hard</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="new_Challenge_ID" class="form-label fs-6">Challenge ID</label>
+                                        <input type="text" class="form-control rounded-1" placeholder="Challenge ID" aria-label="Challenge_ID" id="new_Challenge_ID" required>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="new_Reward" class="form-label fs-6">Reward (xp)</label>
+                                        <input type="number" maxlength="2" class="form-control rounded-1" placeholder="Reward" aria-label="Reward" id="new_Reward" required>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="new_title" class="form-label fs-6">Title</label>
+                                        <textarea class="form-control form_text_area" rows="3" placeholder="Enter the Challenge Title" id="new_title" maxlength="150" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="new_description" class="form-label fs-6">Description</label>
+                                        <textarea class="form-control form_text_area" rows="3" placeholder="Enter the Challenge Description" id="new_description" maxlength="200" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="new_start_date" class="form-label fs-6">Challenge Starting Date</label>
+                                        <input type="date" class="form-control rounded-1" aria-label="start_date" id="new_start_date" required>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="mb-3">
+                                        <label for="new_end_date" class="form-label fs-6">Challenge Ending Date</label>
+                                        <input type="date" class="form-control rounded-1" aria-label="end_date" id="new_end_date" required>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper" id="new_tools_to_use_input">
+                                    <div class="mb-3">
+                                        <label for="new_tools_to_use" class="form-label fs-6">Tools to Use</label><br>
+                                        <select multiple id="new_tools_to_use" name="new_tools_to_use" placeholder="Choose Tools to Use">
+                                            <option value="Adobe After Effects">Adobe After Effects</option>
+                                            <option value="Adobe Audition">Adobe Audition</option>
+                                            <option value="Adobe Illustrator">Adobe Illustrator</option>
+                                            <option value="Adobe Photoshop">Adobe Photoshop</option>
+                                            <option value="Adobe Premier Pro">Adobe Premier Pro</option>
+                                            <option value="Ahrefs">Ahrefs</option>
+                                            <option value="Audacity">Audacity</option>
+                                            <option value="Beautiful Soup">Beautiful Soup</option>
+                                            <option value="Blender">Blender</option>
+                                            <option value="Canva">Canva</option>
+                                            <option value="Content Managment System">Content Managment System</option>
+                                            <option value="DaVinci Resolve">DaVinci Resolve</option>
+                                            <option value="Dialogflow">Dialogflow</option>
+                                            <option value="Dragonframe">Dragonframe</option>
+                                            <option value="Final Cut Pro">Final Cut Pro</option>
+                                            <option value="FL Studio">FL Studio</option>
+                                            <option value="Google Analytics">Google Analytics</option>
+                                            <option value="Google Docs">Google Docs</option>
+                                            <option value="Grammarly">Grammarly</option>
+                                            <option value="GitHub">GitHub</option>
+                                            <option value="Moz">Moz</option>
+                                            <option value="Pandas">Pandas</option>
+                                            <option value="Selenium">Selenium</option>
+                                            <option value="SEMrush">SEMrush</option>
+                                            <option value="SEO Plugin">SEO Plugin</option>
+                                            <option value="Sketch">Sketch</option>
+                                            <option value="Tableau">Tableau</option>
+                                            <option value="TensorFlow">TensorFlow</option>
+                                            <option value="TinyPNG">TinyPNG</option>
+                                            <option value="Toon Boom Harmony">Toon Boom Harmony</option>
+                                            <option value="Visual Studio Code">Visual Studio Code</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper" id="new_submission_method_input">
+                                    <div class="mb-3">
+                                        <label for="new_submissionMethod_to_use" class="form-label fs-6">Submission Methods</label><br>
+                                        <select id="new_submission_method" name="new_submission_method" multiple placeholder="Choose Submission Methods">
+                                            <option value="Google Drive Link">Google Drive Link</option>
+                                            <option value="CodePen Link" disabled>CodePen Link</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 input_wrapper">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="true" id="new_negative_val_checkbox" checked>
+                                        <label class="form-check-label" for="new_negative_val_checkbox">Negative Valuation</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-4 mb-1 mt-3 border-top">
+                                <div class="col-auto form_btn_wrapper">
+                                    <button type="button" class="btn btn-success btn-sm" id="add_challenge_btn">Add Challenge</button>
+                                </div>
+                                <div class="col-auto form_btn_wrapper">
+                                    <button type="button" class="btn btn-danger btn-sm" id="discard_add_challenge">Discard Changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- User Details Modal -->
+    <div class="modal fade" id="userDetailsModal" tabindex="-1" aria-labelledby="userDetailsModalLabel" aria-hidden="false" onload="full_user_details()">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 1000px !important;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="userDetailsModalLabel">User Details - <span id="modal_userID">DEMOID</span></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid p-0">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-2">
+                                <div class="user_modal_profile_wrapper w-100 h-auto">
+                                    <img src="../../assets/images/default_profile_img.png" alt="" id="user_modal_profile">
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <ul class="user_action_btns_wrapper d-flex align-items-center gap-3">
+                                    <li class="user_action_btn">
+                                        <button type="button" class="btn btn-sm btn-outline-danger">Disable User</button>
+                                    </li>
+                                    <li class="user_action_btn">
+                                        <button type="button" class="btn btn-sm btn-danger">Delete User</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid p-0 user_nav_container mt-4 mb-3">
+                        <input type="radio" name="slider" class="nav_radios" id="personal_info" checked>
+                        <input type="radio" name="slider" class="nav_radios" id="enrolled_info">
+                        <input type="radio" name="slider" class="nav_radios" id="pending_info">
+                        <input type="radio" name="slider" class="nav_radios" id="completed_info">
+                        <nav class="position-relative d-flex align-items-center border-bottom">
+                            <label for="personal_info" class="personal_info nav_labels" data-section="personal_info">Personal Info</label>
+                            <label for="enrolled_info" class="enrolled_info nav_labels" data-section="enrolled_info">Enrolled Challenges</label>
+                            <label for="pending_info" class="pending_info nav_labels" data-section="pending_info">Pending Challenges</label>
+                            <label for="completed_info" class="completed_info nav_labels" data-section="completed_info">Completed Challenges</label>
+                            <div class="nav_slider"></div>
+                        </nav>
+                    </div>
+                    <section class="container-fluid p-0 d-flex align-items-center justify-content-between" id="user_modal_content_wrapper">
+                        <div class="modal_content w-100" id="personal_info_content">
+                            <form action="">
+                                <div class="container-fluid p-0">
+                                    <div class="row gx-4">
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="user_full_name" class="form-label fs-6">Full Name</label>
+                                                <input type="text" class="form-control rounded-1" placeholder="Full Name" aria-label="user_full_name" id="user_full_name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="user_username" class="form-label fs-6">User Name</label>
+                                                <input type="text" class="form-control rounded-1" placeholder="User Name" aria-label="user_username" id="user_username" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="user_email_address" class="form-label fs-6">Email Address</label>
+                                                <input type="email" class="form-control rounded-1" placeholder="Email Address" aria-label="user_email_address" id="user_email_address" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="user_mobile" class="form-label fs-6">Mobile Number</label>
+                                                <input type="number" class="form-control rounded-1" placeholder="Mobile Number" aria-label="user_mobile" id="user_mobile" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="user_xp" class="form-label fs-6">XP</label>
+                                                <input type="text" class="form-control rounded-1" placeholder="XP" aria-label="user_xp" id="user_xp" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="user_district" class="form-label fs-6">District</label>
+                                                <input type="text" class="form-control rounded-1" placeholder="District" aria-label="user_district" id="user_district" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="user_state" class="form-label fs-6">State</label>
+                                                <input type="email" class="form-control rounded-1" placeholder="State" aria-label="user_state" id="user_state" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="user_pincode" class="form-label fs-6">Pincode</label>
+                                                <input type="number" class="form-control rounded-1" placeholder="Pincode" aria-label="user_pincode" id="user_pincode" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="user_insta_profile" class="form-label fs-6">Instagram Profile</label>
+                                                <input type="url" class="form-control rounded-1" placeholder="Instagram Profile URL" aria-label="user_insta_profile" id="user_insta_profile" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="user_github_profile" class="form-label fs-6">Github Profile</label>
+                                                <input type="url" class="form-control rounded-1" placeholder="Github Profile URL" aria-label="user_github_profile" id="user_github_profile" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label for="user_linkedin_profile" class="form-label fs-6">Linkedin Profile</label>
+                                                <input type="url" class="form-control rounded-1" placeholder="Linkedin Profile URL" aria-label="user_linkedin_profile" id="user_linkedin_profile" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row g-0 pt-3 border-top">
+                                        <div class="col">
+                                            <button type="button" class="btn btn-success btn-sm">Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal_content" id="enrolled_info_content">
+                            <table class="table table-bordered content_table" id="user_enrolled_challenges_table">
+                                <thead class="position-sticky">
+                                    <tr>
+                                        <th scope="col" class="category_col"><span>Category</span></th>
+                                        <th scope="col" class="title_col"><span>Title</span></th>
+                                        <th scope="col" class="desc_col"><span>Description</span></th>
+                                        <th scope="col" class="postedOn_col"><span>Posted On</span></th>
+                                        <th scope="col" class="endsOn_col"><span>Ends On</span></th>
+                                        <th scope="col" class="difficulty_col"><span>Difficulty</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="user_enrolled_challenges_body">
+                                    <tr>
+                                        <td colspan="7" class="text-center py-4">
+                                            <div class="spinner-border spinner-border-sm" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal_content" id="pending_info_content">
+                            <table class="table table-bordered content_table" id="user_pending_challenges_table">
+                                <thead class="position-sticky">
+                                    <tr>
+                                        <th scope="col" class="category_col"><span>Category</span></th>
+                                        <th scope="col" class="title_col"><span>Title</span></th>
+                                        <th scope="col" class="desc_col"><span>Description</span></th>
+                                        <th scope="col" class="postedOn_col"><span>Posted On</span></th>
+                                        <th scope="col" class="endsOn_col"><span>Ends On</span></th>
+                                        <th scope="col" class="difficulty_col"><span>Difficulty</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="user_pending_challenges_body">
+                                    <tr>
+                                        <td colspan="7" class="text-center py-4">
+                                            <div class="spinner-border spinner-border-sm" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal_content" id="completed_info_content">
+                            <table class="table table-bordered content_table" id="user_completed_challenges_table">
+                                <thead class="position-sticky">
+                                    <tr>
+                                        <th scope="col" class="category_col"><span>Category</span></th>
+                                        <th scope="col" class="title_col"><span>Title</span></th>
+                                        <th scope="col" class="desc_col"><span>Description</span></th>
+                                        <th scope="col" class="postedOn_col"><span>Posted On</span></th>
+                                        <th scope="col" class="endsOn_col"><span>Ends On</span></th>
+                                        <th scope="col" class="difficulty_col"><span>Difficulty</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="user_completed_challenges_body">
+                                    <tr>
+                                        <td colspan="7" class="text-center py-4">
+                                            <div class="spinner-border spinner-border-sm" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>                             
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <header>
+        <nav class="navbar navbar-expand-lg" style="background-color: #191818;">
+            <div class="container-fluid px-5 w-1300">
+                <img class="navbar-brand"src="../assets/icons/dashboard_logo.svg" alt="">
+                <img src="../assets/icons/profile_icon.jpeg" alt="" id="profile_icon">
+            </div>
+        </nav>
+    </header>
+    <main class="w-1300 m-auto">
+        <div class="dashboard_header container-fluid p-0 py-3">
+            <p class="mb-3">Admin Dashboard</p>
+            <div class="row g-0 justify-content-between">
+                <div class="col-5 admin_details_container pe-3">
+                    <div class="admin_details_wrapper thin_border text-center h-100 d-flex flex-column justify-content-center">
+                        <p id="welcom_msg" class="mb-4">Welcome to Admin Dashboard</p>
+                        <div>
+                            <p id="admin_id">---- ---- ----</p>
+                            <p id="display_admin_name">----</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7 d-flex flex-column" style="min-height: 200px;">
+                    <p class="thin_text mb-2">Statistics</p>
+                    <div class="stats_cards_container row g-3 justify-content-between flex-grow-1">
+                        <div class="col-4 stats_card" data-file="all_challenges.html" data-color="#1DB471" data-card="active_challenges_card">
+                            <div class="stats_card_wrapper thin_border py-4" id="active_challenges_card">
+                                <div class="stats_card_header">
+                                    <img src="../assets/icons/all_challenges_card_icon.svg" alt="" class="card_header_icon">
+                                    <p class="card_header_title_text">All Challenges</p>
+                                </div>
+                                <div class="stats_card_body">
+                                    <p class="stats_body_text">Total Active Challenges</p>
+                                    <p class="stats_body_content" id="all_challenges_count">
+                                        <div class="spinner-border spinner-border-sm text-secondary mt-2" role="status" id="all_challenges_count_spinner">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </p>
+                                </div>
+                                <div class="stats_card_footer">
+                                    <div class="footer_btn">
+                                        <p class="view_all_Btn">view all</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 stats_card" data-file="all_users.html" data-color="#0050C8" data-card="all_users_card">
+                            <div class="stats_card_wrapper thin_border py-4" id="all_users_card">
+                                <div class="stats_card_header" id="all_user_header">
+                                    <img src="../assets/icons/all_users_card_icon.svg" alt="" class="card_header_icon">
+                                    <p class="card_header_title_text">All Users</p>
+                                </div>
+                                <div class="stats_card_body">
+                                    <p class="stats_body_text">Total Registered Users</p>
+                                    <p class="stats_body_content" id="total_users_count">
+                                        <div class="spinner-border spinner-border-sm text-secondary mt-2" role="status" id="users_count_spinner">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </p>
+                                </div>
+                                <div class="stats_card_footer">
+                                    <div class="footer_btn">
+                                        <p class="view_all_Btn">view all</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 stats_card" data-file="all_pending_challenges.html" data-color="#FB6D35" data-card="all_pending_challenges_card">
+                            <div class="stats_card_wrapper thin_border py-4" id="all_pending_challenges_card">
+                                <div class="stats_card_header" id="pending_challenges_header">
+                                    <img src="../assets/icons/all_pending_challenges_card_icon.svg" alt="" class="card_header_icon">
+                                    <p class="card_header_title_text">Pending Challenges</p>
+                                </div>
+                                <div class="stats_card_body">
+                                    <p class="stats_body_text">Total Pending Challenges</p>
+                                    <p class="stats_body_content" id="pending_challnegs_count">
+                                        <div class="spinner-border spinner-border-sm text-secondary mt-2" role="status" id="pending_count_spinner">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </p>
+                                </div>
+                                <div class="stats_card_footer">
+                                    <div class="footer_btn">
+                                        <p class="view_all_Btn">view all</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+        <div class="dashboard_content_container thin_border mb-5">
+            <div class="d-flex align-items-center justify-content-between me-3">
+                <p class="p-3" id="content_title"></p>
+                <button type="button" class="btn btn-sm btn-success header_btns" id="add_new_btn" data-bs-toggle="modal" data-bs-target="#newChallengeModal">Add New Challenge</button>
+                <button type="button" class="btn btn-sm btn-success header_btns" id="add_new_user_btn" data-bs-toggle="modal" data-bs-target="#newChallengeModal">Add New User</button>
+            </div>
+            <div class="table_container thinScroll overflow-y-scroll w-100" id="content_table_container">
+
+            </div>
+        </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="../JS/multiselect-dropdown.js"></script>
+    <script type="module" src="../JS/dashboard.js"></script>
+    <script>
+        const labels = $(".nav_labels");
+        const modalContents = $(".modal_content");
+        labels.each(function() {
+            $(this).click(function() {
+                // Hide all modal contents
+                modalContents.hide();
+                // Get the data-section attribute of the clicked label
+                const sectionToShow = $(this).data("section");
+                // Show the corresponding modal content
+                $(`#${sectionToShow}_content`).show();
+            });
+        });
+    </script>
+</body>
+</html>

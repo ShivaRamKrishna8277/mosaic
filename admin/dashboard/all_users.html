@@ -1,0 +1,81 @@
+<table class="table table-bordered content_table" id="all_challenges_table">
+    <thead class="position-sticky">
+        <tr>
+            <th scope="col" class="uid_col"><span>UID</span></th>
+            <th scope="col" class="name_col"><span>Name</span></th>
+            <th scope="col" class="email_col"><span>Email</span></th>
+            <th scope="col" class="mobile_col"><span>Mobile</span></th>
+            <th scope="col" class="username_col"><span>User Name</span></th>
+            <th scope="col" class="state_col"><span>State</span></th>
+            <th scope="col" class="actn_col"><span>Action</span></th>
+        </tr>
+    </thead>
+    <tbody id="all_users_body">
+        <tr>
+            <td colspan="7" class="text-center py-4">
+                <div class="spinner-border spinner-border-sm" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    document.getElementById("content_title").textContent = "All Users";
+    document.getElementById("add_new_btn").style.display = 'none';
+    document.getElementById("add_new_user_btn").style.display = 'block';
+</script>
+<script type="module">
+    import { db, get, ref } from '../../firebase.js';
+
+    $(document).ready(() => {
+        readAllUsers();
+    });
+
+    function readAllUsers() {
+        // Reference to the users node
+        const usersRef = ref(db, 'users');
+        const allUsersBody = document.getElementById("all_users_body");
+
+        // Get the data from the users node
+        get(usersRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    const usersData = snapshot.val();
+
+                    // Clear the table body first
+                    allUsersBody.innerHTML = '';
+
+                    // Populate table with user data
+                    for (const userId in usersData) {
+                        const user = usersData[userId];
+                        const passing_data = JSON.stringify(user);
+                        // Create a new table row
+                        const row = document.createElement("tr");
+
+                        // Create table cells and set their content
+                        row.innerHTML = `
+                            <td class="uid_col" data-bs-toggle="tooltip" data-bs-title="Click to Copy UID"><span>${userId}</span></td>
+                            <td class="name_col">${user.name}</td>
+                            <td class="email_col">${user.email}</td>
+                            <td class="mobile_col">${user.mobile}</td>
+                            <td class="username_col">${user.username}</td>
+                            <td class="state_col">${user.state}</td>
+                            <td class="actn_col" onclick='full_user_details(${passing_data})'>Full Details</td>
+                        `;
+                        // Append the row to the table body
+                        allUsersBody.appendChild(row);
+                    }
+                } else {
+                    console.log('No users available');
+                    allUsersBody.innerHTML = '<tr><td colspan="7">No users available</td></tr>';
+                }
+            })
+            .catch((error) => {
+                console.error('Error getting users:', error);
+                allUsersBody.innerHTML = '<tr><td colspan="7">Error loading users</td></tr>';
+            });
+    }
+</script>
+

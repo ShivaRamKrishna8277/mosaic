@@ -1,0 +1,426 @@
+body{
+    background-color: #F7F9FB;
+}
+
+/* navbar */
+.navbar-brand{
+    width: 100px;
+    height: auto;
+}
+#profile_icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid var(--fivehun);
+}
+
+/* dashboard header */
+#welcom_msg{
+    font-size: .9rem;
+    font-weight: 500;
+    opacity: .5;
+    position: relative;
+}
+#welcom_msg::after{
+    position: absolute;
+    content: "";
+    bottom: -5px;
+    left: 50%;
+    width: 40px;
+    height: 3px;
+    background-color: rgba(0, 0, 0, 0.539);
+    border-radius: 3px;
+    transform: translateX(-50%);
+}
+#admin_id{
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--fivehun);
+}
+.thin_text{
+    font-size: .8rem;
+    opacity: .5;
+}
+
+.stats_card_wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+    cursor: pointer;
+    height: 100%;
+    overflow: hidden;
+}
+.stats_card_wrapper::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: var(--fivehun);
+    bottom: 0;
+    left: 0;
+}
+#all_users_card::after{
+    background-color: #0050C8 !important;
+}
+#all_pending_challenges_card::after{
+    background-color: #FB6D35 !important;
+}
+.stats_card_header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    margin: 0 auto;
+    min-width: 100px;
+    width: fit-content;
+    border-radius: 50px;
+    background-color: var(--hun);
+}
+.card_header_icon{
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+}
+.card_header_title_text{
+    font-size: .7rem;
+    font-weight: 450;
+    color: var(--fivehun);
+}
+.stats_body_text{
+    font-size: .7rem;
+    opacity: .5;
+}
+.stats_body_content{
+    font-size: 2.3rem;
+    line-height: 2.5rem;
+    font-weight: 650;
+    color: var(--fivehun);
+}
+#all_user_header{
+    background-color: rgba(0, 80, 200, 0.2);
+}
+#all_users_card .card_header_title_text, #all_users_card .stats_body_content{
+    color: #0050C8 !important;
+}
+#pending_challenges_header{
+    background-color: rgba(251, 109, 43, 0.2);
+}
+#all_pending_challenges_card .card_header_title_text, #all_pending_challenges_card .stats_body_content{
+    color: #FB6D35 !important;
+}
+
+.view_all_Btn{
+    font-size: .6rem;
+    font-weight: 450;
+    border: 1px solid #e9e7e7;
+    color: var(--fivehun);
+    padding: 3px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#all_users_card .view_all_Btn{
+    color: #0050C8 !important;
+}
+#all_pending_challenges_card .view_all_Btn{
+    color: #FB6D35 !important;
+}
+
+
+/* dasbhoard content */
+#content_title{
+    font-size: .9rem;
+}
+.header_btns{
+    display: none;
+}
+table{
+    table-layout: fixed;
+}
+.table_container{
+    max-height: 500px;
+}
+.content_table{
+    max-height: 500px;
+    margin-bottom: 0px !important;
+    overflow-y: auto;
+}
+thead{
+    top: -1px;
+}
+thead tr th{
+    background-color: #ffffff !important;
+}
+th span{
+    font-size: .75rem;
+    font-weight: 400;
+    opacity: .5;
+}
+td, th{
+    border-left: none;
+}
+tr td:last-child, tr th:last-child{
+    border-right: none;
+}
+td{
+    font-size: .85rem;
+    color: var(--bg-or-text) !important;
+}
+.title_col{
+    width: 20%;
+    vertical-align: middle;
+}
+.desc_col{
+    width: 30%;
+    vertical-align: middle;
+}
+.category_col, .postedOn_col, .endsOn_col, .difficulty_col, .actn_col{
+    width: 10%;
+    text-align: center;
+}
+td{
+    vertical-align: middle;
+}
+tbody tr td{
+    min-height: 50px;
+}
+tbody tr td:last-child{
+    color: blue !important;
+    cursor: pointer;
+}
+tbody tr td:last-child:hover{
+    text-decoration: underline !important;
+}
+tbody tr .desc_col{
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    padding-bottom: 0px !important;
+    overflow: hidden;
+}
+
+/* all challenges */
+.category_content{
+    display: inline-block;
+    text-align: center;
+    width: 90%;
+    padding: 5px 0;
+    border-radius: 2px;
+    font-weight: 500;
+    font-size: 10px;
+    font-weight: normal;
+}
+.SEO{
+    color: #ff8000;
+    background-color: #ff80002c;
+}
+.Programming{
+    color: #0066ff;
+    background-color: #0066ff2c;
+}
+.Writing{
+    color: #009f03;
+    background-color: #00ff002c;
+}
+.Video{
+    color: #aa00ff;
+    background-color: #aa00ff2c;
+}
+.Graphic{
+    color: #01bcfb;
+    background-color: #01bcfb2c;
+}
+.Data{
+    color: #ff0077;
+    background-color: #ff00772c;
+}
+.Music{
+    color: #0000ff;
+    background-color: #0000ff2c;
+}
+.Animation{
+    color: #FF3333;
+    background-color: #FF33332c;
+}
+.Easy, .Approved{
+    color: var(--fivehun) !important;
+    background-color: #1DB4712c !important;
+}
+.Medium{
+    color: #FB6D2B !important;
+    background-color: #ff51002c !important;
+}
+.Hard, .Rejected{
+    color: #FF0000 !important;
+    background-color: #ff000049 !important;
+}
+.actn_col button{
+    background: none;
+    border: none;
+    color: blue;
+}
+.actn_col button:hover{
+    text-decoration: underline !important;
+}
+
+/* all users */
+.uid_col, .mobile_col, .username_col, .state_col, .actn_col{
+    width: 10%;
+    text-align: center;
+}
+tbody tr .uid_col span{
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+tbody tr .uid_col{
+    cursor: pointer;
+}
+.name_col{
+    width: 20%;
+}
+.email_col{
+    width: 30%;
+}
+
+/* Modal */
+.form-label{
+    font-size: .75rem !important;
+    opacity: .5;
+    margin-bottom: 4px !important;
+}
+.input_wrapper{
+    padding-right: 20px !important;
+}
+.form_text_area{
+    resize: none !important;
+}
+.form_btn_wrapper button{
+    border-radius: .15rem !important;
+    font-size: .8rem;
+}
+
+/* Multiselect */
+.multiselect-dropdown{
+    width: 100% !important;
+    padding-top: 5px !important;
+    padding-left: 10px;
+}
+.multiselect-dropdown-list{
+    height: fit-content !important;
+    max-height: 9rem !important;
+}
+.placeholder{
+    background-color: transparent !important;
+    opacity: 1 !important;
+    color: var(--bg-or-text) !important;
+    margin-bottom: 5px !important;
+}
+.multiselect-dropdown span.optext{
+    color: var(--fivehun) !important;
+    background-color: var(--hun) !important;
+    margin-bottom: 5px !important;
+}
+.multiselect-dropdown-list div input{
+    vertical-align: middle;
+}
+.optext p{
+    display: inline-block;
+    color: var(--fivehun) !important;
+}
+
+/* user details modal */
+#modal_userID{
+    color: var(--fivehun);
+}
+#user_modal_profile{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 4px solid var(--fivehun);
+}
+
+.user_nav_container nav label{
+    position: relative;
+    display: block;
+    width: 20%;
+    text-align: center;
+    font-size: .8rem;
+    font-weight: 450;
+    padding-bottom: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+#enrolled_info:checked ~ nav label .personal_info,
+#enrolled_info:checked ~ nav label .enrolled_info,
+#enrolled_info:checked ~ nav label .pending_info,
+#enrolled_info:checked ~ nav label .completed_info{
+    color: #0050C8;
+}
+input[type='radio']{
+    display: none;
+}
+.user_nav_container nav .nav_slider{
+    position: absolute;
+    height: 3px;
+    width: 20%;
+    background-color: #0050C8;
+    border-radius: 2px;
+    left: 0;
+    bottom: 0;
+    transition: all 0.3s ease;
+}
+#enrolled_info:checked ~ nav .nav_slider{
+    left: 20%;
+}
+#pending_info:checked ~ nav .nav_slider{
+    left: 40%;
+}
+#completed_info:checked ~ nav .nav_slider{
+    left: 60%;
+}
+#personal_info:checked ~ nav .personal_info,
+#enrolled_info:checked ~ nav .enrolled_info,
+#pending_info:checked ~ nav .pending_info,
+#completed_info:checked ~ nav .completed_info{
+    color: #0050C8;
+}
+
+section .modal_content{
+    display: none;
+}
+#personal_info_content{
+    display: block;
+}
+
+#user_enrolled_challenges_table td, #user_enrolled_challenges_table th{
+    border: 1px solid #e9e7e7;
+}
+#user_enrolled_challenges_table .category_col,
+#user_enrolled_challenges_table .postedOn_col,
+#user_enrolled_challenges_table .endsOn_col,
+#user_enrolled_challenges_table .difficulty_col{
+    width: 12.5%;
+}
+#user_enrolled_challenges_table .Easy{
+    color: var(--fivehun) !important;
+    text-decoration: none !important;
+}
+#user_enrolled_challenges_table .Medium{
+    color: #FB6D2B !important;
+    text-decoration: none !important;
+}
+#user_enrolled_challenges_table .Hard{
+    color: #FF0000 !important;
+    text-decoration: none !important;
+}

@@ -9,9 +9,7 @@ gridBody.classList.add('all_challenges_grid','grid');
 function readChallengesData() {
     const challRef = ref(db, 'challenges');
     let enrolledChallengesRef = null;
-    if (user) {
-        enrolledChallengesRef = ref(db, 'users/' + user.id + '/enrolledChallenges');
-    }
+    if (user) {enrolledChallengesRef = ref(db, 'users/' + user.id + '/enrolledChallenges');}
     const tableBody = document.getElementById('all_challenges_body');
     
     const loader = document.querySelector('.loader_row'); // Get the loader row element
@@ -265,7 +263,6 @@ function enrollChallenge(challengeId) {
 
         // Create a promise that resolves after 2 seconds
         const delay = new Promise((resolve) => setTimeout(resolve, 2000));
-
         // Run the update and delay in parallel
         Promise.all([update(enrolledChallengesRef, challengeData), delay])
             .then(() => {

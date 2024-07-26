@@ -1,0 +1,80 @@
+<table class="table table-bordered content_table" id="all_challenges_table">
+    <thead class="position-sticky">
+        <tr>
+            <th scope="col" class="category_col"><span>Category</span></th>
+            <th scope="col" class="title_col"><span>Title</span></th>
+            <th scope="col" class="desc_col"><span>Description</span></th>
+            <th scope="col" class="postedOn_col"><span>Posted On</span></th>
+            <th scope="col" class="endsOn_col"><span>Ends On</span></th>
+            <th scope="col" class="difficulty_col"><span>Difficulty</span></th>
+            <th scope="col" class="actn_col"><span>Action</span></th>
+        </tr>
+    </thead>
+    <tbody id="all_challenges_body">
+        <tr>
+            <td colspan="7" class="text-center py-4">
+                <div class="spinner-border spinner-border-sm" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    document.getElementById("content_title").textContent = "All Challenges";
+    document.getElementById("add_new_btn").style.display = 'block';
+    document.getElementById("add_new_user_btn").style.display = 'none';
+</script>
+<script type="module">
+    import { db, get, ref } from '../../firebase.js';
+
+    $(document).ready(() => {
+        readAllChallenges();
+    });
+
+    function readAllChallenges() {
+        // Load All challenges
+        const challengesRef = ref(db, 'challenges');
+        const allChallengesBody = document.getElementById("all_challenges_body");
+
+        // Get the data from the node
+        get(challengesRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    const data = snapshot.val();
+
+                    // Clear the table body first
+                    allChallengesBody.innerHTML = '';
+
+                    // Populate table with challenge data
+                    for (const challengeId in data) {
+                        const challenge = data[challengeId];
+                        // Create a new table row
+                        const row = document.createElement("tr");
+
+                        const firstword = challenge.category.split(' ')[0];
+                        // Create table cells and set their content
+                        row.innerHTML = `
+                            <td class="category_col"><span class="category_content ${firstword}">${challenge.category}</span></td>
+                            <td class="title_col">${challenge.title}</td>
+                            <td class="desc_col">${challenge.description}</td>
+                            <td class="postedOn_col">${challenge.postedOn}</td>
+                            <td class="endsOn_col">${challenge.endsOn}</td>
+                            <td class="difficulty_col ${challenge.difficulty.replace(/\s+/g, '')}">${challenge.difficulty}</td>
+                            <td class="actn_col"><button onclick='show_all_challenges_model(${JSON.stringify(challenge)}, ${challengeId})'>Edit Info</button></td>
+                        `;
+                        // Append the row to the table body
+                        allChallengesBody.appendChild(row);
+                    }
+                } else {
+                    console.log('No data available');
+                    allChallengesBody.innerHTML = '<tr><td colspan="7">No challenges available</td></tr>';
+                }
+            })
+            .catch((error) => {
+                console.error('Error getting data:', error);
+                allChallengesBody.innerHTML = '<tr><td colspan="7">Error loading challenges</td></tr>';
+            });
+    }
+</script>

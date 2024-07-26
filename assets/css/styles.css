@@ -128,3 +128,10 @@ p{
         font-size: .9rem !important;
     }
 }
+
+
+.thin_border{
+    background-color: white !important;
+    border: 1px solid #e9e7e7 !important;
+    border-radius: 5px;
+}

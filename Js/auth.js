@@ -65,7 +65,6 @@ function showMsgModal(errorMessage, msgColor) {
         location.reload();
     }, 2000);
 }
-
 $(document).ready(() => {
     // Sign-up using email and password
     $('#signupBtn').click(evt => {
@@ -83,7 +82,6 @@ $(document).ready(() => {
         if (signupPassword === confirmPassword) {
             createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
                 .then((userCredential) => {
-                    const user = userCredential.user;
                     showMsgModal("Successfully Created Account!", 'green');
                     const initialUsername = signupEmail.split('@')[0];
                     set(ref(db, 'users/' + userCredential.user.uid), {
@@ -109,7 +107,7 @@ $(document).ready(() => {
                         enrolledChallenges: [
                             {"count": 0}
                         ]
-                    })
+                    });
                     setTimeout(() => {
                         window.location.href = 'login.html';
                     }, 1000);
