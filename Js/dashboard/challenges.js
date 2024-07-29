@@ -252,7 +252,7 @@ function enrollChallenge(challengeId) {
         
         // Add loading state to the button
         enrollButton.disabled = true;
-        enrollButton.innerHTML = '<span>Loading...</span>';
+        enrollButton.innerHTML = '<span class="text-white">Loading...</span>';
 
         const enrolledChallengesRef = ref(db, `users/${user.id}/enrolledChallenges/${challengeId}`);
 
@@ -266,10 +266,10 @@ function enrollChallenge(challengeId) {
         // Run the update and delay in parallel
         Promise.all([update(enrolledChallengesRef, challengeData), delay])
             .then(() => {
-                showResultModal('success', 'Enrolled successfully!', 'challengeModal', 0);
+                showResultModal('success', 'Enrolled successfully!', 'challengeModal', (window.innerWidth > 1112)?'6':'0');
             })
             .catch((error) => {
-                showResultModal('error', 'Failed to enroll in challenge.', 'challengeModal', 0);
+                showResultModal('error', 'Failed to enroll in challenge.', 'challengeModal', (window.innerWidth > 1112)?'6':'0');
             })
             .finally(() => {
                 // Reset button state after 2 seconds

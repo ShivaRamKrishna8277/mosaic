@@ -14,7 +14,7 @@ $(document).ready(function(){
             if(window.innerWidth > 1112){
                 $('.menu_item').eq(11).click();
             }else{
-                $('.menu_item').eq(4).click();
+                $('.menu_item').eq(5).click();
             }
         });
         $('.logout_item').show();

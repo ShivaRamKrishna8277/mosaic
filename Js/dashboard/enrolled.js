@@ -115,10 +115,10 @@ function submitSolution(dataID, link) {
         //Run the update and delay in parallel
         Promise.all([update(pendingChallengesRef, submissionData), remove(enrolledChallengesRef), delay])
             .then(() => {
-                showResultModal('success', 'Solution submitted successfully!', 'submissionModal', 1);
+                showResultModal('success', 'Solution submitted successfully!', 'submissionModal', (window.innerWidth > 1112)?'7':'1');
             })
             .catch(() => {
-                showResultModal('error', 'Failed to submit solution.', 'submissionModal', 1);
+                showResultModal('error', 'Failed to submit solution.', 'submissionModal', (window.innerWidth > 1112)?'7':'1');
             })
             .finally(() => {
                 // Reset button state after 2 seconds
