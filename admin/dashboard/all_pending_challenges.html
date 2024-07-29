@@ -61,7 +61,7 @@
 
                     return { allChallenges };
                 } else {
-                    all_pending_challenges_body.innerHTML = '<tr><td colspan="7" class="text-center py-5">No challenges available</td></tr>';
+                    all_pending_challenges_body.innerHTML = '<tr><td colspan="7" class="text-center">This Challenge is Deleted</td></tr>';
                     return { allChallenges: [] };
                 }
             })
@@ -127,7 +127,7 @@
                 }
 
                 if(visibleTrCount == 0){
-                    all_pending_challenges_body.innerHTML = '<tr><td colspan="7" class="text-center py-5">No challenges available</td></tr>';
+                    all_pending_challenges_body.innerHTML = '<tr><td colspan="7" class="text-center">This Challenge is Deleted</td></tr>';
                 }
             });
     };
