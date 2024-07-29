@@ -14,8 +14,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "GD103",
@@ -32,8 +31,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "WRT202",
@@ -50,8 +48,7 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "PRG203",
@@ -68,8 +65,7 @@
         "reward": 60,
         "submissionMethod": [
             "CodePen Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "WRT203",
@@ -86,8 +82,7 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "VID301",
@@ -104,8 +99,7 @@
         "reward": 100,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "WRT102",
@@ -122,8 +116,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "WRT101",
@@ -140,8 +133,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "GD301",
@@ -158,8 +150,7 @@
         "reward": 100,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "PRG102",
@@ -176,8 +167,7 @@
         "reward": 40,
         "submissionMethod": [
             "CodePen Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "WRT201",
@@ -194,8 +184,7 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "MUS104",
@@ -212,8 +201,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "GD203",
@@ -230,8 +218,7 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "SEO102",
@@ -248,8 +235,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "MUS102",
@@ -266,8 +252,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "GD202",
@@ -284,8 +269,7 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "SEO103",
@@ -302,8 +286,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "PRG201",
@@ -320,8 +303,7 @@
         "reward": 60,
         "submissionMethod": [
             "CodePen Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "MUS101",
@@ -338,8 +320,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "PRG104",
@@ -356,8 +337,7 @@
         "reward": 40,
         "submissionMethod": [
             "CodePen Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "MUS201",
@@ -374,8 +354,7 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "GD104",
@@ -392,8 +371,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "SEO301",
@@ -410,8 +388,7 @@
         "reward": 100,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "GD201",
@@ -428,8 +405,7 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "PRG103",
@@ -446,8 +422,7 @@
         "reward": 40,
         "submissionMethod": [
             "CodePen Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "SEO101",
@@ -464,8 +439,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "WRT301",
@@ -482,8 +456,7 @@
         "reward": 100,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "WRT104",
@@ -500,8 +473,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "SEO104",
@@ -518,8 +490,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "MUS202",
@@ -536,8 +507,7 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "WRT103",
@@ -554,8 +524,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "MUS103",
@@ -572,8 +541,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "VID102",
@@ -590,8 +558,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "VID104",
@@ -608,8 +575,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "GD101",
@@ -626,8 +592,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "VID202",
@@ -644,8 +609,7 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "PRG101",
@@ -662,8 +626,7 @@
         "reward": 40,
         "submissionMethod": [
             "CodePen Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "SEO202",
@@ -680,8 +643,7 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "SEO203",
@@ -698,8 +660,7 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "MUS301",
@@ -716,8 +677,7 @@
         "reward": 100,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "PRG202",
@@ -734,8 +694,7 @@
         "reward": 60,
         "submissionMethod": [
             "CodePen Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "SEO201",
@@ -752,8 +711,7 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "VID101",
@@ -770,8 +728,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "VID103",
@@ -788,8 +745,7 @@
         "reward": 40,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "MUS203",
@@ -806,8 +762,7 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "VID203",
@@ -824,8 +779,7 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     },
     {
         "id": "VID201",
@@ -842,7 +796,6 @@
         "reward": 60,
         "submissionMethod": [
             "Google Drive Link"
-        ],
-        "hasNegativeValuation": "True"
+        ]
     }
 ]

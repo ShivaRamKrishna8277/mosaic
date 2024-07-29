@@ -24,7 +24,6 @@
 <script>
     document.getElementById("content_title").textContent = "All Users";
     document.getElementById("add_new_btn").style.display = 'none';
-    document.getElementById("add_new_user_btn").style.display = 'block';
 </script>
 <script type="module">
     import { db, get, ref } from '../../firebase.js';
@@ -43,10 +42,9 @@
             .then((snapshot) => {
                 if (snapshot.exists()) {
                     const usersData = snapshot.val();
-
                     // Clear the table body first
                     allUsersBody.innerHTML = '';
-
+                    
                     // Populate table with user data
                     for (const userId in usersData) {
                         const user = usersData[userId];
@@ -78,4 +76,3 @@
             });
     }
 </script>
-

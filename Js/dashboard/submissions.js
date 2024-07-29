@@ -109,16 +109,17 @@ function readSubmissionsData() {
                         descCell.appendChild(descCellSpan);
                         row.appendChild(descCell);
 
-                        const mobile_statusCell = document.createElement('td');
-                        mobile_statusCell.classList.add('status_col');
-                        mobile_statusCell.textContent = data.mobile_status || '';
-                        row.appendChild(mobile_statusCell);
+                        const endsOnCell = document.createElement('td');
+                        endsOnCell.classList.add('endson_col');
+                        endsOnCell.textContent = data.endsOn || '';
+                        row.appendChild(endsOnCell);
 
                         // Create reward cell with dynamic class
                         const rewardCell = document.createElement('td');
                         rewardCell.classList.add('reward_col');
                         rewardCell.classList.add(completedChallengesMap?.[data.id]?.status);
-                        rewardCell.textContent = completedChallengesMap?.[data.id]?.reward;
+                        rewardCell.textContent = data.reward;
+                        console.log(completedChallengesMap);
                         row.appendChild(rewardCell);
 
                         // Create difficulty cell with dynamic class

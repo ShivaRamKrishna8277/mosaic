@@ -177,9 +177,19 @@ td{
     width: 30%;
     vertical-align: middle;
 }
-.category_col, .postedOn_col, .endsOn_col, .difficulty_col, .actn_col{
+.category_col, .postedOn_col, .endsOn_col, .difficulty_col, .actn_col, .result_col, .reward_col{
     width: 10%;
     text-align: center;
+}
+.link_col{
+    width: 10%;
+}
+.link_col a{
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 td{
     vertical-align: middle;
@@ -193,6 +203,18 @@ tbody tr td:last-child{
 }
 tbody tr td:last-child:hover{
     text-decoration: underline !important;
+}
+#user_completed_challenges_table .reward_col{
+    color: var(--bg-or-text) !important;
+}
+#user_completed_challenges_table .reward_col:hover{
+    text-decoration: none !important;
+}
+#user_completed_challenges_table .positive_reward, #user_completed_challenges_table .positive_result{
+    color: var(--fivehun) !important;
+}
+#user_completed_challenges_table .negative_reward, #user_completed_challenges_table .negative_result{
+    color: red !important;
 }
 tbody tr .desc_col{
     width: 100%;
@@ -336,6 +358,21 @@ tbody tr .uid_col{
 }
 
 /* user details modal */
+.user_header_detail{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.user_header_detail span{
+    display: inline-block;
+    width: 8%;
+    min-width: fit-content;
+    font-size: .8rem;
+    opacity: .4;
+}
+.user_header_detail p{
+    font-weight: 450;
+}
 #modal_userID{
     color: var(--fivehun);
 }
@@ -401,7 +438,7 @@ section .modal_content{
     display: block;
 }
 
-#user_enrolled_challenges_table td, #user_enrolled_challenges_table th{
+#user_enrolled_challenges_table td, #user_enrolled_challenges_table th, #user_pending_challenges_table td, #user_pending_challenges_table th, #user_completed_challenges_table td, #user_completed_challenges_table th{
     border: 1px solid #e9e7e7;
 }
 #user_enrolled_challenges_table .category_col,
@@ -421,4 +458,11 @@ section .modal_content{
 #user_enrolled_challenges_table .Hard{
     color: #FF0000 !important;
     text-decoration: none !important;
+}
+#user_enrolled_challenges_table .desc_col, #user_pending_challenges_table .desc_col, #user_completed_challenges_table .desc_col{
+    border: none;
+}
+/* Add this CSS to your styles */
+.clicked{
+    color: red !important;
 }

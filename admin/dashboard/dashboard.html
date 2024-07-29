@@ -143,12 +143,6 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-6 input_wrapper">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="true" id="negative_val_checkbox" checked>
-                                            <label class="form-check-label" for="negative_val_checkbox">Negative Valuation</label>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="row g-4 mb-1 mt-3 border-top">
                                     <div class="col-auto form_btn_wrapper">
@@ -289,12 +283,6 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-6 input_wrapper">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="true" id="new_negative_val_checkbox" checked>
-                                            <label class="form-check-label" for="new_negative_val_checkbox">Negative Valuation</label>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="row g-4 mb-1 mt-3 border-top">
                                     <div class="col-auto form_btn_wrapper">
@@ -312,10 +300,10 @@
         </div>
         <!-- User Details Modal -->
         <div class="modal fade" id="userDetailsModal" tabindex="-1" aria-labelledby="userDetailsModalLabel" aria-hidden="false" onload="full_user_details()">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 1000px !important;">
+            <div class="modal-dialog" style="max-width: 1000px !important;">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="userDetailsModalLabel">User Details - <span id="modal_userID">DEMOID</span></h1>
+                        <h1 class="modal-title fs-5" id="userDetailsModalLabel">User Details</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -327,13 +315,10 @@
                                     </div>
                                 </div>
                                 <div class="col-9">
-                                    <ul class="user_action_btns_wrapper d-flex align-items-center gap-3">
-                                        <li class="user_action_btn">
-                                            <button type="button" class="btn btn-sm btn-outline-danger">Disable User</button>
-                                        </li>
-                                        <li class="user_action_btn">
-                                            <button type="button" class="btn btn-sm btn-danger">Delete User</button>
-                                        </li>
+                                    <ul class="user_header_details_wrapper">
+                                        <li class="user_header_detail"><span>User Id :</span><p id="modal_userID"></p></li>
+                                        <li class="user_header_detail"><span>Badge :</span><p id="modal_userBadge"></p></li>
+                                        <li class="user_header_detail"><span>XP :</span><p id="user_xp"></p></li>
                                     </ul>
                                 </div>
                             </div>
@@ -359,73 +344,67 @@
                                             <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="user_full_name" class="form-label fs-6">Full Name</label>
-                                                    <input type="text" class="form-control rounded-1" placeholder="Full Name" aria-label="user_full_name" id="user_full_name" required>
+                                                    <input type="text" class="user_data_input form-control rounded-1" placeholder="Full Name" aria-label="user_full_name" id="user_full_name" required>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="user_username" class="form-label fs-6">User Name</label>
-                                                    <input type="text" class="form-control rounded-1" placeholder="User Name" aria-label="user_username" id="user_username" required>
+                                                    <input type="text" class="user_data_input form-control rounded-1" placeholder="User Name" aria-label="user_username" id="user_username" required>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="user_email_address" class="form-label fs-6">Email Address</label>
-                                                    <input type="email" class="form-control rounded-1" placeholder="Email Address" aria-label="user_email_address" id="user_email_address" required>
+                                                    <input type="email" class="user_data_input form-control rounded-1" placeholder="Email Address" aria-label="user_email_address" id="user_email_address" required>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="user_mobile" class="form-label fs-6">Mobile Number</label>
-                                                    <input type="number" class="form-control rounded-1" placeholder="Mobile Number" aria-label="user_mobile" id="user_mobile" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="mb-3">
-                                                    <label for="user_xp" class="form-label fs-6">XP</label>
-                                                    <input type="text" class="form-control rounded-1" placeholder="XP" aria-label="user_xp" id="user_xp" required>
+                                                    <input type="number" class="user_data_input form-control rounded-1" placeholder="Mobile Number" aria-label="user_mobile" id="user_mobile" required>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="user_district" class="form-label fs-6">District</label>
-                                                    <input type="text" class="form-control rounded-1" placeholder="District" aria-label="user_district" id="user_district" required>
+                                                    <input type="text" class="user_data_input form-control rounded-1" placeholder="District" aria-label="user_district" id="user_district" required>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="user_state" class="form-label fs-6">State</label>
-                                                    <input type="email" class="form-control rounded-1" placeholder="State" aria-label="user_state" id="user_state" required>
+                                                    <input type="email" class="user_data_input form-control rounded-1" placeholder="State" aria-label="user_state" id="user_state" required>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="user_pincode" class="form-label fs-6">Pincode</label>
-                                                    <input type="number" class="form-control rounded-1" placeholder="Pincode" aria-label="user_pincode" id="user_pincode" required>
+                                                    <input type="number" class="user_data_input form-control rounded-1" placeholder="Pincode" aria-label="user_pincode" id="user_pincode" required>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="user_insta_profile" class="form-label fs-6">Instagram Profile</label>
-                                                    <input type="url" class="form-control rounded-1" placeholder="Instagram Profile URL" aria-label="user_insta_profile" id="user_insta_profile" required>
+                                                    <input type="url" class="user_data_input form-control rounded-1" placeholder="Instagram Profile URL" aria-label="user_insta_profile" id="user_insta_profile" required>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="user_github_profile" class="form-label fs-6">Github Profile</label>
-                                                    <input type="url" class="form-control rounded-1" placeholder="Github Profile URL" aria-label="user_github_profile" id="user_github_profile" required>
+                                                    <input type="url" class="user_data_input form-control rounded-1" placeholder="Github Profile URL" aria-label="user_github_profile" id="user_github_profile" required>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="user_linkedin_profile" class="form-label fs-6">Linkedin Profile</label>
-                                                    <input type="url" class="form-control rounded-1" placeholder="Linkedin Profile URL" aria-label="user_linkedin_profile" id="user_linkedin_profile" required>
+                                                    <input type="url" class="user_data_input form-control rounded-1" placeholder="Linkedin Profile URL" aria-label="user_linkedin_profile" id="user_linkedin_profile" required>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row g-0 pt-3 border-top">
+                                        <div class="row g-0 pt-3 border-top" id="save_changes_btn_wrapper">
                                             <div class="col">
-                                                <button type="button" class="btn btn-success btn-sm">Save Changes</button>
+                                                <button type="button" class="btn btn-success btn-sm" id="save_user_changes">Save Changes</button>
                                             </div>
                                         </div>
                                     </div>
@@ -461,9 +440,9 @@
                                             <th scope="col" class="category_col"><span>Category</span></th>
                                             <th scope="col" class="title_col"><span>Title</span></th>
                                             <th scope="col" class="desc_col"><span>Description</span></th>
-                                            <th scope="col" class="postedOn_col"><span>Posted On</span></th>
-                                            <th scope="col" class="endsOn_col"><span>Ends On</span></th>
-                                            <th scope="col" class="difficulty_col"><span>Difficulty</span></th>
+                                            <th scope="col" class="link_col"><span>Solution</span></th>
+                                            <th scope="col" class="endsOn_col"><span>Approve</span></th>
+                                            <th scope="col" class="difficulty_col"><span>Reject</span></th>
                                         </tr>
                                     </thead>
                                     <tbody id="user_pending_challenges_body">
@@ -484,9 +463,9 @@
                                             <th scope="col" class="category_col"><span>Category</span></th>
                                             <th scope="col" class="title_col"><span>Title</span></th>
                                             <th scope="col" class="desc_col"><span>Description</span></th>
-                                            <th scope="col" class="postedOn_col"><span>Posted On</span></th>
-                                            <th scope="col" class="endsOn_col"><span>Ends On</span></th>
                                             <th scope="col" class="difficulty_col"><span>Difficulty</span></th>
+                                            <th scope="col" class="result_col"><span>Result</span></th>
+                                            <th scope="col" class="reward_col"><span>Reward</span></th>
                                         </tr>
                                     </thead>
                                     <tbody id="user_completed_challenges_body">
@@ -531,7 +510,7 @@
                 <div class="col-7 d-flex flex-column" style="min-height: 200px;">
                     <p class="thin_text mb-2">Statistics</p>
                     <div class="stats_cards_container row g-3 justify-content-between flex-grow-1">
-                        <div class="col-4 stats_card" data-file="all_challenges.html" data-color="#1DB471" data-card="active_challenges_card">
+                        <div class="col-4 stats_card" data-file="all_challenges.html" data-color="#1DB471" data-card="active_challenges_card" onclick="load_all_challenges_count()">
                             <div class="stats_card_wrapper thin_border py-4" id="active_challenges_card">
                                 <div class="stats_card_header">
                                     <img src="../assets/icons/all_challenges_card_icon.svg" alt="" class="card_header_icon">
@@ -552,7 +531,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4 stats_card" data-file="all_users.html" data-color="#0050C8" data-card="all_users_card">
+                        <div class="col-4 stats_card" data-file="all_users.html" data-color="#0050C8" data-card="all_users_card" onclick="load_all_users_count()">
                             <div class="stats_card_wrapper thin_border py-4" id="all_users_card">
                                 <div class="stats_card_header" id="all_user_header">
                                     <img src="../assets/icons/all_users_card_icon.svg" alt="" class="card_header_icon">
@@ -573,7 +552,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4 stats_card" data-file="all_pending_challenges.html" data-color="#FB6D35" data-card="all_pending_challenges_card">
+                        <div class="col-4 stats_card" data-file="all_pending_challenges.html" data-color="#FB6D35" data-card="all_pending_challenges_card" onclick="load_all_pending_challenges_count()">
                             <div class="stats_card_wrapper thin_border py-4" id="all_pending_challenges_card">
                                 <div class="stats_card_header" id="pending_challenges_header">
                                     <img src="../assets/icons/all_pending_challenges_card_icon.svg" alt="" class="card_header_icon">
@@ -602,7 +581,6 @@
             <div class="d-flex align-items-center justify-content-between me-3">
                 <p class="p-3" id="content_title"></p>
                 <button type="button" class="btn btn-sm btn-success header_btns" id="add_new_btn" data-bs-toggle="modal" data-bs-target="#newChallengeModal">Add New Challenge</button>
-                <button type="button" class="btn btn-sm btn-success header_btns" id="add_new_user_btn" data-bs-toggle="modal" data-bs-target="#newChallengeModal">Add New User</button>
             </div>
             <div class="table_container thinScroll overflow-y-scroll w-100" id="content_table_container">
 

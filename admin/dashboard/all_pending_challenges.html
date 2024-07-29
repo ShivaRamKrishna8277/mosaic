@@ -4,27 +4,138 @@
             <th scope="col" class="category_col"><span>Category</span></th>
             <th scope="col" class="title_col"><span>Title</span></th>
             <th scope="col" class="desc_col"><span>Description</span></th>
-            <th scope="col" class="postedOn_col"><span>Posted On</span></th>
-            <th scope="col" class="endsOn_col"><span>Ends On</span></th>
-            <th scope="col" class="difficulty_col"><span>Difficulty</span></th>
-            <th scope="col" class="actn_col"><span>Action</span></th>
+            <th scope="col" class="link_col"><span>Solution</span></th>
+            <th scope="col" class="endsOn_col"><span>Approve</span></th>
+            <th scope="col" class="difficulty_col"><span>Reject</span></th>
         </tr>
     </thead>
-    <tbody>
-        <tr>
-            <td class="category_col"><span class="category_content Graphic">Designing</span></td>
-            <td class="title_col">Create a Social Media Post</td>
-            <td class="desc_col">Design a visually appealing social media post for a fictional event.</td>
-            <td class="postedOn_col">2024-07-07</td>
-            <td class="endsOn_col">2024-07-10</td>
-            <td class="difficulty_col Easy">Easy</td>
-            <td class="actn_col">Verify Solution</td>
+    <tbody id="all_pending_challenges_body">
+        <tr id="all_pending_challenges_body_loader">
+            <td colspan="7" class="text-center py-4">
+                <div class="spinner-border spinner-border-sm" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </td>
         </tr>
     </tbody>
 </table>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
     document.getElementById("content_title").textContent = "Pending Challenges";
     document.getElementById("add_new_btn").style.display = 'none';
-    document.getElementById("add_new_user_btn").style.display = 'none';
 </script>
+<script type="module">
+    import { db, get, ref } from '../../firebase.js';
+    const usersRef = ref(db, 'users');
+    const challengesRef = ref(db, 'challenges');
+    const all_pending_challenges_body = document.getElementById("all_pending_challenges_body");
+
+    $(document).ready(() => {
+        all_users_pending_challenges();
+    });
+
+    function all_users_pending_challenges(){
+        get(usersRef)
+            .then((snapshot) => {
+                if(snapshot.exists()){
+                    const userData = snapshot.val();
+                    
+                    for(const userID in userData){
+                        const user = userData[userID];
+                        readAllPendingChallenges(user);
+                    }
+                }
+            })
+    }
+
+    function readAllPendingChallenges(user_data) {
+        get(challengesRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    const allChallenges = [];
+
+                    snapshot.forEach((challenge) => {
+                        allChallenges.push({ id: challenge.key, ...challenge.val() });
+                    });
+
+                    return { allChallenges };
+                } else {
+                    all_pending_challenges_body.innerHTML = '<tr><td colspan="7" class="text-center py-5">No challenges available</td></tr>';
+                    return { allChallenges: [] };
+                }
+            })
+            .then(({ allChallenges }) => {
+                const pendingChallengesArray = Object.values(user_data.pendingChallenges || {});
+                const pendingChallengesMap = pendingChallengesArray.reduce((map, challenge) => {
+                    if (challenge.id) {
+                        map[challenge.id] = challenge;
+                    }
+                    return map;
+                }, {});
+
+                // Filter challenges to include only those that match the pendingChallenges IDs
+                const filteredChallenges = allChallenges.filter((challenge) => pendingChallengesMap.hasOwnProperty(challenge.id));
+                if (filteredChallenges.length === 0) {
+                    return;
+                } else {
+                    filteredChallenges.forEach((c) => {
+                        const firstword = c.category.split(' ')[0];
+                        let solutionLink = pendingChallengesMap[c.id]?.link || "No link provided";
+
+                        if (solutionLink !== "No link provided" && !/^https?:\/\//i.test(solutionLink)) {
+                            solutionLink = `https://${solutionLink}`;
+                        }
+
+                        // Create table row HTML with tooltips
+                        const row = `
+                            <tr data-bs-toggle="tooltip" data-bs-title='${user_data.name}'>
+                                <td class="category_col"><span class="category_content ${firstword}">${c.category}</span></td>
+                                <td class="title_col">${c.title}</td>
+                                <td class="desc_col">${c.description}</td>
+                                <td class="link_col"><a href="${solutionLink}" target="_blank" class="solution_link">${solutionLink}</a></td>
+                                <td class="approve_col"><button class="btn btn-success btn-sm w-100" onclick="update_pending_challenge('${user_data.id}', '${c.id}', 'Approved', '${c.reward}', 2)">Approve</button></td>
+                                <td class="reject_col"><button class="btn btn-danger btn-sm w-100"  onclick="update_pending_challenge('${user_data.id}', '${c.id}', 'Rejected', '${c.reward}', 2)">Reject</button></td>
+                            </tr>
+                        `;
+
+                        // Append the row HTML to the table body
+                        all_pending_challenges_body.insertAdjacentHTML('beforeend', row);
+                    });
+
+                    // Initialize Bootstrap tooltips
+                    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+                    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                        return new bootstrap.Tooltip(tooltipTriggerEl);
+                    });
+                }
+            })
+            .catch((error) => {
+                all_pending_challenges_body.innerHTML = '<tr><td colspan="7" class="text-center py-5">Error retrieving challenges or user data</td></tr>';
+                console.log(error);
+            })
+            .finally(() => {
+                $("#all_pending_challenges_body_loader").hide();
+                const all_pending_challenges_body = document.getElementById("all_pending_challenges_body");
+                const trElements = all_pending_challenges_body.getElementsByTagName("tr");
+                let visibleTrCount = 0;
+
+                for (let i = 0; i < trElements.length; i++) {
+                    if (trElements[i].style.display !== 'none') {
+                        visibleTrCount++;
+                    }
+                }
+
+                if(visibleTrCount == 0){
+                    all_pending_challenges_body.innerHTML = '<tr><td colspan="7" class="text-center py-5">No challenges available</td></tr>';
+                }
+            });
+    };
+
+    // Event delegation for link click
+    $("#all_pending_challenges_body").on("click", ".solution_link", function() {
+        $(".solution_link").removeClass("clicked");
+        $(this).addClass('clicked');
+    });
+</script>
+
