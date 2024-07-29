@@ -4,6 +4,7 @@
             <th scope="col" class="category_col"><span>Category</span></th>
             <th scope="col" class="title_col"><span>Title</span></th>
             <th scope="col" class="desc_col"><span>Description</span></th>
+            <th scope="col" class="difficulty_col"><span>Description</span></th>
             <th scope="col" class="link_col"><span>Solution</span></th>
             <th scope="col" class="endsOn_col"><span>Approve</span></th>
             <th scope="col" class="difficulty_col"><span>Reject</span></th>
@@ -93,6 +94,7 @@
                                 <td class="category_col"><span class="category_content ${firstword}">${c.category}</span></td>
                                 <td class="title_col">${c.title}</td>
                                 <td class="desc_col">${c.description}</td>
+                                <td class="difficulty_col ${c.difficulty}">${c.difficulty}</td>
                                 <td class="link_col"><a href="${solutionLink}" target="_blank" class="solution_link">${solutionLink}</a></td>
                                 <td class="approve_col"><button class="btn btn-success btn-sm w-100" onclick="update_pending_challenge('${user_data.id}', '${c.id}', 'Approved', '${c.reward}', 2)">Approve</button></td>
                                 <td class="reject_col"><button class="btn btn-danger btn-sm w-100"  onclick="update_pending_challenge('${user_data.id}', '${c.id}', 'Rejected', '${c.reward}', 2)">Reject</button></td>
