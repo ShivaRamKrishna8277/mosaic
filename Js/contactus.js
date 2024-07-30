@@ -52,7 +52,8 @@ $(document).ready(() => {
                 Email: Email,
                 Mobile: Mobile,
                 Category: Category,
-                Querry: Querry
+                Querry: Querry,
+                status: "open"
                 }).then(() => {
                     showMsgModal("Querry Submitted Successfully!", 'green');
                 }).catch((error) => {

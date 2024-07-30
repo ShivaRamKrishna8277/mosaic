@@ -15,7 +15,7 @@ body{
 
 /* dashboard header */
 #welcom_msg{
-    font-size: .9rem;
+    font-size: .7rem;
     font-weight: 500;
     opacity: .5;
     position: relative;
@@ -32,9 +32,12 @@ body{
     transform: translateX(-50%);
 }
 #admin_id{
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 500;
     color: var(--fivehun);
+}
+#display_admin_name{
+    font-size: .8rem;
 }
 .thin_text{
     font-size: .8rem;
@@ -68,6 +71,9 @@ body{
 #all_pending_challenges_card::after{
     background-color: #FB6D35 !important;
 }
+#all_queries_card::after{
+    background-color: #A13CD7;;
+}
 .stats_card_header{
     display: flex;
     align-items: center;
@@ -99,18 +105,6 @@ body{
     font-weight: 650;
     color: var(--fivehun);
 }
-#all_user_header{
-    background-color: rgba(0, 80, 200, 0.2);
-}
-#all_users_card .card_header_title_text, #all_users_card .stats_body_content{
-    color: #0050C8 !important;
-}
-#pending_challenges_header{
-    background-color: rgba(251, 109, 43, 0.2);
-}
-#all_pending_challenges_card .card_header_title_text, #all_pending_challenges_card .stats_body_content{
-    color: #FB6D35 !important;
-}
 
 .view_all_Btn{
     font-size: .6rem;
@@ -122,11 +116,23 @@ body{
     cursor: pointer;
 }
 
-#all_users_card .view_all_Btn{
+#all_user_header{
+    background-color: rgba(0, 80, 200, 0.2);
+}
+#all_users_card .card_header_title_text, #all_users_card .stats_body_content, #all_users_card .view_all_Btn{
     color: #0050C8 !important;
 }
-#all_pending_challenges_card .view_all_Btn{
+#pending_challenges_header{
+    background-color: rgba(251, 109, 43, 0.2);
+}
+#all_pending_challenges_card .card_header_title_text, #all_pending_challenges_card .stats_body_content, #all_pending_challenges_card .view_all_Btn{
     color: #FB6D35 !important;
+}
+#queries_header{
+    background-color: rgba(161, 60, 215, 0.2);
+}
+#all_queries_card .card_header_title_text, #all_queries_card .stats_body_content, #all_queries_card .view_all_Btn{
+    color: #A13CD7 !important;
 }
 
 
@@ -217,12 +223,13 @@ tbody tr td:last-child:hover{
     color: red !important;
 }
 tbody tr .desc_col{
+    overflow: hidden;
+    text-overflow: ellipsis;
     width: 100%;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    padding-bottom: 0px !important;
-    overflow: hidden;
+    -webkit-line-clamp: 2;
+    padding-bottom: 0px;
 }
 
 /* all challenges */
@@ -290,11 +297,11 @@ tbody tr .desc_col{
 }
 
 /* all users */
-.uid_col, .mobile_col, .username_col, .state_col, .actn_col{
+.uid_col, .username_col, .state_col, .actn_col{
     width: 10%;
     text-align: center;
 }
-tbody tr .uid_col span{
+tbody tr .uid_col span, .username_col span{
     display: inline-block;
     width: 100%;
     overflow: hidden;
@@ -462,7 +469,39 @@ section .modal_content{
 #user_enrolled_challenges_table .desc_col, #user_pending_challenges_table .desc_col, #user_completed_challenges_table .desc_col{
     border: none;
 }
+
 /* Add this CSS to your styles */
 .clicked{
     color: red !important;
+}
+
+/* queries table */
+.fName_col, .mobile_col{
+    width: 15%;
+}
+#all_queries_body .category_col, .query_col{
+    width: 95%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#query_modal_body ul li{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#query_modal_body ul li span{
+    display: inline-block;
+    min-width: 10%;
+    font-size: .9rem;
+    opacity: .5;
+}
+#query_modal_body ul li p{
+    font-size: 1rem;
+    font-weight: 400;
+}
+#queryModal .modal-footer button{
+    min-width: 100px;
+    border-radius: 2px;
 }

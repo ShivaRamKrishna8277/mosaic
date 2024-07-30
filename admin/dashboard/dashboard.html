@@ -484,6 +484,31 @@
                 </div>
             </div>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="queryModal" tabindex="-1" aria-labelledby="queryModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="max-width: 1000px !important;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="queryModalLabel">Query Details</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                        <div class="modal-body" id="query_modal_body">
+                            <ul>
+                                <li><span>Query ID : </span><p id="query_id_modal">--</p></li>
+                                <li><span>Category : </span><p id="query_category_modal"></p></li>
+                                <li><span>Full Name : </span><p id="query_fName_modal"></p></li>
+                                <li><span>Email : </span><p id="query_email_modal"></p></li>
+                                <li><span>Mobile No : </span><p id="query_mobile_modal"></p></li>
+                                <li class="align-items-start"><span>Query : </span><p id="query_text_modal"></p></li>
+                            </ul>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="replyBtn">Reply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <header>
@@ -498,7 +523,7 @@
         <div class="dashboard_header container-fluid p-0 py-3">
             <p class="mb-3">Admin Dashboard</p>
             <div class="row g-0 justify-content-between">
-                <div class="col-5 admin_details_container pe-3">
+                <div class="col-3 admin_details_container pe-3">
                     <div class="admin_details_wrapper thin_border text-center h-100 d-flex flex-column justify-content-center">
                         <p id="welcom_msg" class="mb-4">Welcome to Admin Dashboard</p>
                         <div>
@@ -507,10 +532,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-7 d-flex flex-column" style="min-height: 200px;">
+                <div class="col-9 d-flex flex-column" style="min-height: 200px;">
                     <p class="thin_text mb-2">Statistics</p>
                     <div class="stats_cards_container row g-3 justify-content-between flex-grow-1">
-                        <div class="col-4 stats_card" data-file="all_challenges.html" data-color="#1DB471" data-card="active_challenges_card" onclick="load_all_challenges_count()">
+                        <div class="col-3 stats_card" data-file="all_challenges.html" data-color="#1DB471" data-card="active_challenges_card" onclick="load_all_challenges_count()">
                             <div class="stats_card_wrapper thin_border py-4" id="active_challenges_card">
                                 <div class="stats_card_header">
                                     <img src="../assets/icons/all_challenges_card_icon.svg" alt="" class="card_header_icon">
@@ -531,7 +556,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4 stats_card" data-file="all_users.html" data-color="#0050C8" data-card="all_users_card" onclick="load_all_users_count()">
+                        <div class="col-3 stats_card" data-file="all_users.html" data-color="#0050C8" data-card="all_users_card" onclick="load_all_users_count()">
                             <div class="stats_card_wrapper thin_border py-4" id="all_users_card">
                                 <div class="stats_card_header" id="all_user_header">
                                     <img src="../assets/icons/all_users_card_icon.svg" alt="" class="card_header_icon">
@@ -552,7 +577,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4 stats_card" data-file="all_pending_challenges.html" data-color="#FB6D35" data-card="all_pending_challenges_card" onclick="load_all_pending_challenges_count()">
+                        <div class="col-3 stats_card" data-file="all_pending_challenges.html" data-color="#FB6D35" data-card="all_pending_challenges_card" onclick="load_all_pending_challenges_count()">
                             <div class="stats_card_wrapper thin_border py-4" id="all_pending_challenges_card">
                                 <div class="stats_card_header" id="pending_challenges_header">
                                     <img src="../assets/icons/all_pending_challenges_card_icon.svg" alt="" class="card_header_icon">
@@ -562,6 +587,27 @@
                                     <p class="stats_body_text">Total Pending Challenges</p>
                                     <p class="stats_body_content" id="pending_challnegs_count">
                                         <div class="spinner-border spinner-border-sm text-secondary mt-2" role="status" id="pending_count_spinner">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </p>
+                                </div>
+                                <div class="stats_card_footer">
+                                    <div class="footer_btn">
+                                        <p class="view_all_Btn">view all</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 stats_card" data-file="all_queries.html" data-color="#A13CD7" data-card="all_queries_card" onclick="load_all_queris_count()">
+                            <div class="stats_card_wrapper thin_border py-4" id="all_queries_card">
+                                <div class="stats_card_header" id="queries_header">
+                                    <img src="../assets/icons/all_queries_card_icon.svg" alt="" class="card_header_icon">
+                                    <p class="card_header_title_text">Queries</p>
+                                </div>
+                                <div class="stats_card_body">
+                                    <p class="stats_body_text">Total Queries</p>
+                                    <p class="stats_body_content" id="queries_count">
+                                        <div class="spinner-border spinner-border-sm text-secondary mt-2" role="status" id="queries_count_spinner">
                                             <span class="visually-hidden">Loading...</span>
                                         </div>
                                     </p>

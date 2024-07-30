@@ -3,6 +3,7 @@ const admin = JSON.parse(sessionStorage.getItem('admin'));
 const challengesRef = ref(db, 'challenges');
 const usersRef = ref(db, 'users');
 const pending_challenges_Ref = ref(db, 'users');
+const queries_Ref = ref(db, 'queries');
 
 let submit_changes = document.getElementById("submit_changes_btn");
 let delete_challenge_btn = document.getElementById("delete_challenge_btn");
@@ -36,7 +37,7 @@ $(document).ready(() => {
             console.error('No file specified for this card.');
         }
     });
-    $('.stats_card').eq(0).click();
+    $('.stats_card').eq(3).click();
 
     // Retrieve the 12-digit text from localStorage
     const originalText = admin.adminUID;
@@ -56,6 +57,7 @@ $(document).ready(() => {
     load_all_challenges_count();
     load_all_users_count();
     load_all_pending_challenges_count();
+    load_all_queris_count();
 
     // Add new challenge btn
     document.getElementById("add_challenge_btn").addEventListener("click", () => {
@@ -382,6 +384,21 @@ $(document).ready(() => {
         });
         
     };
+
+    // show query modal
+    window.show_query_details = function(query, queryID) {
+        const query_modal = $("#queryModal");
+        query_modal.modal('show');
+        $("#query_id_modal").text(queryID || "--");
+        $("#query_category_modal").text(query.Category || "--");
+        $("#query_fName_modal").text(query.Fullname || "--");
+        $("#query_email_modal").text(query.Email || "--");
+        $("#query_mobile_modal").text(query.Mobile || "--");
+        $("#query_text_modal").text(query.Querry || "--");
+      
+        // Get the reply button element
+        const replyBtn = $("#replyBtn");
+      };          
 });
 
 window.load_all_challenges_count = function (){
@@ -465,6 +482,31 @@ window.load_all_pending_challenges_count = function (){
         console.error("Error fetching data:", error);
         pending_challenges_count.textContent = "ND";
     });
+}
+
+window.load_all_queris_count = function (){
+    // Load all queries count
+    const queriesCount = document.getElementById("queries_count");
+    const queries_count_spinner = $("#queries_count_spinner");
+
+    // Get data from the node
+    get(queries_Ref)
+        .then((snapshot) => {
+            if(snapshot.exists()){
+                const data = snapshot.val();
+                const count = data ? Object.keys(data).reduce((acc, key) => {
+                    return data[key].status === 'open' ? acc + 1 : acc;
+                }, 0) : 0;                
+                queries_count_spinner.hide();
+                queriesCount.innerHTML = count;
+            }else{
+                queriesCount.innerHTML = '0';
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            queriesCount.innerHTML = 'ER';
+        })
 }
 
 function save_challenge_details(challengeIndex){

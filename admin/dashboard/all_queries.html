@@ -1,0 +1,76 @@
+<table class="table table-bordered content_table" id="all_queries_table">
+    <thead class="position-sticky">
+        <tr>
+            <th scope="col" class="category_col"><span>Category</span></th>
+            <th scope="col" class="fName_col"><span>Full Name</span></th>
+            <th scope="col" class="mobile_col"><span>Mobile No</span></th>
+            <th scope="col" class="email_col"><span>Email Address</span></th>
+            <th scope="col" class="desc_col"><span>Querry</span></th>
+            <th scope="col" class="actn_col"><span>Action</span></th>
+        </tr>
+    </thead>
+    <tbody id="all_queries_body">
+        <tr>
+            <td colspan="7" class="text-center py-4">
+                <div class="spinner-border spinner-border-sm" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    document.getElementById("content_title").textContent = "All Queries";
+    document.getElementById("add_new_btn").style.display = 'none';
+</script>
+<script type="module">
+    import {db, get, ref} from '../../firebase.js';
+
+    $(document).ready(() => loadQueries())
+
+    function loadQueries(){
+        const queriesRef = ref(db, 'queries');
+        const queries_table_body = document.getElementById("all_queries_body");
+
+        get(queriesRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    const allQueriesData = snapshot.val();
+
+                    // Clear queries table body
+                    queries_table_body.innerHTML = '';
+
+                    for (const queryID in allQueriesData) {
+                        const query = allQueriesData[queryID];
+
+                        if (query.status === "closed") {
+                        continue; // Skip closed queries
+                        }
+
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                        <td class="category_col"><span>${query.Category}</span></td>
+                        <td class="fName_col"><span>${query.Fullname}</span></td>
+                        <td class="mobile_col"><span>${query.Mobile}</span></td>
+                        <td class="email_col"><span>${query.Email}</span></td>
+                        <td class="query_col">${query.Querry}</td>
+                        <td class="actn_col details-btn">Details</td>
+                        `;
+
+                        // Attach click event listener to the 'Details' button
+                        row.querySelector('.details-btn').addEventListener('click', () => {
+                        show_query_details(query, queryID);
+                        });
+
+                        queries_table_body.appendChild(row);
+                    }
+                    } else {
+                    queries_table_body.innerHTML = '<tr><td colspan="7">No Queries available</td></tr>';
+                    }
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+</script>

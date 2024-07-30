@@ -28,9 +28,7 @@
 <script type="module">
     import { db, get, ref } from '../../firebase.js';
 
-    $(document).ready(() => {
-        readAllChallenges();
-    });
+    $(document).ready(() => readAllChallenges())
 
     function readAllChallenges() {
         // Load All challenges
