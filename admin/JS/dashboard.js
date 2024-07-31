@@ -164,7 +164,7 @@ $(document).ready(() => {
         $("#user_full_name").val(user_data.name ? user_data.name : "--");
         $("#user_username").val(user_data.username ? user_data.username : "--");
         $("#user_email_address").val(user_data.email ? user_data.email : "--");
-        $("#user_mobile").val(user_data.mobile ? user_data.mobile : "--");
+        $("#user_mobile").val(user_data.mobile ? user_data.mobile : "00");
         $("#user_district").val(user_data.district ? user_data.district : "--");
         $("#user_state").val(user_data.state ? user_data.state : "--");
         $("#user_pincode").val(user_data.pincode ? user_data.pincode : "--");

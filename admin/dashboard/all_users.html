@@ -52,14 +52,15 @@
                         // Create a new table row
                         const row = document.createElement("tr");
 
+                        // let userid_text = (userId)
                         // Create table cells and set their content
                         row.innerHTML = `
-                            <td class="uid_col" data-bs-toggle="tooltip" data-bs-title="Click to Copy UID"><span>${userId}</span></td>
-                            <td class="name_col">${user.name}</td>
-                            <td class="email_col">${user.email}</td>
-                            <td class="mobile_col">${user.mobile}</td>
-                            <td class="username_col">${user.username}</td>
-                            <td class="state_col">${user.state}</td>
+                            <td class="uid_col" data-bs-toggle="tooltip" data-bs-title="Click to Copy UID"><span>${(userId) ? userId : "--"}</span></td>
+                            <td class="name_col">${(user.name) ? user.name : "--"}</td>
+                            <td class="email_col">${(user.email) ? user.email : "--"}</td>
+                            <td class="mobile_col">${(user.mobile) ? user.mobile : "--"}</td>
+                            <td class="username_col">${(user.username) ? user.username : "--"}</td>
+                            <td class="state_col">${(user.state) ? user.state : "--"}</td>
                             <td class="actn_col" onclick='full_user_details(${passing_data})'>Full Details</td>
                         `;
                         // Append the row to the table body

@@ -82,7 +82,6 @@ $(document).ready(() => {
         if (signupPassword === confirmPassword) {
             createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
                 .then((userCredential) => {
-                    showMsgModal("Successfully Created Account!", 'green');
                     const initialUsername = signupEmail.split('@')[0];
                     set(ref(db, 'users/' + userCredential.user.uid), {
                         id: userCredential.user.uid,
@@ -108,8 +107,9 @@ $(document).ready(() => {
                             {"count": 0}
                         ]
                     });
+                    showMsgModal("Successfully Created Account!", 'green');
                     setTimeout(() => {
-                        window.location.href = 'login.html';
+                        window.location.href = 'login';
                     }, 1000);
                 })
                 .catch((error) => {
@@ -149,7 +149,7 @@ $(document).ready(() => {
                         // Store user data in localStorage
                         localStorage.setItem('user', JSON.stringify(userData));
                         showMsgModal("Login Successful", 'green');
-                        window.location.href = 'dashboard/dashboard.html';
+                        window.location.href = 'dashboard/dashboard';
                     } else {
                         showMsgModal("User data not found", 'red');
                     }

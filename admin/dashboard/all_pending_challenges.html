@@ -120,17 +120,6 @@
                 $("#all_pending_challenges_body_loader").hide();
                 const all_pending_challenges_body = document.getElementById("all_pending_challenges_body");
                 const trElements = all_pending_challenges_body.getElementsByTagName("tr");
-                let visibleTrCount = 0;
-
-                for (let i = 0; i < trElements.length; i++) {
-                    if (trElements[i].style.display !== 'none') {
-                        visibleTrCount++;
-                    }
-                }
-
-                if(visibleTrCount == 0){
-                    all_pending_challenges_body.innerHTML = '<tr><td colspan="7" class="text-center">This Challenge is Deleted</td></tr>';
-                }
             });
     };
 
