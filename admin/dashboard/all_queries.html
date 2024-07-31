@@ -21,18 +21,19 @@
 </table>
 
 <script>
-    document.getElementById("content_title").textContent = "All Queries";
+    document.getElementById("content_title").textContent = "All Open Queries";
     document.getElementById("add_new_btn").style.display = 'none';
 </script>
 <script type="module">
     import {db, get, ref} from '../../firebase.js';
 
-    $(document).ready(() => loadQueries())
+    $(document).ready(() => loadQueries());
 
     function loadQueries(){
         const queriesRef = ref(db, 'queries');
         const queries_table_body = document.getElementById("all_queries_body");
 
+        document.getElementById("content_title").textContent = "All Open Queries";
         get(queriesRef)
             .then((snapshot) => {
                 if (snapshot.exists()) {
@@ -43,10 +44,6 @@
 
                     for (const queryID in allQueriesData) {
                         const query = allQueriesData[queryID];
-
-                        if (query.status === "closed") {
-                        continue; // Skip closed queries
-                        }
 
                         const row = document.createElement('tr');
                         row.innerHTML = `
@@ -60,7 +57,7 @@
 
                         // Attach click event listener to the 'Details' button
                         row.querySelector('.details-btn').addEventListener('click', () => {
-                        show_query_details(query, queryID);
+                            show_query_details(query, queryID);
                         });
 
                         queries_table_body.appendChild(row);

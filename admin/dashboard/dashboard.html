@@ -485,26 +485,25 @@
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="queryModal" tabindex="-1" aria-labelledby="queryModalLabel" aria-hidden="true">
+        <div class="modal fade" id="queryModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="queryModalLabel" aria-hidden="true">
             <div class="modal-dialog" style="max-width: 1000px !important;">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="queryModalLabel">Query Details</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                        <div class="modal-body" id="query_modal_body">
-                            <ul>
-                                <li><span>Query ID : </span><p id="query_id_modal">--</p></li>
-                                <li><span>Category : </span><p id="query_category_modal"></p></li>
-                                <li><span>Full Name : </span><p id="query_fName_modal"></p></li>
-                                <li><span>Email : </span><p id="query_email_modal"></p></li>
-                                <li><span>Mobile No : </span><p id="query_mobile_modal"></p></li>
-                                <li class="align-items-start"><span>Query : </span><p id="query_text_modal"></p></li>
-                            </ul>
-                        </div>
+                    <div class="modal-body" id="query_modal_body">
+                        <ul>
+                            <li><span>Query ID : </span><p id="query_id_modal">--</p></li>
+                            <li><span>Category : </span><p id="query_category_modal"></p></li>
+                            <li><span>Full Name : </span><p id="query_fName_modal"></p></li>
+                            <li><span>Email : </span><p id="query_email_modal"></p></li>
+                            <li><span>Mobile No : </span><p id="query_mobile_modal"></p></li>
+                            <li class="align-items-start"><span>Query : </span><p id="query_text_modal"></p></li>
+                        </ul>
+                    </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary btn-sm" id="replyBtn">Reply</button>
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#queryModal">Cancel</button>
+                        <a href="" id="reply_btn_href" target="_blank"><button type="button" class="btn btn-primary btn-sm" id="ticket_reply_btn">Reply</button></a>
                     </div>
                 </div>
             </div>
@@ -605,7 +604,7 @@
                                     <p class="card_header_title_text">Queries</p>
                                 </div>
                                 <div class="stats_card_body">
-                                    <p class="stats_body_text">Total Queries</p>
+                                    <p class="stats_body_text">Open Queries</p>
                                     <p class="stats_body_content" id="queries_count">
                                         <div class="spinner-border spinner-border-sm text-secondary mt-2" role="status" id="queries_count_spinner">
                                             <span class="visually-hidden">Loading...</span>
