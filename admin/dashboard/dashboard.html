@@ -653,9 +653,11 @@
 
         const logout_btn = document.getElementById("logout_icon");
         logout_btn.addEventListener("click", () => {
-            sessionStorage.removeItem("admin");
-            alert("Successfully Logged Out!")
-            window.location.reload();
+            if(confirm("Are you sure? You want to logout!")){
+                sessionStorage.removeItem("admin");
+                alert("Successfully Logged Out!")
+                window.location.reload();
+            }
         })
     </script>
 </body>
