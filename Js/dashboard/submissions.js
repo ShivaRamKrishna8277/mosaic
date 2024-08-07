@@ -119,7 +119,6 @@ function readSubmissionsData() {
                         rewardCell.classList.add('reward_col');
                         rewardCell.classList.add(completedChallengesMap?.[data.id]?.status);
                         rewardCell.textContent = data.reward;
-                        console.log(completedChallengesMap);
                         row.appendChild(rewardCell);
 
                         // Create difficulty cell with dynamic class
@@ -188,7 +187,7 @@ function readSubmissionsData() {
                         mobile_statusTitle.textContent = 'Status:';
                         const mobile_statusContent = document.createElement('p');
                         mobile_statusContent.classList.add('result_content', completedChallengesMap?.[data.id]?.status);
-                        mobile_statusContent.textContent = `${completedChallengesMap?.[data.id]?.status} (${completedChallengesMap?.[data.id]?.reward})`;
+                        mobile_statusContent.textContent = `${completedChallengesMap?.[data.id]?.status}`;
                         // Append elements
                         statusWrapper.appendChild(mobile_statusTitle);
                         statusWrapper.appendChild(mobile_statusContent);
