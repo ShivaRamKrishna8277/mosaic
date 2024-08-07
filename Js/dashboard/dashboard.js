@@ -95,7 +95,7 @@ $(document).ready(function(){
     }
     // Trigger the click on the first menu item to load its content on page load
     if(window.innerWidth > 1112){
-        $('.menu_item').eq(6).click();
+        $('.menu_item').eq(5).click();
     }else{
         $('.menu_item').eq(0).click();
     }
