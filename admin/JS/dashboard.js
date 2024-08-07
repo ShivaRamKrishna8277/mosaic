@@ -492,14 +492,12 @@ window.load_all_queris_count = function (){
     // Get data from the node
     get(queries_Ref)
         .then((snapshot) => {
-            if(snapshot.exists()){
+            if (snapshot.exists()) {
                 const data = snapshot.val();
-                const count = data ? Object.keys(data).reduce((acc, key) => {
-                    return data[key].status === 'Open' ? acc + 1 : acc;
-                }, 0) : 0;                
+                const count = data ? Object.keys(data).length : 0; // Count all queries
                 queries_count_spinner.hide();
                 queriesCount.innerHTML = count;
-            }else{
+            } else {
                 queriesCount.innerHTML = '0';
             }
         })

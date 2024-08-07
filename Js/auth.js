@@ -109,7 +109,7 @@ $(document).ready(() => {
                     });
                     showMsgModal("Successfully Created Account!", 'green');
                     setTimeout(() => {
-                        window.location.href = 'login';
+                        window.location.href = 'login.html';
                     }, 1000);
                 })
                 .catch((error) => {
@@ -149,7 +149,7 @@ $(document).ready(() => {
                         // Store user data in localStorage
                         localStorage.setItem('user', JSON.stringify(userData));
                         showMsgModal("Login Successful", 'green');
-                        window.location.href = 'dashboard/dashboard';
+                        window.location.href = 'dashboard/dashboard.html';
                     } else {
                         showMsgModal("User data not found", 'red');
                     }
