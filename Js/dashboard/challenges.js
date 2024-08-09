@@ -215,6 +215,7 @@ function showChallengeModal(data) {
     $('#modalDescription').text(data.description)
     $('#modalPostedOn').text(data.postedOn)
     $('#modalEndsOn').text(data.endsOn)
+    $('#reward_container').text(`${data.reward}xp`)
     $('#modalDifficulty').text(data.difficulty).removeClass().addClass(data.difficulty+'_modal').addClass('ModalDifficulty');
     $('#submissionMethod').text(data.submissionMethod);
     // Clear existing tools list

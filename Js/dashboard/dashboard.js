@@ -12,7 +12,7 @@ $(document).ready(function(){
         $('.profile_img').show();
         $('.profile_img').click(() => {
             if(window.innerWidth > 1112){
-                $('.menu_item').eq(11).click();
+                $('.menu_item').eq(9).click();
             }else{
                 $('.menu_item').eq(5).click();
             }
